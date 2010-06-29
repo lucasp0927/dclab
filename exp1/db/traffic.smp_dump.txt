@@ -1,0 +1,21 @@
+
+State Machine - |traffic|stop_oneshot:stop_oneshot1|b
+Name b.11 b.10 b.01 b.00 
+b.00 0 0 0 0 
+b.01 0 0 1 1 
+b.10 0 1 0 1 
+b.11 1 0 0 1 
+
+State Machine - |traffic|plusminus_oneshot:plusminus_oneshot1|b_minus
+Name b_minus.11 b_minus.10 b_minus.01 b_minus.00 
+b_minus.00 0 0 0 0 
+b_minus.01 0 0 1 1 
+b_minus.10 0 1 0 1 
+b_minus.11 1 0 0 1 
+
+State Machine - |traffic|plusminus_oneshot:plusminus_oneshot1|b_plus
+Name b_plus.11 b_plus.10 b_plus.01 b_plus.00 
+b_plus.00 0 0 0 0 
+b_plus.01 0 0 1 1 
+b_plus.10 0 1 0 1 
+b_plus.11 1 0 0 1 
