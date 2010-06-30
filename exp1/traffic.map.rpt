@@ -1,5 +1,5 @@
 Analysis & Synthesis report for traffic
-Tue Jun 29 18:19:44 2010
+Wed Jun 30 15:46:54 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -54,16 +54,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 29 18:19:44 2010         ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 30 15:46:54 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; traffic                                       ;
 ; Top-level Entity Name              ; traffic                                       ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 544                                           ;
-;     Total combinational functions  ; 542                                           ;
-;     Dedicated logic registers      ; 163                                           ;
-; Total registers                    ; 163                                           ;
-; Total pins                         ; 45                                            ;
+; Total logic elements               ; 586                                           ;
+;     Total combinational functions  ; 584                                           ;
+;     Dedicated logic registers      ; 178                                           ;
+; Total registers                    ; 178                                           ;
+; Total pins                         ; 61                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
 ; Embedded Multiplier 9-bit elements ; 0                                             ;
@@ -151,25 +151,26 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------------------------+-------------------------------------------------------------------------------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                         ; File Name with Absolute Path                                                  ;
 +----------------------------------+-----------------+-----------------------------------+-------------------------------------------------------------------------------+
-; traffic.v                        ; yes             ; User Verilog HDL File             ; /data/homework/soph/dclab/exp1/traffic.v                                      ;
-; clksrc.v                         ; yes             ; Auto-Found Wizard-Generated File  ; /data/homework/soph/dclab/exp1/clksrc.v                                       ;
+; traffic.v                        ; yes             ; User Verilog HDL File             ; /home/lucaspeng/dclab/exp1/traffic.v                                          ;
+; clksrc.v                         ; yes             ; Auto-Found Wizard-Generated File  ; /home/lucaspeng/dclab/exp1/clksrc.v                                           ;
 ; altpll.tdf                       ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/altpll.tdf          ;
 ; aglobal90.inc                    ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/aglobal90.inc       ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/stratix_pll.inc     ;
 ; stratixii_pll.inc                ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/stratixii_pll.inc   ;
 ; cycloneii_pll.inc                ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/cycloneii_pll.inc   ;
-; plusminus_oneshot.v              ; yes             ; Auto-Found Verilog HDL File       ; /data/homework/soph/dclab/exp1/plusminus_oneshot.v                            ;
-; stop_oneshot.v                   ; yes             ; Auto-Found Verilog HDL File       ; /data/homework/soph/dclab/exp1/stop_oneshot.v                                 ;
-; seg_decode.v                     ; yes             ; Auto-Found Verilog HDL File       ; /data/homework/soph/dclab/exp1/seg_decode.v                                   ;
+; plusminus_oneshot.v              ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1/plusminus_oneshot.v                                ;
+; stop_oneshot.v                   ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1/stop_oneshot.v                                     ;
+; seg_decode.v                     ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1/seg_decode.v                                       ;
+; greenman.v                       ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1/greenman.v                                         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/lpm_divide.tdf      ;
 ; abs_divider.inc                  ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/abs_divider.inc     ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/sign_div_unsign.inc ;
-; db/lpm_divide_vcm.tdf            ; yes             ; Auto-Generated Megafunction       ; /data/homework/soph/dclab/exp1/db/lpm_divide_vcm.tdf                          ;
-; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction       ; /data/homework/soph/dclab/exp1/db/sign_div_unsign_9kh.tdf                     ;
-; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction       ; /data/homework/soph/dclab/exp1/db/alt_u_div_kve.tdf                           ;
-; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /data/homework/soph/dclab/exp1/db/add_sub_lkc.tdf                             ;
-; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /data/homework/soph/dclab/exp1/db/add_sub_mkc.tdf                             ;
-; db/lpm_divide_25m.tdf            ; yes             ; Auto-Generated Megafunction       ; /data/homework/soph/dclab/exp1/db/lpm_divide_25m.tdf                          ;
+; db/lpm_divide_vcm.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1/db/lpm_divide_vcm.tdf                              ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1/db/sign_div_unsign_9kh.tdf                         ;
+; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1/db/alt_u_div_kve.tdf                               ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1/db/add_sub_lkc.tdf                                 ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1/db/add_sub_mkc.tdf                                 ;
+; db/lpm_divide_25m.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1/db/lpm_divide_25m.tdf                              ;
 +----------------------------------+-----------------+-----------------------------------+-------------------------------------------------------------------------------+
 
 
@@ -178,28 +179,28 @@ applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 544        ;
+; Estimated Total logic elements              ; 586        ;
 ;                                             ;            ;
-; Total combinational functions               ; 542        ;
+; Total combinational functions               ; 584        ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 205        ;
-;     -- 3 input functions                    ; 150        ;
-;     -- <=2 input functions                  ; 187        ;
+;     -- 4 input functions                    ; 207        ;
+;     -- 3 input functions                    ; 162        ;
+;     -- <=2 input functions                  ; 215        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 405        ;
-;     -- arithmetic mode                      ; 137        ;
+;     -- normal mode                          ; 424        ;
+;     -- arithmetic mode                      ; 160        ;
 ;                                             ;            ;
-; Total registers                             ; 163        ;
-;     -- Dedicated logic registers            ; 163        ;
+; Total registers                             ; 178        ;
+;     -- Dedicated logic registers            ; 178        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
-; I/O pins                                    ; 45         ;
+; I/O pins                                    ; 61         ;
 ; Total PLLs                                  ; 1          ;
 ; Maximum fan-out node                        ; msclks[14] ;
 ; Maximum fan-out                             ; 131        ;
-; Total fan-out                               ; 2072       ;
-; Average fan-out                             ; 2.76       ;
+; Total fan-out                               ; 2215       ;
+; Average fan-out                             ; 2.69       ;
 +---------------------------------------------+------------+
 
 
@@ -208,9 +209,10 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                      ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------+--------------+
-; |traffic                                  ; 542 (370)         ; 163 (148)    ; 0           ; 0            ; 0       ; 0         ; 45   ; 0            ; |traffic                                                                                                 ; work         ;
+; |traffic                                  ; 584 (370)         ; 178 (148)    ; 0           ; 0            ; 0       ; 0         ; 61   ; 0            ; |traffic                                                                                                 ; work         ;
 ;    |clksrc:clksrc1|                       ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|clksrc:clksrc1                                                                                  ; work         ;
 ;       |altpll:altpll_component|           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|clksrc:clksrc1|altpll:altpll_component                                                          ; work         ;
+;    |greenman:greenman1|                   ; 42 (42)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|greenman:greenman1                                                                              ; work         ;
 ;    |lpm_divide:Div0|                      ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|lpm_divide:Div0                                                                                 ; work         ;
 ;       |lpm_divide_vcm:auto_generated|     ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|lpm_divide:Div0|lpm_divide_vcm:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_9kh:divider|    ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|lpm_divide:Div0|lpm_divide_vcm:auto_generated|sign_div_unsign_9kh:divider                       ; work         ;
@@ -281,27 +283,41 @@ Encoding Type:  One-Hot
 +-------------------------------------------------+------------------------+
 ; Register name                                   ; Reason for Removal     ;
 +-------------------------------------------------+------------------------+
+; greenman:greenman1|clks[0]                      ; Merged with msclks[0]  ;
 ; clkfast[0]                                      ; Merged with msclks[0]  ;
+; greenman:greenman1|clks[1]                      ; Merged with msclks[1]  ;
 ; clkfast[1]                                      ; Merged with msclks[1]  ;
+; greenman:greenman1|clks[2]                      ; Merged with msclks[2]  ;
 ; clkfast[2]                                      ; Merged with msclks[2]  ;
+; greenman:greenman1|clks[3]                      ; Merged with msclks[3]  ;
 ; clkfast[3]                                      ; Merged with msclks[3]  ;
+; greenman:greenman1|clks[4]                      ; Merged with msclks[4]  ;
 ; clkfast[4]                                      ; Merged with msclks[4]  ;
+; greenman:greenman1|clks[5]                      ; Merged with msclks[5]  ;
 ; clkfast[5]                                      ; Merged with msclks[5]  ;
+; greenman:greenman1|clks[6]                      ; Merged with msclks[6]  ;
 ; clkfast[6]                                      ; Merged with msclks[6]  ;
+; greenman:greenman1|clks[7]                      ; Merged with msclks[7]  ;
 ; clkfast[7]                                      ; Merged with msclks[7]  ;
 ; clkfast[8]                                      ; Merged with msclks[8]  ;
+; greenman:greenman1|clks[8]                      ; Merged with msclks[8]  ;
 ; clkfast[9]                                      ; Merged with msclks[9]  ;
+; greenman:greenman1|clks[9]                      ; Merged with msclks[9]  ;
 ; clkfast[10]                                     ; Merged with msclks[10] ;
+; greenman:greenman1|clks[10]                     ; Merged with msclks[10] ;
+; greenman:greenman1|clks[11]                     ; Merged with msclks[11] ;
 ; clkfast[11]                                     ; Merged with msclks[11] ;
 ; clkfast[12]                                     ; Merged with msclks[12] ;
+; greenman:greenman1|clks[12]                     ; Merged with msclks[12] ;
 ; clkfast[13]                                     ; Merged with msclks[13] ;
+; greenman:greenman1|clks[13]                     ; Merged with msclks[13] ;
 ; stop_oneshot:stop_oneshot1|b~18                 ; Lost fanout            ;
 ; stop_oneshot:stop_oneshot1|b~19                 ; Lost fanout            ;
 ; plusminus_oneshot:plusminus_oneshot1|b_minus~18 ; Lost fanout            ;
 ; plusminus_oneshot:plusminus_oneshot1|b_minus~19 ; Lost fanout            ;
 ; plusminus_oneshot:plusminus_oneshot1|b_plus~18  ; Lost fanout            ;
 ; plusminus_oneshot:plusminus_oneshot1|b_plus~19  ; Lost fanout            ;
-; Total Number of Removed Registers = 20          ;                        ;
+; Total Number of Removed Registers = 34          ;                        ;
 +-------------------------------------------------+------------------------+
 
 
@@ -310,7 +326,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 163   ;
+; Total registers                              ; 178   ;
 ; Number of registers using Synchronous Clear  ; 3     ;
 ; Number of registers using Synchronous Load   ; 23    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -351,26 +367,26 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |traffic|buttoncount[2]                                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |traffic|buttoncount[4]                                 ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |traffic|db[9]~reg0                                     ;
-; 16:1               ; 6 bits    ; 60 LEs        ; 36 LEs               ; 24 LEs                 ; Yes        ; |traffic|db[3]~reg0                                     ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic|mode[3]                                        ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[9][4]                                      ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[8][4]                                      ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[7][4]                                      ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[6][4]                                      ;
+; 16:1               ; 6 bits    ; 60 LEs        ; 36 LEs               ; 24 LEs                 ; Yes        ; |traffic|db[8]~reg0                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic|mode[1]                                        ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[9][1]                                      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[8][1]                                      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[7][3]                                      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[6][3]                                      ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |traffic|sec[5][4]                                      ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[4][4]                                      ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[3][4]                                      ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[2][4]                                      ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[1][1]                                      ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |traffic|sec[0][5]                                      ;
-; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |traffic|counter[2]                                     ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic|sec[5][3]                                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic|sec[0][2]                                      ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|stop_oneshot:stop_oneshot1|Selector0           ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector6 ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector0 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |traffic|sec[1][4]                                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |traffic|sec[0][4]                                      ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |traffic|counter[0]                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic|sec[5][0]                                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic|sec[0][3]                                      ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|stop_oneshot:stop_oneshot1|Selector2           ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector4 ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector2 ;
 ; 8:1                ; 6 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |traffic|Mux22                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
@@ -883,17 +899,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
-    Info: Processing started: Tue Jun 29 18:19:39 2010
+    Info: Processing started: Wed Jun 30 15:46:49 2010
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off traffic -c traffic
-Warning (10275): Verilog HDL Module Instantiation warning at traffic.v(67): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at traffic.v(68): ignored dangling comma in List of Port Connections
 Info: Found 1 design units, including 1 entities, in source file traffic.v
     Info: Found entity 1: traffic
-Warning: Can't analyze file -- file /data/homework/soph/dclab/exp1/clksrc1_1.v is missing
+Warning: Can't analyze file -- file /home/lucaspeng/dclab/exp1/clksrc1_1.v is missing
 Info: Elaborating entity "traffic" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at traffic.v(218): truncated value with size 32 to match size of target (4)
 Warning (10230): Verilog HDL assignment warning at traffic.v(219): truncated value with size 32 to match size of target (4)
 Warning (10230): Verilog HDL assignment warning at traffic.v(220): truncated value with size 32 to match size of target (4)
 Warning (10230): Verilog HDL assignment warning at traffic.v(221): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at traffic.v(222): truncated value with size 32 to match size of target (4)
 Warning: Using design file clksrc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: clksrc
 Info: Elaborating entity "clksrc" for hierarchy "clksrc:clksrc1"
@@ -963,6 +979,9 @@ Info: Elaborating entity "stop_oneshot" for hierarchy "stop_oneshot:stop_oneshot
 Warning: Using design file seg_decode.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: seg_decode
 Info: Elaborating entity "seg_decode" for hierarchy "seg_decode:s0"
+Warning: Using design file greenman.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: greenman
+Info: Elaborating entity "greenman" for hierarchy "greenman:greenman1"
 Info: Inferred 4 megafunctions from design logic
     Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
     Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0"
@@ -1000,15 +1019,15 @@ Info: 6 registers lost all their fanouts during netlist optimizations. The first
     Info: Register "plusminus_oneshot:plusminus_oneshot1|b_minus~19" lost all its fanouts during netlist optimizations.
     Info: Register "plusminus_oneshot:plusminus_oneshot1|b_plus~18" lost all its fanouts during netlist optimizations.
     Info: Register "plusminus_oneshot:plusminus_oneshot1|b_plus~19" lost all its fanouts during netlist optimizations.
-Info: Generated suppressed messages file /data/homework/soph/dclab/exp1/traffic.map.smsg
-Info: Implemented 593 device resources after synthesis - the final resource count might be different
+Info: Generated suppressed messages file /home/lucaspeng/dclab/exp1/traffic.map.smsg
+Info: Implemented 652 device resources after synthesis - the final resource count might be different
     Info: Implemented 5 input pins
-    Info: Implemented 40 output pins
-    Info: Implemented 547 logic cells
+    Info: Implemented 56 output pins
+    Info: Implemented 590 logic cells
     Info: Implemented 1 ClockLock PLLs
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 194 megabytes
-    Info: Processing ended: Tue Jun 29 18:19:44 2010
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 195 megabytes
+    Info: Processing ended: Wed Jun 30 15:46:54 2010
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 
@@ -1016,6 +1035,6 @@ Info: Quartus II Analysis & Synthesis was successful. 0 errors, 11 warnings
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /data/homework/soph/dclab/exp1/traffic.map.smsg.
+The suppressed messages can be found in /home/lucaspeng/dclab/exp1/traffic.map.smsg.
 
 

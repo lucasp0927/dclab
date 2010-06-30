@@ -1,9 +1,9 @@
 module traffic (/*AUTOARG*/
-		// Outputs
-		db, buttonlight, stoplight, seg0, seg1, seg2, seg3,
-		// Inputs
-		clk, button, stop_button, plus_button, minus_button
-		);
+   // Outputs
+   db, buttonlight, stoplight, seg0, seg1, seg2, seg3, hori, vert,
+   // Inputs
+   clk, button, stop_button, plus_button, minus_button
+   );
 
    parameter countersize = 6;
    // Local Variables:
@@ -16,12 +16,11 @@ module traffic (/*AUTOARG*/
    input plus_button;
    input minus_button;
    
-   
    output [9:0] db;
    output 	buttonlight;
    output 	stoplight;
    output [6:0] seg0, seg1, seg2, seg3;
-   
+   output [7:0] hori, vert;
    reg [countersize-1:0] counter; // every mode can have duration at most 32 secs
    reg [24:0] 		 clks;
    reg [14:0] 		 msclks;
@@ -34,21 +33,23 @@ module traffic (/*AUTOARG*/
    reg 			 plus, tmp_plus;
    reg 			 minus, tmp_minus;
    integer               thousandcount;
-   
+   reg 			 greenmanon;
+ 			 
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
-   wire 		 stop;			// From stop_oneshot1 of stop_oneshot.v
+   wire			stop;			// From stop_oneshot1 of stop_oneshot.v
    // End of automatics
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg 			 buttonlight;
-   reg [9:0] 		 db;
-   reg 			 stoplight;
+   reg			buttonlight;
+   reg [9:0]		db;
+   reg			stoplight;
    // End of automatics
    
    initial
      begin
+	greenmanon = 0;
 	thousandcount = 1024;
 	sec[0] = {{{countersize-4{1'b0}},4'd15}};
 	sec[1] = {{{countersize-4{1'b0}},4'd4}};
@@ -220,5 +221,32 @@ module traffic (/*AUTOARG*/
       hex2 = sec[mode] /10;
       hex3 = sec[mode] % 10;
    end
+
    
+   /* greenman AUTO_TEMPLATE (
+    .clk (clksrc1_1),
+    );*/
+   greenman greenman1 (/*AUTOINST*/
+		       // Outputs
+		       .vert		(vert[7:0]),
+		       .hori		(hori[7:0]),
+		       // Inputs
+		       .clk		(clksrc1_1),		 // Templated
+		       .greenmanon	(greenmanon));
+
+   always @(*) begin
+      if ((mode == 0) || (mode == 5)) begin
+	greenmanon = 1;
+      end else begin
+	greenmanon = 0;
+      end
+   end
+
 endmodule // traffic
+
+
+
+
+
+
+
