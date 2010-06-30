@@ -1,18 +1,15 @@
 module traffic (/*AUTOARG*/
-		// Outputs
-		buttonlight, db, stoplight, seg0, seg1, seg2, seg3, seg4, seg5,
-		hori, vert,
-		// Inputs
-		clk, button, stop_button, plus_button, minus_button, reset_button,
-		noisy
-		);
+   // Outputs
+   buttonlight, db, stoplight, seg0, seg1, seg2, seg3, seg4, seg5,
+   hori, vert,
+   // Inputs
+   clk, button, stop_button, plus_button, minus_button, reset_button,
+   noisy
+   );
    
    input clk;
    input button; //next need to be renamed?
-   input stop_button;
-   input plus_button;
-   input minus_button;
-   input reset_button;
+   input stop_button, plus_button, minus_button, reset_button;
    input [11:0] noisy;
    
    output 	buttonlight; //next light need to be renamed
@@ -31,8 +28,7 @@ module traffic (/*AUTOARG*/
    reg [9:0] 	clean_tmp;
 
    reg [5:0] 	counter; // every mode can have duration at most 32 secs
-   integer 	mode;
-   integer 	modelimit;
+   integer 	mode, modelimit;
    reg [25:0] 	modedata[15:0]; // sec, lights, lights, plan to add greenman light.
 
    reg 		next;
@@ -40,11 +36,8 @@ module traffic (/*AUTOARG*/
    reg [3:0] 	hex0, hex1, hex2, hex3, hex4, hex5; //represent numbers sent to segdecode
 
    //variables dealt with plus and minus seconds.
-   reg 		plus, tmp_plus;
-   reg 		minus, tmp_minus;
-   reg 		reset, tmp_reset;
+   reg 		plus, tmp_plus, minus, tmp_minus, reset, tmp_reset;
 
-   
    integer 	thousandcount;// count a second in a 1/1000 seconds always
    reg 		greenmanon;
    reg [1:0] 	edit_mode;
@@ -52,35 +45,16 @@ module traffic (/*AUTOARG*/
    
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
-   wire 	stop;			// From stop_oneshot1 of stop_oneshot.v
+   wire			stop;			// From stop_oneshot1 of stop_oneshot.v
    // End of automatics
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg 		buttonlight;
-   reg [9:0] 	db;
-   reg 		stoplight;
+   reg			buttonlight;
+   reg [9:0]		db;
+   reg			stoplight;
    // End of automatics
    integer 	i,j,k; //for for-loop
-
-   /*   
-    initial
-    begin
-    greenmanon = 0;
-    modelimit = 9; //10-1
-    thousandcount = 1024;
-    modedata[0][25:20] = 6'd15;
-    modedata[1][25:20] = 6'd4;
-    modedata[2][25:20] = 6'd2;
-    modedata[3][25:20] = 6'd1;
-    modedata[4][25:20] = 6'd1;
-    modedata[5][25:20] = 6'd15;
-    modedata[6][25:20] = 6'd4;
-    modedata[7][25:20] = 6'd2;
-    modedata[8][25:20] = 6'd1;
-    modedata[9][25:20] = 6'd1; 
-     end
-    */
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    phase lock loop
@@ -97,7 +71,79 @@ module traffic (/*AUTOARG*/
       msclks <= msclks + 1'b1;
    end
 
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   //     control mode
+   ////////////////////////////////////////////////////////////////////////////////////////////////////   
+   always @(posedge msclks[14]) begin // 1/1000 sec
+      if (counter > modedata[mode][25:20]) begin
+	 counter <= modedata[mode][25:20];
+	 if (mode > modelimit) begin
+	    mode <= modelimit;
+	 end 	    
+      end
+      if (thousandcount == 0) begin           //every 1000 times, ie: every 1 sec.
+	 if (stop == 1'b0) begin              //not stop
+	    if ((counter != 0) && (next  == 0) ) begin
+	       counter <= counter - 1'b1;
+	    end else begin
+	       if (mode == modelimit) begin
+		  mode <= 4'd0;
+	       end else begin
+		  mode <= mode + 1'b1;   
+	       end
+	       counter <= modedata[mode+1][25:20];
+	    end // always @ (posedge clks[24])
+	 end else begin // if (stop == 1'b0)  //stop
+	    if (next == 1) begin
+	       if (mode == modelimit) begin
+		  mode <= 4'd0;
+	       end else begin
+		  mode <= mode + 1'b1;   
+	       end
+	       counter <= modedata[mode+1][25:20];
+	    end 
+	 end // else: !if(stop == 1'b0)
+	 thousandcount <= 1024;
+      end else begin
+	 thousandcount <= thousandcount - 1;
+      end
+   end
 
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   //    control lights
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   always @(posedge clkfast[21]) begin  // connet lights tp data
+      if (db == modedata[mode][9:0]) begin
+	 db <= modedata[mode][19:10];
+      end else begin
+	 db <= modedata[mode][9:0];
+      end
+   end
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   //    make next last 1 second
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+   always @(posedge msclks[14]) begin //next button
+      if (button == 0) begin
+	 buttoncount <= 10'd1000;
+	 next <= 1'b1;
+      end else begin
+	 if (buttoncount != 10'd0) begin
+	    buttoncount <= buttoncount - 10'd1;
+	 end else begin
+	    buttoncount <= 10'd0;
+	 end
+      end
+      if (buttoncount == 10'd0) begin
+	 next <= 1'b0;
+      end else begin
+	 next <= 1'b1;
+      end
+   end
+   always @(/*AS*/next) begin
+      buttonlight = next;
+   end // always @ begin
+   
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    // one shot for plus minus and reset, need to be renamed.
    ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,8 +161,6 @@ module traffic (/*AUTOARG*/
 					 .plus_button		(plus_button),
 					 .minus_button		(minus_button),
 					 .reset_button		(reset_button));
-
-
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////
      //    plus, minus second. reset modedata, and edit modedata.
@@ -247,75 +291,7 @@ module traffic (/*AUTOARG*/
       stoplight = stop;
    end
 
-   ////////////////////////////////////////////////////////////////////////////////////////////////////
-   //     control mode
-   ////////////////////////////////////////////////////////////////////////////////////////////////////   
-   always @(posedge msclks[14]) begin // 1/1000 sec
-      if (counter > modedata[mode][25:20]) begin
-	 counter = modedata[mode][25:20];
-      end
-      if (thousandcount == 0) begin           //every 1000 times, ie: every 1 sec.
-	 if (stop == 1'b0) begin              //not stop
-	    if ((counter != 0) && (next  == 0) ) begin
-	       counter <= counter - 1'b1;
-	    end else begin
-	       if (mode == modelimit) begin
-		  mode <= 4'd0;
-	       end else begin
-		  mode <= mode + 1'b1;   
-	       end
-	       counter <= modedata[mode+1][25:20];
-	    end // always @ (posedge clks[24])
-	 end else begin // if (stop == 1'b0)  //stop
-	    if (next == 1) begin
-	       if (mode == modelimit) begin
-		  mode <= 4'd0;
-	       end else begin
-		  mode <= mode + 1'b1;   
-	       end
-	       counter <= modedata[mode+1][25:20];
-	    end 
-	 end // else: !if(stop == 1'b0)
-	 thousandcount <= 1024;
-      end else begin
-	 thousandcount <= thousandcount - 1;
-      end
-   end
 
-   ////////////////////////////////////////////////////////////////////////////////////////////////////
-   //    control lights
-   ////////////////////////////////////////////////////////////////////////////////////////////////////
-   always @(posedge clkfast[21]) begin  // connet lights tp data
-      if (db == modedata[mode][9:0]) begin
-	 db <= modedata[mode][19:10];
-      end else begin
-	 db <= modedata[mode][9:0];
-      end
-   end
-   ////////////////////////////////////////////////////////////////////////////////////////////////////
-   //    make next last 1 second
-   ////////////////////////////////////////////////////////////////////////////////////////////////////
-   
-   always @(posedge msclks[14]) begin //next button
-      if (button == 0) begin
-	 buttoncount <= 10'd1000;
-	 next <= 1'b1;
-      end else begin
-	 if (buttoncount != 10'd0) begin
-	    buttoncount <= buttoncount - 10'd1;
-	 end else begin
-	    buttoncount <= 10'd0;
-	 end
-      end
-      if (buttoncount == 10'd0) begin
-	 next <= 1'b0;
-      end else begin
-	 next <= 1'b1;
-      end
-   end
-   always @(/*AS*/next) begin
-      buttonlight = next;
-   end // always @ begin
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    segment display
@@ -470,6 +446,5 @@ module traffic (/*AUTOARG*/
 		 // Inputs
 		 .clks			(clks),
 		 .noisy			(noisy[11]));		 // Templated
-   
 endmodule 
 
