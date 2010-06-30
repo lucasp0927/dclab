@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.913 ns
+From           : noisy[10]
+To             : debounce:d10|count[19]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 108.440 ns
+From           : mode[4]
+To             : seg5[0]
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.772 ns
+From           : noisy[2]
+To             : debounce:d2|xnew
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clksrc:clksrc1|altpll:altpll_component|_clk0'
+Slack          : 18.136 ns
+Required Time  : 32.00 MHz ( period = 31.250 ns )
+Actual Time    : 76.25 MHz ( period = 13.114 ns )
+From           : modelimit[0]
+To             : modedata[14][7]
+From Clock     : clksrc:clksrc1|altpll:altpll_component|_clk0
+To Clock       : clksrc:clksrc1|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clksrc:clksrc1|altpll:altpll_component|_clk0'
+Slack          : 0.391 ns
+Required Time  : 32.00 MHz ( period = 31.250 ns )
+Actual Time    : N/A
+From           : greenman:greenman1|mode
+To             : greenman:greenman1|mode
+From Clock     : clksrc:clksrc1|altpll:altpll_component|_clk0
+To Clock       : clksrc:clksrc1|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+
