@@ -1,4 +1,5 @@
 |traffic
+buttonlight <= next.DB_MAX_OUTPUT_PORT_TYPE
 db[0] <= db[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 db[1] <= db[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 db[2] <= db[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -9,7 +10,6 @@ db[6] <= db[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 db[7] <= db[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 db[8] <= db[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 db[9] <= db[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-buttonlight <= next.DB_MAX_OUTPUT_PORT_TYPE
 stoplight <= stop_oneshot:stop_oneshot1.stop
 seg0[0] <= seg_decode:s0.seg
 seg0[1] <= seg_decode:s0.seg
@@ -84,18 +84,19 @@ stop_button => stop_button~0.IN1
 plus_button => plus_button~0.IN1
 minus_button => minus_button~0.IN1
 reset_button => reset_button~0.IN1
-noisy[0] => noisy[0]~11.IN1
-noisy[1] => noisy[1]~10.IN1
-noisy[2] => noisy[2]~9.IN1
-noisy[3] => noisy[3]~8.IN1
-noisy[4] => noisy[4]~7.IN1
-noisy[5] => noisy[5]~6.IN1
-noisy[6] => noisy[6]~5.IN1
-noisy[7] => noisy[7]~4.IN1
-noisy[8] => noisy[8]~3.IN1
-noisy[9] => noisy[9]~2.IN1
-noisy[10] => noisy[10]~1.IN1
-noisy[11] => noisy[11]~0.IN1
+noisy[0] => noisy[0]~12.IN1
+noisy[1] => noisy[1]~11.IN1
+noisy[2] => noisy[2]~10.IN1
+noisy[3] => noisy[3]~9.IN1
+noisy[4] => noisy[4]~8.IN1
+noisy[5] => noisy[5]~7.IN1
+noisy[6] => noisy[6]~6.IN1
+noisy[7] => noisy[7]~5.IN1
+noisy[8] => noisy[8]~4.IN1
+noisy[9] => noisy[9]~3.IN1
+noisy[10] => noisy[10]~2.IN1
+noisy[11] => noisy[11]~1.IN1
+noisy[12] => noisy[12]~0.IN1
 
 
 |traffic|clksrc:clksrc1
@@ -890,6 +891,56 @@ noisy => xnew~1.OUTPUTSELECT
 
 
 |traffic|debounce:d11
+clean <= clean~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clks => xnew.CLK
+clks => clean~reg0.CLK
+clks => count[19].CLK
+clks => count[18].CLK
+clks => count[17].CLK
+clks => count[16].CLK
+clks => count[15].CLK
+clks => count[14].CLK
+clks => count[13].CLK
+clks => count[12].CLK
+clks => count[11].CLK
+clks => count[10].CLK
+clks => count[9].CLK
+clks => count[8].CLK
+clks => count[7].CLK
+clks => count[6].CLK
+clks => count[5].CLK
+clks => count[4].CLK
+clks => count[3].CLK
+clks => count[2].CLK
+clks => count[1].CLK
+clks => count[0].CLK
+noisy => xnew~0.DATAB
+noisy => always0~0.IN1
+noisy => count~59.OUTPUTSELECT
+noisy => count~58.OUTPUTSELECT
+noisy => count~57.OUTPUTSELECT
+noisy => count~56.OUTPUTSELECT
+noisy => count~55.OUTPUTSELECT
+noisy => count~54.OUTPUTSELECT
+noisy => count~53.OUTPUTSELECT
+noisy => count~52.OUTPUTSELECT
+noisy => count~51.OUTPUTSELECT
+noisy => count~50.OUTPUTSELECT
+noisy => count~49.OUTPUTSELECT
+noisy => count~48.OUTPUTSELECT
+noisy => count~47.OUTPUTSELECT
+noisy => count~46.OUTPUTSELECT
+noisy => count~45.OUTPUTSELECT
+noisy => count~44.OUTPUTSELECT
+noisy => count~43.OUTPUTSELECT
+noisy => count~42.OUTPUTSELECT
+noisy => count~41.OUTPUTSELECT
+noisy => count~40.OUTPUTSELECT
+noisy => clean~2.OUTPUTSELECT
+noisy => xnew~1.OUTPUTSELECT
+
+
+|traffic|debounce:d12
 clean <= clean~reg0.DB_MAX_OUTPUT_PORT_TYPE
 clks => xnew.CLK
 clks => clean~reg0.CLK

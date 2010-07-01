@@ -150,3 +150,6 @@ set_location_assignment PIN_AC13 -to noisy[3]
 set_location_assignment PIN_C13 -to noisy[2]
 set_location_assignment PIN_B13 -to noisy[1]
 set_location_assignment PIN_A13 -to noisy[0]
+set_location_assignment PIN_N1 -to noisy[12]
+set_global_assignment -name MISC_FILE /home/lucaspeng/dclab/exp1_w_edit/traffic.dpf
+set_location_assignment PIN_U4 -to noisy[11]

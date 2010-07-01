@@ -5391,6 +5391,7 @@ debounce:d8
 debounce:d9
 debounce:d10
 debounce:d11
+debounce:d12
 }
 # macro_sequence
 
@@ -7108,7 +7109,7 @@ ON
 # case_sensitive
 # source_file
 traffic.v
-1f7749b54879a3583057f5bbdca69cff
+1d27c31b81d46b9bf6b414ec4aca114
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

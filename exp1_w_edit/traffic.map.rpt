@@ -1,5 +1,5 @@
 Analysis & Synthesis report for traffic
-Wed Jun 30 22:41:29 2010
+Thu Jul  1 12:16:21 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -32,28 +32,29 @@ Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
  24. Parameter Settings for User Entity Instance: debounce:d9
  25. Parameter Settings for User Entity Instance: debounce:d10
  26. Parameter Settings for User Entity Instance: debounce:d11
- 27. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 28. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 29. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 30. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
- 31. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
- 32. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
- 33. altpll Parameter Settings by Entity Instance
- 34. Port Connectivity Checks: "debounce:d11"
- 35. Port Connectivity Checks: "debounce:d10"
- 36. Port Connectivity Checks: "debounce:d9"
- 37. Port Connectivity Checks: "debounce:d8"
- 38. Port Connectivity Checks: "debounce:d7"
- 39. Port Connectivity Checks: "debounce:d6"
- 40. Port Connectivity Checks: "debounce:d5"
- 41. Port Connectivity Checks: "debounce:d4"
- 42. Port Connectivity Checks: "debounce:d3"
- 43. Port Connectivity Checks: "debounce:d2"
- 44. Port Connectivity Checks: "debounce:d1"
- 45. Port Connectivity Checks: "debounce:d0"
- 46. Port Connectivity Checks: "clksrc:clksrc1"
- 47. Analysis & Synthesis Messages
- 48. Analysis & Synthesis Suppressed Messages
+ 27. Parameter Settings for User Entity Instance: debounce:d12
+ 28. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 30. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 31. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 32. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 33. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 34. altpll Parameter Settings by Entity Instance
+ 35. Port Connectivity Checks: "debounce:d12"
+ 36. Port Connectivity Checks: "debounce:d11"
+ 37. Port Connectivity Checks: "debounce:d10"
+ 38. Port Connectivity Checks: "debounce:d9"
+ 39. Port Connectivity Checks: "debounce:d8"
+ 40. Port Connectivity Checks: "debounce:d7"
+ 41. Port Connectivity Checks: "debounce:d6"
+ 42. Port Connectivity Checks: "debounce:d5"
+ 43. Port Connectivity Checks: "debounce:d4"
+ 44. Port Connectivity Checks: "debounce:d3"
+ 45. Port Connectivity Checks: "debounce:d2"
+ 46. Port Connectivity Checks: "debounce:d1"
+ 47. Port Connectivity Checks: "debounce:d0"
+ 48. Port Connectivity Checks: "clksrc:clksrc1"
+ 49. Analysis & Synthesis Messages
 
 
 
@@ -79,16 +80,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 30 22:41:29 2010         ;
+; Analysis & Synthesis Status        ; Successful - Thu Jul  1 12:16:20 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; traffic                                       ;
 ; Top-level Entity Name              ; traffic                                       ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 3,780                                         ;
-;     Total combinational functions  ; 3,755                                         ;
-;     Dedicated logic registers      ; 874                                           ;
-; Total registers                    ; 874                                           ;
-; Total pins                         ; 88                                            ;
+; Total logic elements               ; 4,106                                         ;
+;     Total combinational functions  ; 4,078                                         ;
+;     Dedicated logic registers      ; 935                                           ;
+; Total registers                    ; 935                                           ;
+; Total pins                         ; 89                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
 ; Embedded Multiplier 9-bit elements ; 0                                             ;
@@ -176,33 +177,33 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------------------------+-------------------------------------------------------------------------------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                         ; File Name with Absolute Path                                                  ;
 +----------------------------------+-----------------+-----------------------------------+-------------------------------------------------------------------------------+
-; traffic.v                        ; yes             ; User Verilog HDL File             ; /home/lucaspeng/dclab.bak/exp1/traffic.v                                      ;
-; clksrc.v                         ; yes             ; Auto-Found Wizard-Generated File  ; /home/lucaspeng/dclab.bak/exp1/clksrc.v                                       ;
+; traffic.v                        ; yes             ; User Verilog HDL File             ; /home/lucaspeng/dclab/exp1_w_edit/traffic.v                                   ;
+; clksrc.v                         ; yes             ; Auto-Found Wizard-Generated File  ; /home/lucaspeng/dclab/exp1_w_edit/clksrc.v                                    ;
 ; altpll.tdf                       ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/altpll.tdf          ;
 ; aglobal90.inc                    ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/aglobal90.inc       ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/stratix_pll.inc     ;
 ; stratixii_pll.inc                ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/stratixii_pll.inc   ;
 ; cycloneii_pll.inc                ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/cycloneii_pll.inc   ;
-; plusminus_oneshot.v              ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab.bak/exp1/plusminus_oneshot.v                            ;
-; stop_oneshot.v                   ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab.bak/exp1/stop_oneshot.v                                 ;
-; seg_decode.v                     ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab.bak/exp1/seg_decode.v                                   ;
-; greenman.v                       ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab.bak/exp1/greenman.v                                     ;
-; debounce.v                       ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab.bak/exp1/debounce.v                                     ;
+; plusminus_oneshot.v              ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1_w_edit/plusminus_oneshot.v                         ;
+; stop_oneshot.v                   ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1_w_edit/stop_oneshot.v                              ;
+; seg_decode.v                     ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1_w_edit/seg_decode.v                                ;
+; greenman.v                       ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1_w_edit/greenman.v                                  ;
+; debounce.v                       ; yes             ; Auto-Found Verilog HDL File       ; /home/lucaspeng/dclab/exp1_w_edit/debounce.v                                  ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/lpm_divide.tdf      ;
 ; abs_divider.inc                  ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/abs_divider.inc     ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                      ; /home/lucaspeng/altera9.0/quartus/libraries/megafunctions/sign_div_unsign.inc ;
-; db/lpm_divide_vcm.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/lpm_divide_vcm.tdf                          ;
-; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/sign_div_unsign_9kh.tdf                     ;
-; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/alt_u_div_kve.tdf                           ;
-; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/add_sub_lkc.tdf                             ;
-; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/add_sub_mkc.tdf                             ;
-; db/lpm_divide_25m.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/lpm_divide_25m.tdf                          ;
-; db/lpm_divide_7so.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/lpm_divide_7so.tdf                          ;
-; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/abs_divider_kbg.tdf                         ;
-; db/alt_u_div_k2f.tdf             ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/alt_u_div_k2f.tdf                           ;
-; db/lpm_abs_gq9.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/lpm_abs_gq9.tdf                             ;
-; db/lpm_abs_0s9.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/lpm_abs_0s9.tdf                             ;
-; db/lpm_divide_ako.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab.bak/exp1/db/lpm_divide_ako.tdf                          ;
+; db/lpm_divide_vcm.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/lpm_divide_vcm.tdf                       ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/sign_div_unsign_9kh.tdf                  ;
+; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/alt_u_div_kve.tdf                        ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/add_sub_lkc.tdf                          ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/add_sub_mkc.tdf                          ;
+; db/lpm_divide_25m.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/lpm_divide_25m.tdf                       ;
+; db/lpm_divide_7so.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/lpm_divide_7so.tdf                       ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/abs_divider_kbg.tdf                      ;
+; db/alt_u_div_k2f.tdf             ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/alt_u_div_k2f.tdf                        ;
+; db/lpm_abs_gq9.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/lpm_abs_gq9.tdf                          ;
+; db/lpm_abs_0s9.tdf               ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/lpm_abs_0s9.tdf                          ;
+; db/lpm_divide_ako.tdf            ; yes             ; Auto-Generated Megafunction       ; /home/lucaspeng/dclab/exp1_w_edit/db/lpm_divide_ako.tdf                       ;
 +----------------------------------+-----------------+-----------------------------------+-------------------------------------------------------------------------------+
 
 
@@ -211,28 +212,28 @@ applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 3,780      ;
+; Estimated Total logic elements              ; 4,106      ;
 ;                                             ;            ;
-; Total combinational functions               ; 3755       ;
+; Total combinational functions               ; 4078       ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 1533       ;
-;     -- 3 input functions                    ; 1082       ;
-;     -- <=2 input functions                  ; 1140       ;
+;     -- 4 input functions                    ; 1897       ;
+;     -- 3 input functions                    ; 923        ;
+;     -- <=2 input functions                  ; 1258       ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 2954       ;
-;     -- arithmetic mode                      ; 801        ;
+;     -- normal mode                          ; 3116       ;
+;     -- arithmetic mode                      ; 962        ;
 ;                                             ;            ;
-; Total registers                             ; 874        ;
-;     -- Dedicated logic registers            ; 874        ;
+; Total registers                             ; 935        ;
+;     -- Dedicated logic registers            ; 935        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
-; I/O pins                                    ; 88         ;
+; I/O pins                                    ; 89         ;
 ; Total PLLs                                  ; 1          ;
 ; Maximum fan-out node                        ; msclks[14] ;
-; Maximum fan-out                             ; 584        ;
-; Total fan-out                               ; 14457      ;
-; Average fan-out                             ; 3.06       ;
+; Maximum fan-out                             ; 601        ;
+; Total fan-out                               ; 16021      ;
+; Average fan-out                             ; 3.14       ;
 +---------------------------------------------+------------+
 
 
@@ -241,11 +242,13 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                      ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------+--------------+
-; |traffic                                  ; 3755 (2215)       ; 874 (597)    ; 0           ; 0            ; 0       ; 0         ; 88   ; 0            ; |traffic                                                                                                 ; work         ;
+; |traffic                                  ; 4078 (2482)       ; 935 (614)    ; 0           ; 0            ; 0       ; 0         ; 89   ; 0            ; |traffic                                                                                                 ; work         ;
 ;    |clksrc:clksrc1|                       ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|clksrc:clksrc1                                                                                  ; work         ;
 ;       |altpll:altpll_component|           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|clksrc:clksrc1|altpll:altpll_component                                                          ; work         ;
 ;    |debounce:d0|                          ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d0                                                                                     ; work         ;
 ;    |debounce:d10|                         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d10                                                                                    ; work         ;
+;    |debounce:d11|                         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d11                                                                                    ; work         ;
+;    |debounce:d12|                         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d12                                                                                    ; work         ;
 ;    |debounce:d1|                          ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d1                                                                                     ; work         ;
 ;    |debounce:d2|                          ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d2                                                                                     ; work         ;
 ;    |debounce:d3|                          ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d3                                                                                     ; work         ;
@@ -255,7 +258,7 @@ applicable agreement for further details.
 ;    |debounce:d7|                          ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d7                                                                                     ; work         ;
 ;    |debounce:d8|                          ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d8                                                                                     ; work         ;
 ;    |debounce:d9|                          ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|debounce:d9                                                                                     ; work         ;
-;    |greenman:greenman1|                   ; 43 (43)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|greenman:greenman1                                                                              ; work         ;
+;    |greenman:greenman1|                   ; 41 (41)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|greenman:greenman1                                                                              ; work         ;
 ;    |lpm_divide:Div0|                      ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|lpm_divide:Div0                                                                                 ; work         ;
 ;       |lpm_divide_vcm:auto_generated|     ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|lpm_divide:Div0|lpm_divide_vcm:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_9kh:divider|    ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic|lpm_divide:Div0|lpm_divide_vcm:auto_generated|sign_div_unsign_9kh:divider                       ; work         ;
@@ -346,50 +349,50 @@ Encoding Type:  One-Hot
 +-----------+-----------+-----------+-----------+----------------------+
 
 
-+---------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                        ;
-+-------------------------------------------------+-------------------------+
-; Register name                                   ; Reason for Removal      ;
-+-------------------------------------------------+-------------------------+
-; clkfast[0]                                      ; Merged with msclks[0]   ;
-; greenman:greenman1|clks[0]                      ; Merged with msclks[0]   ;
-; greenman:greenman1|clks[1]                      ; Merged with msclks[1]   ;
-; clkfast[1]                                      ; Merged with msclks[1]   ;
-; greenman:greenman1|clks[2]                      ; Merged with msclks[2]   ;
-; clkfast[2]                                      ; Merged with msclks[2]   ;
-; greenman:greenman1|clks[3]                      ; Merged with msclks[3]   ;
-; clkfast[3]                                      ; Merged with msclks[3]   ;
-; clkfast[4]                                      ; Merged with msclks[4]   ;
-; greenman:greenman1|clks[4]                      ; Merged with msclks[4]   ;
-; clkfast[5]                                      ; Merged with msclks[5]   ;
-; greenman:greenman1|clks[5]                      ; Merged with msclks[5]   ;
-; msclks[6]                                       ; Merged with clkfast[6]  ;
-; greenman:greenman1|clks[6]                      ; Merged with clkfast[6]  ;
-; greenman:greenman1|clks[7]                      ; Merged with clkfast[7]  ;
-; msclks[7]                                       ; Merged with clkfast[7]  ;
-; msclks[8]                                       ; Merged with clkfast[8]  ;
-; greenman:greenman1|clks[8]                      ; Merged with clkfast[8]  ;
-; greenman:greenman1|clks[9]                      ; Merged with clkfast[9]  ;
-; msclks[9]                                       ; Merged with clkfast[9]  ;
-; msclks[10]                                      ; Merged with clkfast[10] ;
-; greenman:greenman1|clks[10]                     ; Merged with clkfast[10] ;
-; msclks[11]                                      ; Merged with clkfast[11] ;
-; greenman:greenman1|clks[11]                     ; Merged with clkfast[11] ;
-; msclks[12]                                      ; Merged with clkfast[12] ;
-; greenman:greenman1|clks[12]                     ; Merged with clkfast[12] ;
-; msclks[13]                                      ; Merged with clkfast[13] ;
-; greenman:greenman1|clks[13]                     ; Merged with clkfast[13] ;
-; clks[1..24]                                     ; Lost fanout             ;
-; stop_oneshot:stop_oneshot1|b~18                 ; Lost fanout             ;
-; stop_oneshot:stop_oneshot1|b~19                 ; Lost fanout             ;
-; plusminus_oneshot:plusminus_oneshot1|b_reset~18 ; Lost fanout             ;
-; plusminus_oneshot:plusminus_oneshot1|b_reset~19 ; Lost fanout             ;
-; plusminus_oneshot:plusminus_oneshot1|b_minus~18 ; Lost fanout             ;
-; plusminus_oneshot:plusminus_oneshot1|b_minus~19 ; Lost fanout             ;
-; plusminus_oneshot:plusminus_oneshot1|b_plus~18  ; Lost fanout             ;
-; plusminus_oneshot:plusminus_oneshot1|b_plus~19  ; Lost fanout             ;
-; Total Number of Removed Registers = 60          ;                         ;
-+-------------------------------------------------+-------------------------+
++--------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                       ;
++-------------------------------------------------+------------------------+
+; Register name                                   ; Reason for Removal     ;
++-------------------------------------------------+------------------------+
+; clkfast[0]                                      ; Merged with msclks[0]  ;
+; greenman:greenman1|clks[0]                      ; Merged with msclks[0]  ;
+; clkfast[1]                                      ; Merged with msclks[1]  ;
+; greenman:greenman1|clks[1]                      ; Merged with msclks[1]  ;
+; clkfast[2]                                      ; Merged with msclks[2]  ;
+; greenman:greenman1|clks[2]                      ; Merged with msclks[2]  ;
+; greenman:greenman1|clks[3]                      ; Merged with msclks[3]  ;
+; clkfast[3]                                      ; Merged with msclks[3]  ;
+; greenman:greenman1|clks[4]                      ; Merged with msclks[4]  ;
+; clkfast[4]                                      ; Merged with msclks[4]  ;
+; greenman:greenman1|clks[5]                      ; Merged with msclks[5]  ;
+; clkfast[5]                                      ; Merged with msclks[5]  ;
+; greenman:greenman1|clks[6]                      ; Merged with msclks[6]  ;
+; clkfast[6]                                      ; Merged with msclks[6]  ;
+; clkfast[7]                                      ; Merged with msclks[7]  ;
+; greenman:greenman1|clks[7]                      ; Merged with msclks[7]  ;
+; greenman:greenman1|clks[8]                      ; Merged with msclks[8]  ;
+; clkfast[8]                                      ; Merged with msclks[8]  ;
+; clkfast[9]                                      ; Merged with msclks[9]  ;
+; greenman:greenman1|clks[9]                      ; Merged with msclks[9]  ;
+; greenman:greenman1|clks[10]                     ; Merged with msclks[10] ;
+; clkfast[10]                                     ; Merged with msclks[10] ;
+; greenman:greenman1|clks[11]                     ; Merged with msclks[11] ;
+; clkfast[11]                                     ; Merged with msclks[11] ;
+; greenman:greenman1|clks[12]                     ; Merged with msclks[12] ;
+; clkfast[12]                                     ; Merged with msclks[12] ;
+; greenman:greenman1|clks[13]                     ; Merged with msclks[13] ;
+; clkfast[13]                                     ; Merged with msclks[13] ;
+; clks[1..24]                                     ; Lost fanout            ;
+; stop_oneshot:stop_oneshot1|b~18                 ; Lost fanout            ;
+; stop_oneshot:stop_oneshot1|b~19                 ; Lost fanout            ;
+; plusminus_oneshot:plusminus_oneshot1|b_reset~18 ; Lost fanout            ;
+; plusminus_oneshot:plusminus_oneshot1|b_reset~19 ; Lost fanout            ;
+; plusminus_oneshot:plusminus_oneshot1|b_minus~18 ; Lost fanout            ;
+; plusminus_oneshot:plusminus_oneshot1|b_minus~19 ; Lost fanout            ;
+; plusminus_oneshot:plusminus_oneshot1|b_plus~18  ; Lost fanout            ;
+; plusminus_oneshot:plusminus_oneshot1|b_plus~19  ; Lost fanout            ;
+; Total Number of Removed Registers = 60          ;                        ;
++-------------------------------------------------+------------------------+
 
 
 +------------------------------------------------------+
@@ -397,12 +400,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 874   ;
-; Number of registers using Synchronous Clear  ; 231   ;
-; Number of registers using Synchronous Load   ; 362   ;
+; Total registers                              ; 935   ;
+; Number of registers using Synchronous Clear  ; 369   ;
+; Number of registers using Synchronous Load   ; 253   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 197   ;
+; Number of registers using Clock Enable       ; 510   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -412,42 +415,45 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d10|count[5]                           ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d0|count[4]                            ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d8|count[1]                            ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d7|count[4]                            ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d6|count[14]                           ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d5|count[8]                            ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d4|count[14]                           ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d3|count[2]                            ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d2|count[15]                           ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d1|count[8]                            ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d9|count[16]                           ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |traffic|buttoncount[8]                                  ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |traffic|modelimit[11]                                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |traffic|mode[13]                                        ;
-; 17:1               ; 10 bits   ; 110 LEs       ; 110 LEs              ; 0 LEs                  ; Yes        ; |traffic|db[1]~reg0                                      ;
-; 19:1               ; 6 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; Yes        ; |traffic|counter[1]                                      ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[15][24]                                ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[14][21]                                ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[13][21]                                ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[12][20]                                ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[11][21]                                ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[10][24]                                ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[1][23]                                 ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |traffic|modedata[0][25]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[9][24]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[8][25]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[7][23]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[6][20]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[5][22]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[4][22]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[3][25]                                 ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |traffic|modedata[2][22]                                 ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |traffic|Mux340                                          ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|stop_oneshot:stop_oneshot1|Selector0            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |traffic|tmp_plus                                        ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d10|count[16]                          ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d11|count[0]                           ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d12|count[6]                           ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d0|count[3]                            ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d8|count[2]                            ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d7|count[11]                           ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d6|count[19]                           ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d5|count[4]                            ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d4|count[13]                           ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d3|count[7]                            ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d2|count[7]                            ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d1|count[12]                           ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |traffic|debounce:d9|count[5]                            ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |traffic|buttoncount[3]                                  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |traffic|modelimit[11]                                   ;
+; 17:1               ; 10 bits   ; 110 LEs       ; 110 LEs              ; 0 LEs                  ; Yes        ; |traffic|db[2]~reg0                                      ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |traffic|mode[28]                                        ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[15][20]                                ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[1][25]                                 ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |traffic|modedata[0][21]                                 ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 72 LEs               ; 6 LEs                  ; Yes        ; |traffic|counter[4]                                      ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[14][23]                                ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[13][24]                                ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[12][20]                                ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[11][22]                                ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[10][23]                                ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[9][23]                                 ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[8][25]                                 ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[7][25]                                 ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[6][23]                                 ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[5][21]                                 ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[4][25]                                 ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[3][25]                                 ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |traffic|modedata[2][20]                                 ;
+; 16:1               ; 17 bits   ; 170 LEs       ; 170 LEs              ; 0 LEs                  ; No         ; |traffic|Mux8                                            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|stop_oneshot:stop_oneshot1|Selector2            ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector10 ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector6  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector4  ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic|plusminus_oneshot:plusminus_oneshot1|Selector2  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 
@@ -957,6 +963,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:d12 ;
++----------------+--------+---------------------------------+
+; Parameter Name ; Value  ; Type                            ;
++----------------+--------+---------------------------------+
+; NDELAY         ; 650000 ; Signed Integer                  ;
+; NBITS          ; 20     ; Signed Integer                  ;
++----------------+--------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
 +------------------------+----------------+------------------------+
@@ -1112,14 +1129,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "debounce:d11"                                                                                                                                                                       ;
-+-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; clean ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; clks  ; Input  ; Warning  ; Input port expression (25 bits) is wider than the input port (1 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "debounce:d12"                                                                                                                                                                     ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; clks ; Input ; Warning  ; Input port expression (25 bits) is wider than the input port (1 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "debounce:d11"                                                                                                                                                                     ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; clks ; Input ; Warning  ; Input port expression (25 bits) is wider than the input port (1 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1237,19 +1262,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
-    Info: Processing started: Wed Jun 30 22:41:13 2010
+    Info: Processing started: Thu Jul  1 12:15:56 2010
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off traffic -c traffic
-Warning (10275): Verilog HDL Module Instantiation warning at traffic.v(77): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at traffic.v(64): ignored dangling comma in List of Port Connections
 Info: Found 1 design units, including 1 entities, in source file traffic.v
     Info: Found entity 1: traffic
-Warning: Can't analyze file -- file /home/lucaspeng/dclab.bak/exp1/clksrc1_1.v is missing
+Warning: Can't analyze file -- file /home/lucaspeng/dclab/exp1_w_edit/clksrc1_1.v is missing
 Info: Elaborating entity "traffic" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at traffic.v(320): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at traffic.v(321): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at traffic.v(322): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at traffic.v(323): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at traffic.v(324): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at traffic.v(325): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at traffic.v(362): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at traffic.v(363): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at traffic.v(364): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at traffic.v(365): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at traffic.v(366): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at traffic.v(367): truncated value with size 32 to match size of target (4)
 Warning: Using design file clksrc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: clksrc
 Info: Elaborating entity "clksrc" for hierarchy "clksrc:clksrc1"
@@ -1383,32 +1408,32 @@ Info: Instantiated megafunction "lpm_divide:Mod2" with the following parameter:
     Info: Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_ako.tdf
     Info: Found entity 1: lpm_divide_ako
-Warning: 13 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: 14 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info: 32 registers lost all their fanouts during netlist optimizations. The first 32 are displayed below.
-    Info: Register "clks[24]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[23]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[22]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[21]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[20]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[19]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[18]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[17]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[16]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[15]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[14]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[13]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[12]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[11]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[10]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[9]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[8]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[7]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[6]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[5]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[4]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "clks[2]" lost all its fanouts during netlist optimizations.
     Info: Register "clks[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[15]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[16]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[17]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[18]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[19]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[20]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[21]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[22]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[23]" lost all its fanouts during netlist optimizations.
+    Info: Register "clks[24]" lost all its fanouts during netlist optimizations.
     Info: Register "stop_oneshot:stop_oneshot1|b~18" lost all its fanouts during netlist optimizations.
     Info: Register "stop_oneshot:stop_oneshot1|b~19" lost all its fanouts during netlist optimizations.
     Info: Register "plusminus_oneshot:plusminus_oneshot1|b_reset~18" lost all its fanouts during netlist optimizations.
@@ -1417,24 +1442,15 @@ Info: 32 registers lost all their fanouts during netlist optimizations. The firs
     Info: Register "plusminus_oneshot:plusminus_oneshot1|b_minus~19" lost all its fanouts during netlist optimizations.
     Info: Register "plusminus_oneshot:plusminus_oneshot1|b_plus~18" lost all its fanouts during netlist optimizations.
     Info: Register "plusminus_oneshot:plusminus_oneshot1|b_plus~19" lost all its fanouts during netlist optimizations.
-Info: Generated suppressed messages file /home/lucaspeng/dclab.bak/exp1/traffic.map.smsg
-Warning: Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "noisy[11]"
-Info: Implemented 3879 device resources after synthesis - the final resource count might be different
-    Info: Implemented 18 input pins
+Info: Implemented 4206 device resources after synthesis - the final resource count might be different
+    Info: Implemented 19 input pins
     Info: Implemented 70 output pins
-    Info: Implemented 3790 logic cells
+    Info: Implemented 4116 logic cells
     Info: Implemented 1 ClockLock PLLs
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 205 megabytes
-    Info: Processing ended: Wed Jun 30 22:41:29 2010
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:16
-
-
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
-The suppressed messages can be found in /home/lucaspeng/dclab.bak/exp1/traffic.map.smsg.
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 206 megabytes
+    Info: Processing ended: Thu Jul  1 12:16:21 2010
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:24
 
 

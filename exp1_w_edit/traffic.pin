@@ -284,7 +284,7 @@ RESERVED_INPUT               : C5        :        :                   :         
 RESERVED_INPUT               : C6        :        :                   :         : 3         :                
 RESERVED_INPUT               : C7        :        :                   :         : 3         :                
 RESERVED_INPUT               : C8        :        :                   :         : 3         :                
-noisy[11]                    : C9        : input  : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : C9        :        :                   :         : 3         :                
 RESERVED_INPUT               : C10       :        :                   :         : 3         :                
 RESERVED_INPUT               : C11       :        :                   :         : 3         :                
 RESERVED_INPUT               : C12       :        :                   :         : 3         :                
@@ -536,7 +536,7 @@ RESERVED_INPUT               : M23       :        :                   :         
 RESERVED_INPUT               : M24       :        :                   :         : 5         :                
 RESERVED_INPUT               : M25       :        :                   :         : 5         :                
 GND                          : M26       : gnd    :                   :         :           :                
-GND+                         : N1        :        :                   :         : 2         :                
+noisy[12]                    : N1        : input  : 3.3-V LVTTL       :         : 2         : Y              
 clk                          : N2        : input  : 3.3-V LVTTL       :         : 2         : Y              
 DATA0                        : N3        : input  :                   :         : 2         :                
 nCE                          : N4        :        :                   :         : 2         :                
@@ -643,7 +643,7 @@ VCCIO6                       : T26       : power  :                   : 3.3V    
 seg3[1]                      : U1        : output : 3.3-V LVTTL       :         : 1         : Y              
 seg3[2]                      : U2        : output : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT               : U3        :        :                   :         : 1         :                
-RESERVED_INPUT               : U4        :        :                   :         : 1         :                
+noisy[11]                    : U4        : input  : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT               : U5        :        :                   :         : 1         :                
 RESERVED_INPUT               : U6        :        :                   :         : 1         :                
 RESERVED_INPUT               : U7        :        :                   :         : 1         :                

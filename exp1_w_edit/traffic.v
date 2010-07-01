@@ -1,16 +1,16 @@
 module traffic (/*AUTOARG*/
-   // Outputs
-   buttonlight, db, stoplight, seg0, seg1, seg2, seg3, seg4, seg5,
-   hori, vert,
-   // Inputs
-   clk, button, stop_button, plus_button, minus_button, reset_button,
-   noisy
-   );
+		// Outputs
+		buttonlight, db, stoplight, seg0, seg1, seg2, seg3, seg4, seg5,
+		hori, vert,
+		// Inputs
+		clk, button, stop_button, plus_button, minus_button, reset_button,
+		noisy
+		);
    
    input clk;
    input button; //next need to be renamed?
    input stop_button, plus_button, minus_button, reset_button;
-   input [11:0] noisy;
+   input [12:0] noisy;
    
    output 	buttonlight; //next light need to be renamed
    output [9:0] db;
@@ -24,12 +24,12 @@ module traffic (/*AUTOARG*/
    reg [21:0] 	clkfast; //1/8seconds need to be remaned
    
    //variables deal with edit
-   reg [11:0] 	clean;
-   reg [9:0] 	clean_tmp;
+   reg [12:0] 	clean;
+   reg [10:0] 	clean_tmp;
 
    reg [5:0] 	counter; // every mode can have duration at most 32 secs
    integer 	mode, modelimit;
-   reg [25:0] 	modedata[15:0]; // sec, lights, lights, plan to add greenman light.
+   reg [26:0] 	modedata[15:0]; // sec, lights, lights, plan to add greenman light.
 
    reg 		next;
    reg [9:0] 	buttoncount; //make next last for one second, need to be renamed
@@ -41,18 +41,19 @@ module traffic (/*AUTOARG*/
    integer 	thousandcount;// count a second in a 1/1000 seconds always
    reg 		greenmanon;
    reg [1:0] 	edit_mode;
+   reg [1:0] 	delete_mode;
    reg [1:0] 	edit_state[9:0];//dark light flicker
    
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
-   wire			stop;			// From stop_oneshot1 of stop_oneshot.v
+   wire 	stop;			// From stop_oneshot1 of stop_oneshot.v
    // End of automatics
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg			buttonlight;
-   reg [9:0]		db;
-   reg			stoplight;
+   reg 		buttonlight;
+   reg [9:0] 	db;
+   reg 		stoplight;
    // End of automatics
    integer 	i,j,k; //for for-loop
 
@@ -77,10 +78,10 @@ module traffic (/*AUTOARG*/
    always @(posedge msclks[14]) begin // 1/1000 sec
       if (counter > modedata[mode][25:20]) begin
 	 counter <= modedata[mode][25:20];
-	 if (mode > modelimit) begin
-	    mode <= modelimit;
-	 end 	    
       end
+      if (mode > modelimit) begin
+	 mode <= modelimit;
+      end 	    
       if (thousandcount == 0) begin           //every 1000 times, ie: every 1 sec.
 	 if (stop == 1'b0) begin              //not stop
 	    if ((counter != 0) && (next  == 0) ) begin
@@ -88,10 +89,12 @@ module traffic (/*AUTOARG*/
 	    end else begin
 	       if (mode == modelimit) begin
 		  mode <= 4'd0;
+		  counter <= modedata[0][25:20];
 	       end else begin
-		  mode <= mode + 1'b1;   
+		  mode <= mode + 1'b1; 
+		  counter <= modedata[mode+1][25:20];
 	       end
-	       counter <= modedata[mode+1][25:20];
+
 	    end // always @ (posedge clks[24])
 	 end else begin // if (stop == 1'b0)  //stop
 	    if (next == 1) begin
@@ -166,7 +169,7 @@ module traffic (/*AUTOARG*/
      //    plus, minus second. reset modedata, and edit modedata.
    ////////////////////////////////////////////////////////////////////////////////////////////////////   
    always @(posedge msclks[14]) begin
-      if (edit_mode[1] == 0) begin
+      if ((edit_mode[1] == 0)&&(delete_mode[1] == 0)) begin
 	 if(plus != tmp_plus)
 	   modedata[mode][25:20] <= modedata[mode][25:20]+1'd1;
 	 tmp_plus <= plus;
@@ -177,74 +180,93 @@ module traffic (/*AUTOARG*/
 	 if (reset != tmp_reset) begin
 	    //	       	greenmanon = 0;
 	    modelimit <= 9; //10-1
-      	    modedata[0][25:0] <= {{6'd15},{10'b0010110010},{10'b0010110010}};
-	    modedata[1][25:0] <= {{6'd4,{10'b0010110010},{10'b0010010010}}};
-	    modedata[2][25:0] <= {{6'd2},{10'b0011010010},{10'b0011010010}};
-	    modedata[3][25:0] <= {{6'd1},{10'b0101010010},{10'b0101010010}};
-	    modedata[4][25:0] <= {{6'd1},{10'b1001010010},{10'b1001010010}};
-	    modedata[5][25:0] <= {{6'd15},{10'b1001000101},{10'b1001000101}};
-	    modedata[6][25:0] <= {{6'd4},{10'b1001000101},{10'b1001000100}};
-	    modedata[7][25:0] <= {{6'd2},{10'b1001000110},{10'b1001000110}};
-	    modedata[8][25:0] <= {{6'd1},{10'b1001001010},{10'b1001001010}};
-	    modedata[9][25:0] <= {{6'd1},{10'b1001010010},{10'b1001010010}};
+      	    modedata[0] <= {{1'b1},{6'd15},{10'b0010110010},{10'b0010110010}};
+	    modedata[1] <= {{1'b0},{6'd4,{10'b0010110010},{10'b0010010010}}};
+	    modedata[2] <= {{1'b0},{6'd2},{10'b0011010010},{10'b0011010010}};
+	    modedata[3] <= {{1'b0},{6'd1},{10'b0101010010},{10'b0101010010}};
+	    modedata[4] <= {{1'b0},{6'd1},{10'b1001010010},{10'b1001010010}};
+	    modedata[5] <= {{1'b1},{6'd15},{10'b1001000101},{10'b1001000101}};
+	    modedata[6] <= {{1'b0},{6'd4},{10'b1001000101},{10'b1001000100}};
+	    modedata[7] <= {{1'b0},{6'd2},{10'b1001000110},{10'b1001000110}};
+	    modedata[8] <= {{1'b0},{6'd1},{10'b1001001010},{10'b1001001010}};
+	    modedata[9] <= {{1'b0},{6'd1},{10'b1001010010},{10'b1001010010}};
 	    //remember to write for loop
 	 end
 	 tmp_reset <= reset;
-	 /* edit mode */	 
-      end else begin // if (edit_mode[1] == 0)
-	 if(plus != tmp_plus)
-	   modedata[mode][25:20] <= modedata[mode][25:20]+1'd1;
-	 tmp_plus <= plus;
-	 if(minus != tmp_minus)
-	   modedata[mode][25:20] <= modedata[mode][25:20]-1'd1;
-	 tmp_minus <= minus;
-	 
-	 if (edit_mode[0] != edit_mode[1]) begin
-	    //////////////////////////////////////////////////
-	    //clean current mode
-	    //////////////////////////////////////////////////
-	    modelimit <= modelimit + 1;
-	    for (i = 0; i < 16; i = i +1) begin
-   	       if ((mode<i) && (i<(modelimit+2))&&(1<i)&&(i<16)) begin
-		  modedata[i] <= modedata[i-1];
-	       end 
-   	    end
-	    modedata[mode] <= 26'b0;
-	 end else begin
-	    //////////////////////////////////////////////////
-	    // edit
-	    //////////////////////////////////////////////////
-	    for (j=0; j<10; j = j+1) begin
-	       //////////////////////////////////////////////////
-	       // 	       use edit state to determine light
-	       //////////////////////////////////////////////////
-	       case (edit_state[j])
-		 2'b00://dark
-		   begin
-		      modedata[mode][j]=0;
-		      modedata[mode][j+10]=0;
-		   end
-		 2'b01://light
-		   begin
-		      modedata[mode][j]=1;
-		      modedata[mode][j+10]=1;
-		   end
-		 2'b10://flicker
-		   begin
-		      modedata[mode][j]=1;
-		      modedata[mode][j+10]=0;
-		   end
-		 default
-		   begin
-		      modedata[j][j]=0;
-		      modedata[j][j+10]=0;
-		   end
-	       endcase
-	    end
-	 end
 
-      end // else: !if(edit_mode[1] == 0)
+      end else begin // if ((edit_mode[1] == 0)&&(delete_mode[1] == 0))
+	 if (delete_mode[0]!= delete_mode[1]) begin
+	    ////////////////////////////////////////////////////////////////////////////////////////////////////
+	    // delete mode
+	    ////////////////////////////////////////////////////////////////////////////////////////////////////
+	       modelimit <= modelimit - 1;
+	       for (i = 0; i < 16; i = i +1) begin
+   		  if (((mode-1)<i) && (i<(modelimit+1))&&(1<i)&&(i<15)) begin
+		     modedata[i] <= modedata[i+1];
+		  end 
+   	       end
+	 end else begin
+	    ////////////////////////////////////////////////////////////////////////////////////////////////////
+	    //  edit mode
+	    ////////////////////////////////////////////////////////////////////////////////////////////////////
+	    if(plus != tmp_plus)
+	      modedata[mode][25:20] <= modedata[mode][25:20]+1'd1;
+	    tmp_plus <= plus;
+	    if(minus != tmp_minus)
+	      modedata[mode][25:20] <= modedata[mode][25:20]-1'd1;
+	    tmp_minus <= minus;
+	    
+	    if (edit_mode[0] != edit_mode[1]) begin
+	       //////////////////////////////////////////////////
+	       //clean current mode
+	       //////////////////////////////////////////////////
+	       modelimit <= modelimit + 1;
+	       for (i = 0; i < 16; i = i +1) begin
+   		  if ((mode<i) && (i<(modelimit+2))&&(1<i)&&(i<16)) begin
+		     modedata[i] <= modedata[i-1];
+		  end 
+   	       end
+	       modedata[mode] <= 26'b0;
+	    end else begin
+	       //////////////////////////////////////////////////
+	       // edit
+	       //////////////////////////////////////////////////
+	       for (j=0; j<10; j = j+1) begin
+		  //////////////////////////////////////////////////
+		  // 	       use edit state to determine light
+		  //////////////////////////////////////////////////
+		  case (edit_state[j])
+		    2'b00://dark
+		      begin
+			 modedata[mode][j]<=0;
+			 modedata[mode][j+10]<=0;
+		      end
+		    2'b01://light
+		      begin
+			 modedata[mode][j]<=1;
+			 modedata[mode][j+10]<=1;
+		      end
+		    2'b10://flicker
+		      begin
+			 modedata[mode][j]<=1;
+			 modedata[mode][j+10]<=0;
+		      end
+		    default
+		      begin
+			 modedata[j][j]<=0;
+			 modedata[j][j+10]<=0;
+		      end
+		  endcase
+	       end // for (j=0; j<10; j = j+1)
+	       if (clean[12]==1 )
+		 modedata[mode][26] <= 1;
+	       else
+		 modedata[mode][26] <= 0;
+	    end
+	 end // else: !if(edit_mode[1] == 0)
+      end
       edit_mode[0]<=edit_mode[1];
+      delete_mode[0]<=delete_mode[1];
    end // always @ (posedge msclks[14])
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -269,11 +291,13 @@ module traffic (/*AUTOARG*/
       end
    end
 
-   
    always @(*) begin
       edit_mode[1] =  clean[10];
    end
 
+   always @(*) begin
+      delete_mode[1]=clean[11];
+   end
    ////////////////////////////////////////////////////////////////////////////////////////////////////
 		//    one shot for stop
    ////////////////////////////////////////////////////////////////////////////////////////////////////   
@@ -358,7 +382,7 @@ module traffic (/*AUTOARG*/
 		       .greenmanon	(greenmanon));
 
    always @(*) begin
-      if ((mode == 0) || (mode == 5)) begin
+      if (modedata[mode][26]==1) begin
 	 greenmanon = 1;
       end else begin
 	 greenmanon = 0;
@@ -446,5 +470,11 @@ module traffic (/*AUTOARG*/
 		 // Inputs
 		 .clks			(clks),
 		 .noisy			(noisy[11]));		 // Templated
+   debounce d12 (/*AUTOINST*/
+		 // Outputs
+		 .clean			(clean[12]),		 // Templated
+		 // Inputs
+		 .clks			(clks),
+		 .noisy			(noisy[12]));		 // Templated
 endmodule 
 
