@@ -9,7 +9,7 @@ module traffic (/*AUTOARG*/
    // Local Variables:
    // verilog-auto-inst-param-value:t
    // End:
-   
+   //test//
    input clk;
    input button;
    input stop_button;
