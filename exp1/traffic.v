@@ -5,7 +5,6 @@ module traffic (/*AUTOARG*/
    clk, button, stop_button, plus_button, minus_button
    );
 
-
    parameter countersize = 6;
    // Local Variables:
    // verilog-auto-inst-param-value:t
