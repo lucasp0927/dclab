@@ -1,4 +1,3 @@
-//test//
 module traffic (/*AUTOARG*/
 		// Outputs
 		buttonlight, db, stoplight, seg0, seg1, seg2, seg3, seg4, seg5,
