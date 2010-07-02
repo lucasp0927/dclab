@@ -1,9 +1,9 @@
-module seg_decode(hex, seg);
+module seg_decode(hex, seg/*AUTOARG*/);
 input [3:0] hex;
 output [6:0] seg;
 reg [6:0] seg;
 
-always @ (hex) 
+always @ (/*AS*/hex) 
 	begin
 	case (hex)
 	4'b0001 : seg = 7'b111_1001; // 1 

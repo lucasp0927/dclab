@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for traffic
-Thu Jul  1 12:16:52 2010
+Sat Jul  3 00:36:03 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -1163,7 +1163,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
-    Info: Processing started: Thu Jul  1 12:16:49 2010
+    Info: Processing started: Sat Jul  3 00:35:59 2010
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off traffic -c traffic --timing_analysis_only
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Warning: Clock latency analysis for PLL offsets is supported for the current device family, but is not enabled
@@ -1550,9 +1550,9 @@ Info: th for register "debounce:d7|xnew" (data pin = "noisy[7]", clock pin = "cl
         Info: Total interconnect delay = 0.377 ns ( 21.64 % )
 Info: All timing requirements were met for slow timing model timing analysis. See Report window for more details.
 Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 169 megabytes
-    Info: Processing ended: Thu Jul  1 12:16:52 2010
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 168 megabytes
+    Info: Processing ended: Sat Jul  3 00:36:04 2010
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:03
 
 

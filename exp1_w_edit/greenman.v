@@ -1,7 +1,7 @@
 module greenman ( clk, vert, hori, /*AUTOARG*/
-		  // Inputs
-		  greenmanon
-		  );
+   // Inputs
+   greenmanon
+   );
    //input mode;
    input clk;
    input greenmanon;
@@ -71,26 +71,4 @@ module greenman ( clk, vert, hori, /*AUTOARG*/
 	 endcase
       end
    end
-
-   /*
-    3'd0: 
-    begin hori = 8'b01111111; vert = 8'b00000000; end
-    3'd1: 
-    begin hori = 8'b10111111; vert = 8'b00011001; end
-    3'd2: 
-    begin hori = 8'b11011111; vert = 8'b00110011; end
-    3'd3: 
-    begin hori = 8'b11101111; vert = 8'b11111111; end
-    3'd4: 
-    begin hori = 8'b11110111; vert = 8'b11111111; end
-    3'd5: 
-    begin hori = 8'b11111011; vert = 8'b00110011; end
-    3'd6: 
-    begin hori = 8'b11111101; vert = 8'b00011001; end
-    3'd7: 
-    begin hori = 8'b11111110; vert = 8'b00000000; end
-    */
-
-
-
 endmodule
