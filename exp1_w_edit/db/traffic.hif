@@ -48,6 +48,9 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
+# hierarchies {
+clksrc:clksrc1
+}
 # macro_sequence
 ALTERA_RESERVED_QISALTERA_RESERVED_QIS
 # end
@@ -1623,6 +1626,9 @@ VERILOG_CONSTANT_LOOP_LIMIT
 5000
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
+}
+# hierarchies {
+stop_oneshot:stop_oneshot1
 }
 # macro_sequence
 
@@ -4361,6 +4367,9 @@ clkena
 ..|..|altera9.0|quartus|libraries|megafunctions|cycloneii_pll.inc
 39a0d9d1237d1db39c848c3f9faffc
 }
+# hierarchies {
+clksrc:clksrc1|altpll:altpll_component
+}
 # macro_sequence
 
 # end
@@ -4639,6 +4648,9 @@ VERILOG_CONSTANT_LOOP_LIMIT
 5000
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
+}
+# hierarchies {
+plusminus_oneshot:plusminus_oneshot1
 }
 # macro_sequence
 
@@ -5288,6 +5300,21 @@ NBITS
 20
 PARAMETER_SIGNED_DEC
 DEF
+}
+# hierarchies {
+debounce:d0
+debounce:d1
+debounce:d2
+debounce:d3
+debounce:d4
+debounce:d5
+debounce:d6
+debounce:d7
+debounce:d8
+debounce:d9
+debounce:d10
+debounce:d11
+debounce:d12
 }
 # macro_sequence
 
@@ -6989,6 +7016,119 @@ denom1
 c1e17922387cb5d0c88d7fb673544bb4
 ..|..|altera9.0|quartus|libraries|megafunctions|abs_divider.inc
 cdfefd53e136b3a8e541899b82db37d
+}
+# macro_sequence
+
+# end
+# entity
+traffic
+# storage
+db|traffic.(0).cnf
+db|traffic.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+traffic.v
+8bf3ca87922b86ac7c512b46f9d60e3
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+seg_decode
+# storage
+db|traffic.(4).cnf
+db|traffic.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+seg_decode.v
+8a4f9cc3695f27f862ee40975b98ee17
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+seg_decode:s0
+seg_decode:s1
+seg_decode:s2
+seg_decode:s3
+seg_decode:s4
+seg_decode:s5
+}
+# macro_sequence
+
+# end
+# entity
+greenman
+# storage
+db|traffic.(20).cnf
+db|traffic.(20).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+greenman.v
+92e4a5b0533a783465a2fc818fdf3027
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+greenman:greenman1
 }
 # macro_sequence
 
