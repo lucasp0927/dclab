@@ -5,3 +5,6 @@
 exp1_w_edit/compile
 exp1_w_edit/db
 exp1_w_edit/incremental_db/
+exp2/compile
+exp2/db
+exp2/incremental_db
