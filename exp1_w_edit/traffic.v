@@ -376,7 +376,11 @@ module traffic (/*AUTOARG*/
 		       .greenmanon	(greenmanon));
 
    always @(*) begin
-      assign greenmanon = (modedata[mode][26] == 1)?1:0;
+      if (modedata[mode][26]==1) begin
+	 greenmanon = 1;
+      end else begin
+	 greenmanon = 0;
+      end
    end
 
    /////////////////////////////////////
