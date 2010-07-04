@@ -160,7 +160,7 @@ module traffic (/*AUTOARG*/
 					 .minus			(minus),
 					 .reset			(reset),
 					 // Inputs
-					 .clk			(msclks[14]),	 // Templated
+					 .clk			(msclks[14]),	 // Templated                         ////////?????????
 					 .plus_button		(plus_button),
 					 .minus_button		(minus_button),
 					 .reset_button		(reset_button));
@@ -194,14 +194,14 @@ module traffic (/*AUTOARG*/
 	 end
 	 tmp_reset <= reset;
 
-      end else begin // if ((edit_mode[1] == 0)&&(delete_mode[1] == 0))
+      end else begin // if !((edit_mode[1] == 0)&&(delete_mode[1] == 0))
 	 if (delete_mode[0]!= delete_mode[1]) begin
 	    ////////////////////////////////////////////////////////////////////////////////////////////////////
-	    // delete mode
+	    // delete mode 
 	    ////////////////////////////////////////////////////////////////////////////////////////////////////
 	       modelimit <= modelimit - 1;
 	       for (i = 0; i < 16; i = i +1) begin
-   		  if (((mode-1)<i) && (i<(modelimit+1))&&(1<i)&&(i<15)) begin
+   		  if (((mode-1)<i) && (i<(modelimit+1))&&(1<i)&&(i<15)) begin                                               /////??????
 		     modedata[i] <= modedata[i+1];
 		  end 
    	       end
@@ -222,7 +222,7 @@ module traffic (/*AUTOARG*/
 	       //////////////////////////////////////////////////
 	       modelimit <= modelimit + 1;
 	       for (i = 0; i < 16; i = i +1) begin
-   		  if ((mode<i) && (i<(modelimit+2))&&(1<i)&&(i<16)) begin
+   		  if ((mode<i) && (i<(modelimit+2))&&(1<i)&&(i<16)) begin                                                 ///////////?????
 		     modedata[i] <= modedata[i-1];
 		  end 
    	       end
@@ -239,7 +239,7 @@ module traffic (/*AUTOARG*/
 		    2'b00://dark
 		      begin
 			 modedata[mode][j]<=0;
-			 modedata[mode][j+10]<=0;
+			 modedata[mode][j+10]<=0;                                                                    ///////???????
 		      end
 		    2'b01://light
 		      begin
