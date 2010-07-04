@@ -1,11 +1,14 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// traffic light controller version 1
+////////////////////////////////////////////////////////////////////////////////////////////////////
 module traffic (/*AUTOARG*/
-		// Outputs
-		buttonlight, db, stoplight, seg0, seg1, seg2, seg3, seg4, seg5,
-		hori, vert,
-		// Inputs
-		clk, button, stop_button, plus_button, minus_button, reset_button,
-		noisy
-		);
+   // Outputs
+   buttonlight, db, stoplight, seg0, seg1, seg2, seg3, seg4, seg5,
+   hori, vert,
+   // Inputs
+   clk, button, stop_button, plus_button, minus_button, reset_button,
+   noisy
+   );
    
    input clk;
    input button; //next need to be renamed?
@@ -46,14 +49,14 @@ module traffic (/*AUTOARG*/
    
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
-   wire 	stop;			// From stop_oneshot1 of stop_oneshot.v
+   wire			stop;			// From stop_oneshot1 of stop_oneshot.v
    // End of automatics
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg 		buttonlight;
-   reg [9:0] 	db;
-   reg 		stoplight;
+   reg			buttonlight;
+   reg [9:0]		db;
+   reg			stoplight;
    // End of automatics
    integer 	i,j,k; //for for-loop
 
@@ -76,17 +79,15 @@ module traffic (/*AUTOARG*/
    //     control mode
    ////////////////////////////////////////////////////////////////////////////////////////////////////   
    always @(posedge msclks[14]) begin // 1/1000 sec
-      if (counter > modedata[mode][25:20]) begin
+      if (counter > modedata[mode][25:20]) 
 	 counter <= modedata[mode][25:20];
-      end
-      if (mode > modelimit) begin
+      if (mode > modelimit) 
 	 mode <= modelimit;
-      end 	    
       if (thousandcount == 0) begin           //every 1000 times, ie: every 1 sec.
 	 if (stop == 1'b0) begin              //not stop
-	    if ((counter != 0) && (next  == 0) ) begin
+	    if ((counter != 0) && (next  == 0) ) 
 	       counter <= counter - 1'b1;
-	    end else begin
+	    else begin
 	       if (mode == modelimit) begin
 		  mode <= 4'd0;
 		  counter <= modedata[0][25:20];
@@ -94,33 +95,30 @@ module traffic (/*AUTOARG*/
 		  mode <= mode + 1'b1; 
 		  counter <= modedata[mode+1][25:20];
 	       end
-
 	    end // always @ (posedge clks[24])
 	 end else begin // if (stop == 1'b0)  //stop
 	    if (next == 1) begin
-	       if (mode == modelimit) begin
+	       if (mode == modelimit)
 		  mode <= 4'd0;
-	       end else begin
+	       else begin
 		  mode <= mode + 1'b1;   
 	       end
 	       counter <= modedata[mode+1][25:20];
 	    end 
 	 end // else: !if(stop == 1'b0)
 	 thousandcount <= 1024;
-      end else begin
+      end else 
 	 thousandcount <= thousandcount - 1;
-      end
    end
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    control lights
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    always @(posedge clkfast[21]) begin  // connet lights tp data
-      if (db == modedata[mode][9:0]) begin
+      if (db == modedata[mode][9:0]) 
 	 db <= modedata[mode][19:10];
-      end else begin
+      else 
 	 db <= modedata[mode][9:0];
-      end
    end
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    make next last 1 second
@@ -131,18 +129,17 @@ module traffic (/*AUTOARG*/
 	 buttoncount <= 10'd1000;
 	 next <= 1'b1;
       end else begin
-	 if (buttoncount != 10'd0) begin
+	 if (buttoncount != 10'd0) 
 	    buttoncount <= buttoncount - 10'd1;
-	 end else begin
+	  else 
 	    buttoncount <= 10'd0;
-	 end
       end
-      if (buttoncount == 10'd0) begin
+      if (buttoncount == 10'd0) 
 	 next <= 1'b0;
-      end else begin
+       else 
 	 next <= 1'b1;
-      end
-   end
+   end // always @ (posedge msclks[14])
+   
    always @(/*AS*/next) begin
       buttonlight = next;
    end // always @ begin
@@ -160,7 +157,7 @@ module traffic (/*AUTOARG*/
 					 .minus			(minus),
 					 .reset			(reset),
 					 // Inputs
-					 .clk			(msclks[14]),	 // Templated
+					 .clk			(msclks[14]),	 // Templated                         ////////?????????
 					 .plus_button		(plus_button),
 					 .minus_button		(minus_button),
 					 .reset_button		(reset_button));
@@ -194,14 +191,16 @@ module traffic (/*AUTOARG*/
 	 end
 	 tmp_reset <= reset;
 
-      end else begin // if ((edit_mode[1] == 0)&&(delete_mode[1] == 0))
+
+      end else begin // if !((edit_mode[1] == 0)&&(delete_mode[1] == 0))
+
 	 if (delete_mode[0]!= delete_mode[1]) begin
 	    ////////////////////////////////////////////////////////////////////////////////////////////////////
-	    // delete mode
+	    // delete mode 
 	    ////////////////////////////////////////////////////////////////////////////////////////////////////
 	       modelimit <= modelimit - 1;
 	       for (i = 0; i < 16; i = i +1) begin
-   		  if (((mode-1)<i) && (i<(modelimit+1))&&(1<i)&&(i<15)) begin
+   		  if (((mode-1)<i) && (i<(modelimit+1))&&(1<i)&&(i<15)) begin                                               /////??????
 		     modedata[i] <= modedata[i+1];
 		  end 
    	       end
@@ -222,7 +221,7 @@ module traffic (/*AUTOARG*/
 	       //////////////////////////////////////////////////
 	       modelimit <= modelimit + 1;
 	       for (i = 0; i < 16; i = i +1) begin
-   		  if ((mode<i) && (i<(modelimit+2))&&(1<i)&&(i<16)) begin
+   		  if ((mode<i) && (i<(modelimit+2))&&(1<i)&&(i<16)) begin                                                 ///////////?????
 		     modedata[i] <= modedata[i-1];
 		  end 
    	       end
@@ -239,7 +238,7 @@ module traffic (/*AUTOARG*/
 		    2'b00://dark
 		      begin
 			 modedata[mode][j]<=0;
-			 modedata[mode][j+10]<=0;
+			 modedata[mode][j+10]<=0;                                                                    ///////???????
 		      end
 		    2'b01://light
 		      begin
@@ -258,7 +257,7 @@ module traffic (/*AUTOARG*/
 		      end
 		  endcase
 	       end // for (j=0; j<10; j = j+1)
-	       if (clean[12]==1 )
+	       if (clean[12]==1 )  //greenman
 		 modedata[mode][26] <= 1;
 	       else
 		 modedata[mode][26] <= 0;
@@ -272,7 +271,6 @@ module traffic (/*AUTOARG*/
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    use toggle switch to switch between light state
    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
    always @(posedge msclks[14]) begin
       for (k=0; k<10; k = k+1)begin
 	 if ((clean_tmp[k]==0) && (clean[k]==1)) begin
@@ -293,11 +291,10 @@ module traffic (/*AUTOARG*/
 
    always @(*) begin
       edit_mode[1] =  clean[10];
-   end
-
-   always @(*) begin
       delete_mode[1]=clean[11];
    end
+
+
    ////////////////////////////////////////////////////////////////////////////////////////////////////
 		//    one shot for stop
    ////////////////////////////////////////////////////////////////////////////////////////////////////   
