@@ -13,22 +13,63 @@ module rsa (/*AUTOARG*/
    output 	sig;
    integer 	addr_num;
    reg [255:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
-   /*AUTOREG*/
-   // Beginning of automatic regs (for this module's undeclared outputs)
-   reg [7:0]		data_o;
-   reg			ready;
+   reg [255:0] 	c;
+   reg [255:0] 	t;
+   
+   reg [7:0] 	data_o;
+   reg			ready,ready_tmp;
    reg			sig;
-   // End of automatics
+   reg [1:0] 		start_tmp;
+   integer 		k,n;
+   integer 		k_max,n_max;
+   /*AUTOREG*/
    /*AUTOWIRE*/
 
-   always @(*) begin
+   always @(*) begin //test
       a[0] = a[1];
       sig = oe;
    end
 
+   always @(*) begin
+      k_max = 255;
+      n_max = 225;
+      
+   end
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// rsa
+////////////////////////////////////////////////////////////////////////////////////////////////////
+   always @(posedge clk) begin
+      if ()
+      if (start == 0 || k!=0) begin
+	 /*
+	  a[0]<-0 \\U=a[0]
+	  if a[2][k]==1
+	    a[0] <= MA(a[0],T); 
+	   T<= MA(T,T)
+	  */
+      if (n == n_max) begin
+	 k <= k+1;
+	 n <=0;
+      end
+	 
+      if(k == k_max)
+	  k=0;
+      end     
+   end
+
+
+   always @(*)begin
+      if(start == o || k!=0)
+	ready=1;
+      else
+        ready=0;
+   end  
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    io
    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
    
    always @(posedge clk) begin
       if ((we==0) || (oe==0)) begin
