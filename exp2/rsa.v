@@ -13,8 +13,12 @@ module rsa (/*AUTOARG*/
    output 	sig;
    integer 	addr_num;
    reg [255:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
-   reg [255:0] 	c;
    reg [255:0] 	t;
+   
+   reg [511:0]  c;
+   reg [511:0]  c_temp;
+
+
    
    reg [7:0] 	data_o;
    reg			ready,ready_tmp;
@@ -22,8 +26,21 @@ module rsa (/*AUTOARG*/
    reg [1:0] 		start_tmp;
    integer 		k,n;
    integer 		k_max,n_max;
+   integer              i;
    /*AUTOREG*/
    /*AUTOWIRE*/
+
+   
+
+
+
+
+
+   end
+
+	
+
+
 
    always @(*) begin //test
       a[0] = a[1];
@@ -40,8 +57,21 @@ module rsa (/*AUTOARG*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // rsa
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-   always @(posedge clk) begin
-      if ()
+     initial begin
+	c[511]=1;
+	c[510:0]=0;
+     end
+
+     always @(posedge clk) begin
+      if (start == 0 || i!=0) begin
+	c_temp[510-i:255-i]=a[3][255:0];
+	c_temp[254-i:0]=o;
+	if(c[511-i]=1)
+	   c[511:0]-c_temp[510-i:0];	      
+	i = i+1;
+	if(i ==256)
+	   i=0;
+      end else begin
       if (start == 0 || k!=0) begin
 	 /*
 	  a[0]<-0 \\U=a[0]
@@ -65,6 +95,7 @@ module rsa (/*AUTOARG*/
 	ready=1;
       else
         ready=0;
+   end
    end  
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    io
