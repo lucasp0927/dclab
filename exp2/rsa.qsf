@@ -56,3 +56,32 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_L19 -to clk
+set_location_assignment PIN_J22 -to we
+set_location_assignment PIN_E26 -to oe
+set_location_assignment PIN_N18 -to reg_sel[0]
+set_location_assignment PIN_P18 -to reg_sel[1]
+set_location_assignment PIN_G23 -to data_i[0]
+set_location_assignment PIN_G24 -to data_i[1]
+set_location_assignment PIN_K22 -to data_i[2]
+set_location_assignment PIN_G25 -to data_i[3]
+set_location_assignment PIN_H23 -to data_i[4]
+set_location_assignment PIN_H24 -to data_i[5]
+set_location_assignment PIN_J23 -to data_i[6]
+set_location_assignment PIN_J24 -to data_i[7]
+set_location_assignment PIN_F24 -to addr[0]
+set_location_assignment PIN_F23 -to addr[1]
+set_location_assignment PIN_J21 -to addr[2]
+set_location_assignment PIN_J20 -to addr[3]
+set_location_assignment PIN_F25 -to addr[4]
+set_location_assignment PIN_K25 -to data_o[0]
+set_location_assignment PIN_K26 -to data_o[1]
+set_location_assignment PIN_M22 -to data_o[2]
+set_location_assignment PIN_M23 -to data_o[3]
+set_location_assignment PIN_M19 -to data_o[4]
+set_location_assignment PIN_M20 -to data_o[5]
+set_location_assignment PIN_N20 -to data_o[6]
+set_location_assignment PIN_M21 -to data_o[7]
+set_global_assignment -name MISC_FILE /home/lucaspeng/dclab/exp2/rsa.dpf
+set_location_assignment PIN_M24 -to sig

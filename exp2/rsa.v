@@ -1,6 +1,6 @@
 module rsa (/*AUTOARG*/
    // Outputs
-   ready, data_o,
+   ready, data_o, sig,
    // Inputs
    clk, reset, we, oe, start, reg_sel, addr, data_i
    );
@@ -10,16 +10,22 @@ module rsa (/*AUTOARG*/
    input [7:0] data_i;
    output      ready;
    output [7:0] data_o;
+   output 	sig;
    integer 	addr_num;
    reg [255:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
    reg [7:0]		data_o;
    reg			ready;
+   reg			sig;
    // End of automatics
    /*AUTOWIRE*/
 
-   
+   always @(*) begin
+      a[0] = a[1];
+      sig = oe;
+   end
+
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    //    io
    ////////////////////////////////////////////////////////////////////////////////////////////////////
