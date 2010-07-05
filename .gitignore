@@ -2,6 +2,7 @@
 */*~
 \#*
 */\#*
+*.bak
 exp1_w_edit/compile
 exp1_w_edit/db
 exp1_w_edit/incremental_db/
