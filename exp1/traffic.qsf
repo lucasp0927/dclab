@@ -1,0 +1,125 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
+# Date created = 11:22:47  June 28, 2010
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		traffic_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C35F672C6
+set_global_assignment -name TOP_LEVEL_ENTITY traffic
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.0 SP2"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:22:47  JUNE 28, 2010"
+set_global_assignment -name LAST_QUARTUS_VERSION "9.0 SP2"
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 672
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 6
+set_global_assignment -name VERILOG_FILE traffic.v
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_N2 -to clk
+set_location_assignment PIN_AE23 -to db[9]
+set_location_assignment PIN_AF23 -to db[8]
+set_location_assignment PIN_AB21 -to db[7]
+set_location_assignment PIN_AC22 -to db[6]
+set_location_assignment PIN_AD22 -to db[5]
+set_location_assignment PIN_AD23 -to db[4]
+set_location_assignment PIN_AD21 -to db[3]
+set_location_assignment PIN_AC21 -to db[2]
+set_location_assignment PIN_AA14 -to db[1]
+set_location_assignment PIN_Y13 -to db[0]
+set_global_assignment -name MISC_FILE /data/homework/soph/dclab/exp1/traffic.dpf
+set_global_assignment -name MISC_FILE /home/lucaspeng/homework/soph/dclab/exp1/traffic.dpf
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name QIP_FILE clksrc1_1.qip
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_location_assignment PIN_N23 -to stop_button
+set_location_assignment PIN_G26 -to button
+set_location_assignment PIN_AD12 -to buttonlight
+set_location_assignment PIN_AE12 -to stoplight
+set_location_assignment PIN_N9 -to seg0[6]
+set_location_assignment PIN_P9 -to seg0[5]
+set_location_assignment PIN_L7 -to seg0[4]
+set_location_assignment PIN_L6 -to seg0[3]
+set_location_assignment PIN_L9 -to seg0[2]
+set_location_assignment PIN_L2 -to seg0[1]
+set_location_assignment PIN_L3 -to seg0[0]
+set_location_assignment PIN_M4 -to seg1[6]
+set_location_assignment PIN_M5 -to seg1[5]
+set_location_assignment PIN_M3 -to seg1[4]
+set_location_assignment PIN_M2 -to seg1[3]
+set_location_assignment PIN_P3 -to seg1[2]
+set_location_assignment PIN_P4 -to seg1[1]
+set_location_assignment PIN_R2 -to seg1[0]
+set_location_assignment PIN_R3 -to seg2[6]
+set_location_assignment PIN_R4 -to seg2[5]
+set_location_assignment PIN_R5 -to seg2[4]
+set_location_assignment PIN_T9 -to seg2[3]
+set_location_assignment PIN_P7 -to seg2[2]
+set_location_assignment PIN_P6 -to seg2[1]
+set_location_assignment PIN_T2 -to seg2[0]
+set_location_assignment PIN_T3 -to seg3[6]
+set_location_assignment PIN_R6 -to seg3[5]
+set_location_assignment PIN_R7 -to seg3[4]
+set_location_assignment PIN_T4 -to seg3[3]
+set_location_assignment PIN_U2 -to seg3[2]
+set_location_assignment PIN_U1 -to seg3[1]
+set_location_assignment PIN_U9 -to seg3[0]
+set_location_assignment PIN_P23 -to plus_button
+set_location_assignment PIN_W26 -to minus_button
+set_location_assignment PIN_U23 -to hori[7]
+set_location_assignment PIN_U26 -to hori[6]
+set_location_assignment PIN_T21 -to hori[5]
+set_location_assignment PIN_T25 -to hori[4]
+set_location_assignment PIN_T23 -to hori[3]
+set_location_assignment PIN_R20 -to hori[2]
+set_location_assignment PIN_R25 -to hori[1]
+set_location_assignment PIN_N24 -to hori[0]
+set_location_assignment PIN_U24 -to vert[7]
+set_location_assignment PIN_U25 -to vert[6]
+set_location_assignment PIN_T20 -to vert[5]
+set_location_assignment PIN_T18 -to vert[4]
+set_location_assignment PIN_T24 -to vert[3]
+set_location_assignment PIN_T22 -to vert[2]
+set_location_assignment PIN_R24 -to vert[1]
+set_location_assignment PIN_P24 -to vert[0]
+set_global_assignment -name MISC_FILE /home/lucaspeng/dclab/exp1/traffic.dpf

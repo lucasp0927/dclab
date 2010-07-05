@@ -1,0 +1,276 @@
+|traffic
+db[0] <= db[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[1] <= db[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[2] <= db[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[3] <= db[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[4] <= db[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[5] <= db[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[6] <= db[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[7] <= db[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[8] <= db[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+db[9] <= db[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+buttonlight <= next.DB_MAX_OUTPUT_PORT_TYPE
+stoplight <= stop_oneshot:stop_oneshot1.stop
+seg0[0] <= seg_decode:s0.seg
+seg0[1] <= seg_decode:s0.seg
+seg0[2] <= seg_decode:s0.seg
+seg0[3] <= seg_decode:s0.seg
+seg0[4] <= seg_decode:s0.seg
+seg0[5] <= seg_decode:s0.seg
+seg0[6] <= seg_decode:s0.seg
+seg1[0] <= seg_decode:s1.seg
+seg1[1] <= seg_decode:s1.seg
+seg1[2] <= seg_decode:s1.seg
+seg1[3] <= seg_decode:s1.seg
+seg1[4] <= seg_decode:s1.seg
+seg1[5] <= seg_decode:s1.seg
+seg1[6] <= seg_decode:s1.seg
+seg2[0] <= seg_decode:s2.seg
+seg2[1] <= seg_decode:s2.seg
+seg2[2] <= seg_decode:s2.seg
+seg2[3] <= seg_decode:s2.seg
+seg2[4] <= seg_decode:s2.seg
+seg2[5] <= seg_decode:s2.seg
+seg2[6] <= seg_decode:s2.seg
+seg3[0] <= seg_decode:s3.seg
+seg3[1] <= seg_decode:s3.seg
+seg3[2] <= seg_decode:s3.seg
+seg3[3] <= seg_decode:s3.seg
+seg3[4] <= seg_decode:s3.seg
+seg3[5] <= seg_decode:s3.seg
+seg3[6] <= seg_decode:s3.seg
+hori[0] <= greenman:greenman1.hori
+hori[1] <= greenman:greenman1.hori
+hori[2] <= greenman:greenman1.hori
+hori[3] <= greenman:greenman1.hori
+hori[4] <= greenman:greenman1.hori
+hori[5] <= greenman:greenman1.hori
+hori[6] <= greenman:greenman1.hori
+hori[7] <= greenman:greenman1.hori
+vert[0] <= greenman:greenman1.vert
+vert[1] <= greenman:greenman1.vert
+vert[2] <= greenman:greenman1.vert
+vert[3] <= greenman:greenman1.vert
+vert[4] <= greenman:greenman1.vert
+vert[5] <= greenman:greenman1.vert
+vert[6] <= greenman:greenman1.vert
+vert[7] <= greenman:greenman1.vert
+clk => clk~0.IN1
+button => buttoncount~19.OUTPUTSELECT
+button => buttoncount~18.OUTPUTSELECT
+button => buttoncount~17.OUTPUTSELECT
+button => buttoncount~16.OUTPUTSELECT
+button => buttoncount~15.OUTPUTSELECT
+button => buttoncount~14.OUTPUTSELECT
+button => buttoncount~13.OUTPUTSELECT
+button => buttoncount~12.OUTPUTSELECT
+button => buttoncount~11.OUTPUTSELECT
+button => buttoncount~10.OUTPUTSELECT
+stop_button => stop_button~0.IN1
+plus_button => plus_button~0.IN1
+minus_button => minus_button~0.IN1
+
+
+|traffic|clksrc:clksrc1
+areset => areset~0.IN1
+inclk0 => sub_wire4[0].IN1
+c0 <= altpll:altpll_component.clk
+locked <= altpll:altpll_component.locked
+
+
+|traffic|clksrc:clksrc1|altpll:altpll_component
+inclk[0] => pll.CLK
+inclk[1] => ~NO_FANOUT~
+fbin => ~NO_FANOUT~
+pllena => ~NO_FANOUT~
+clkswitch => ~NO_FANOUT~
+areset => pll.ARESET
+pfdena => ~NO_FANOUT~
+clkena[0] => ~NO_FANOUT~
+clkena[1] => ~NO_FANOUT~
+clkena[2] => ~NO_FANOUT~
+clkena[3] => ~NO_FANOUT~
+clkena[4] => ~NO_FANOUT~
+clkena[5] => ~NO_FANOUT~
+extclkena[0] => ~NO_FANOUT~
+extclkena[1] => ~NO_FANOUT~
+extclkena[2] => ~NO_FANOUT~
+extclkena[3] => ~NO_FANOUT~
+scanclk => ~NO_FANOUT~
+scanclkena => ~NO_FANOUT~
+scanaclr => ~NO_FANOUT~
+scanread => ~NO_FANOUT~
+scanwrite => ~NO_FANOUT~
+scandata => ~NO_FANOUT~
+phasecounterselect[0] => ~NO_FANOUT~
+phasecounterselect[1] => ~NO_FANOUT~
+phasecounterselect[2] => ~NO_FANOUT~
+phasecounterselect[3] => ~NO_FANOUT~
+phaseupdown => ~NO_FANOUT~
+phasestep => ~NO_FANOUT~
+configupdate => ~NO_FANOUT~
+fbmimicbidir <= <GND>
+clk[0] <= clk[0]~0.DB_MAX_OUTPUT_PORT_TYPE
+clk[1] <= <GND>
+clk[2] <= <GND>
+clk[3] <= <GND>
+clk[4] <= <GND>
+clk[5] <= <GND>
+extclk[0] <= <GND>
+extclk[1] <= <GND>
+extclk[2] <= <GND>
+extclk[3] <= <GND>
+clkbad[0] <= <GND>
+clkbad[1] <= <GND>
+enable1 <= <GND>
+enable0 <= <GND>
+activeclock <= <GND>
+clkloss <= <GND>
+locked <= pll.LOCKED
+scandataout <= <GND>
+scandone <= <GND>
+sclkout0 <= <GND>
+sclkout1 <= sclkout1~0.DB_MAX_OUTPUT_PORT_TYPE
+phasedone <= <GND>
+vcooverrange <= <GND>
+vcounderrange <= <GND>
+fbout <= <GND>
+
+
+|traffic|plusminus_oneshot:plusminus_oneshot1
+plus <= plus~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minus <= minus~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => plus~reg0.CLK
+clk => minus~reg0.CLK
+plus_button => b_plus~4.OUTPUTSELECT
+plus_button => b_plus~5.OUTPUTSELECT
+plus_button => b_plus~6.OUTPUTSELECT
+plus_button => b_plus~7.OUTPUTSELECT
+plus_button => b_plus~3.OUTPUTSELECT
+plus_button => b_plus~2.OUTPUTSELECT
+plus_button => b_plus~1.OUTPUTSELECT
+plus_button => b_plus~0.OUTPUTSELECT
+minus_button => b_minus~4.OUTPUTSELECT
+minus_button => b_minus~5.OUTPUTSELECT
+minus_button => b_minus~6.OUTPUTSELECT
+minus_button => b_minus~7.OUTPUTSELECT
+minus_button => b_minus~3.OUTPUTSELECT
+minus_button => b_minus~2.OUTPUTSELECT
+minus_button => b_minus~1.OUTPUTSELECT
+minus_button => b_minus~0.OUTPUTSELECT
+
+
+|traffic|stop_oneshot:stop_oneshot1
+stop <= stop~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => stop~reg0.CLK
+stop_button => b~4.OUTPUTSELECT
+stop_button => b~5.OUTPUTSELECT
+stop_button => b~6.OUTPUTSELECT
+stop_button => b~7.OUTPUTSELECT
+stop_button => b~3.OUTPUTSELECT
+stop_button => b~2.OUTPUTSELECT
+stop_button => b~1.OUTPUTSELECT
+stop_button => b~0.OUTPUTSELECT
+
+
+|traffic|seg_decode:s0
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|traffic|seg_decode:s1
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|traffic|seg_decode:s2
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|traffic|seg_decode:s3
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|traffic|greenman:greenman1
+clk => clks[24].CLK
+clk => clks[23].CLK
+clk => clks[22].CLK
+clk => clks[21].CLK
+clk => clks[20].CLK
+clk => clks[19].CLK
+clk => clks[18].CLK
+clk => clks[17].CLK
+clk => clks[16].CLK
+clk => clks[15].CLK
+clk => clks[14].CLK
+clk => clks[13].CLK
+clk => clks[12].CLK
+clk => clks[11].CLK
+clk => clks[10].CLK
+clk => clks[9].CLK
+clk => clks[8].CLK
+clk => clks[7].CLK
+clk => clks[6].CLK
+clk => clks[5].CLK
+clk => clks[4].CLK
+clk => clks[3].CLK
+clk => clks[2].CLK
+clk => clks[1].CLK
+clk => clks[0].CLK
+vert[0] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+vert[1] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+vert[2] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+vert[3] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+vert[4] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+vert[5] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+vert[6] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+vert[7] <= Decoder3.DB_MAX_OUTPUT_PORT_TYPE
+hori[0] <= hori~5.DB_MAX_OUTPUT_PORT_TYPE
+hori[1] <= hori~4.DB_MAX_OUTPUT_PORT_TYPE
+hori[2] <= hori~1.DB_MAX_OUTPUT_PORT_TYPE
+hori[3] <= hori~3.DB_MAX_OUTPUT_PORT_TYPE
+hori[4] <= hori~6.DB_MAX_OUTPUT_PORT_TYPE
+hori[5] <= hori~2.DB_MAX_OUTPUT_PORT_TYPE
+hori[6] <= hori~1.DB_MAX_OUTPUT_PORT_TYPE
+hori[7] <= hori~1.DB_MAX_OUTPUT_PORT_TYPE
+greenmanon => always3~0.IN1
+
+
