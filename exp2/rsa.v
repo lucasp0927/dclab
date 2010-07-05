@@ -54,10 +54,10 @@ module rsa (/*AUTOARG*/
    always @(posedge clk) begin
       if (start == 0 || i!=0) begin
 	 c_temp[510-i:255-i]=a[3][255:0];
-	 c_temp[254-i:0]=o;
-	 if(c[511-i]=1)
-	   c[511:0]-c_temp[510-i:0];	      
-	 i = i+1;
+	 c_temp[254-i:0]=0;
+	 if(c[511-i]==1)
+	   c=c[511:0]-c_temp[510-i:0];	      
+	 i <= i+1;
 	 if(i ==256)
 	   i=0;
       end else begin
@@ -65,11 +65,11 @@ module rsa (/*AUTOARG*/
 	 if (start == 0 || k!=0) begin
 	    if (a[2][k] == 1) begin
 	       //a[0] <= MA(a[0],T);
-	       temp <= U+a[0][n]t;
-	       U <= (temp+temp[0]a[3])>>1;
+	       temp <= U+a[0][n]*t;
+	       U <= (temp+temp[0]*a[3])>>1;
 	    end
-	    temp <= t_now+t[n]t;
-	    t_now <= (temp+temp[0]a[3])>>1;
+	    temp <= t_now+t[n]*t;
+	    t_now <= (temp+temp[0]*a[3])>>1;
 	    //T<= MA(T,T)
 	    n<=n+1;
 	    if (n == n_max) begin
@@ -87,7 +87,7 @@ module rsa (/*AUTOARG*/
    end  
 
    always @(*)begin
-      if(start == o || k!=0)
+      if(start == 0 || k!=0)
 	ready=1;
       else
         ready=0;
