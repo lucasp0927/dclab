@@ -27,15 +27,17 @@ module rsa (/*AUTOARG*/
    integer 		k,n;
    integer 		k_max,n_max;
    integer              i;
+   reg 			c_ready;
+   
    /*AUTOREG*/
    /*AUTOWIRE*/
 
-
+/*
    always @(*) begin //test
       a[0] = a[1];
       sig = oe;
    end
-
+*/
    always @(*) begin
       k_max = 255;
       n_max = 225;
@@ -49,6 +51,7 @@ module rsa (/*AUTOARG*/
    initial begin
       c[0]=1;
       c[255:1]=0;
+      
    end
 
    always @(posedge clk) begin
@@ -57,39 +60,44 @@ module rsa (/*AUTOARG*/
           
 	 
 	 if(c[255:0] >= a[3][255:0])
-	   c=c-a[3];	      
+	   c<=c-a[3];	      
 	 i <= i+1;
 	 if(i ==256)
-	   i=0;
-	 U=1;
+	 i<=0;
+    c_ready <= 1;
+	 U<=1;
+	 
       end else begin
-
-	 if (start == 0 || k!=0 ||n!=0) begin //move up
+//tamp Si+ai*B
+//t_now s
+	 if (c_ready == 1 || k!=0 || n!=0) begin
+        c_ready <= 0;
 	    if (a[2][k] == 1) begin
 	       //a[0] <= MA(a[0],T);
 	       temp <= U+a[0][n]*t;
 	       U <= (temp+temp[0]*a[3])>>1;
 	    end
+	    //T<= MA(T,T)
 	    temp <= t_now+t[n]*t;
 	    t_now <= (temp+temp[0]*a[3])>>1;
-	    //T<= MA(T,T)
+	    
 	    n<=n+1;
 	    if (n == n_max) begin
-	       a[0]=U;
-	       t=t_now;
+	       a[0]<=U;
+	       t<=t_now;
 	       k <= k+1;
 	       n <=0;
 	    end
 	    
 	    if(k == k_max)
-	      k=0;
+	      k<=0;
 	 end // if (start == 0 || k!=0)
 	 
       end
    end  
 
    always @(*)begin
-      if(start == 0 || k!=0 || n!=0)
+      if(c_ready == 0 || k!=0 || n!=0)
 	ready=1;
       else
         ready=0;
