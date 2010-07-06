@@ -50,7 +50,7 @@ module rsa (/*AUTOARG*/
       we_o = we;
       i_o [7:0] = i [7:0];		  
       k_o [7:0] = k [7:0];
-      m_o [7:0] = n[7:0];
+      m_o [7:0] = n [7:0];
       n_o [7:0] = n [7:0];
    end
 
@@ -68,10 +68,12 @@ module rsa (/*AUTOARG*/
       if (reset_tmp == 2'b01) begin
 	 c[0]<=1;
 	 c[255:1]<=0;
+	 a[0] <= 1;
 	 i<=0;
 	 k<=0;
 	 n<=0;
 	 m<=0;
+	 U<=1;
 	 c_ready <= 0;
 	 t_ready <= 0;
       end else begin
@@ -80,7 +82,7 @@ module rsa (/*AUTOARG*/
 	    if(c[255:0] >= a[3][255:0])
 	      c<=c-a[3];	      
 	    i <= i+1;
-	    if(i == 256)
+	    if(i == 512)
 	      begin
 		 i<=0;
 		 c_ready <= 1;
