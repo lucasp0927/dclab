@@ -60,9 +60,10 @@ module rsa (/*AUTOARG*/
 	 i <= i+1;
 	 if(i ==256)
 	   i=0;
+	 U=1;
       end else begin
 
-	 if (start == 0 || k!=0) begin
+	 if (start == 0 || k!=0 ||n!=0) begin //move up
 	    if (a[2][k] == 1) begin
 	       //a[0] <= MA(a[0],T);
 	       temp <= U+a[0][n]*t;
@@ -87,7 +88,7 @@ module rsa (/*AUTOARG*/
    end  
 
    always @(*)begin
-      if(start == 0 || k!=0)
+      if(start == 0 || k!=0 || n!=0)
 	ready=1;
       else
         ready=0;
