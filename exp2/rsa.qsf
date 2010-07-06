@@ -85,3 +85,17 @@ set_location_assignment PIN_N20 -to data_o[6]
 set_location_assignment PIN_M21 -to data_o[7]
 set_global_assignment -name MISC_FILE /home/lucaspeng/dclab/exp2/rsa.dpf
 set_location_assignment PIN_M24 -to sig
+set_location_assignment PIN_L23 -to ready
+set_location_assignment PIN_E25 -to start
+set_location_assignment PIN_M25 -to we_o
+set_location_assignment PIN_N24 -to ready_o
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_location_assignment PIN_T25 -to m_o[7]
+set_location_assignment PIN_T24 -to m_o[6]
+set_location_assignment PIN_T23 -to m_o[5]
+set_location_assignment PIN_T22 -to m_o[4]
+set_location_assignment PIN_R20 -to m_o[3]
+set_location_assignment PIN_R24 -to m_o[2]
+set_location_assignment PIN_R25 -to m_o[1]
+set_location_assignment PIN_P24 -to m_o[0]

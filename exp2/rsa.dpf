@@ -2,8 +2,20 @@
 
 <pin_planner>
 	<pin_info>
+		<pin name="i_o[7:0]" source="Pin Planner" >
+		</pin>
 	</pin_info>
 	<buses>
+		<bus name="i_o[7:0]" direction="" >
+			<member name="i_o[7]" />
+			<member name="i_o[6]" />
+			<member name="i_o[5]" />
+			<member name="i_o[4]" />
+			<member name="i_o[3]" />
+			<member name="i_o[2]" />
+			<member name="i_o[1]" />
+			<member name="i_o[0]" />
+		</bus>
 	</buses>
 	<group_file_association>
 	</group_file_association>

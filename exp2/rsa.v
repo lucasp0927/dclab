@@ -1,9 +1,9 @@
 module rsa (/*AUTOARG*/
-   // Outputs
-   ready, data_o, sig,
-   // Inputs
-   clk, reset, we, oe, start, reg_sel, addr, data_i
-   );
+	    // Outputs
+	    ready, data_o, sig, ready_o, we_o, i_o, k_o, m_o, n_o,
+	    // Inputs
+	    clk, reset, we, oe, start, reg_sel, addr, data_i
+	    );
    input clk,reset,we,oe,start;
    input [1:0] reg_sel;
    input [4:0] addr;
@@ -11,93 +11,142 @@ module rsa (/*AUTOARG*/
    output      ready;
    output [7:0] data_o;
    output 	sig;
+   output 	ready_o;
+   output       we_o;
+   output [7:0] i_o,k_o,m_o,n_o;
+   
    integer 	addr_num;
    reg [255:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
    reg [255:0] 	t_now,t,temp,U;
    
-   reg [255:0]  c;
-   reg [255:0]  c_temp;
+   reg [255:0] 	c;
+   reg [255:0] 	c_temp;
 
-
-   
    reg [7:0] 	data_o;
-   reg			ready,ready_tmp;
-   reg			sig;
-   reg [1:0] 		start_tmp;
-   integer 		k,n;
-   integer 		k_max,n_max;
-   integer              i;
-   reg 			c_ready;
+   reg 		ready,ready_tmp;
+   reg 		sig;
+   reg [1:0] 	start_tmp;
+   reg [7:0] 	k,n,m;
+   integer 	k_max,n_max;
+   reg [8:0] 	i;
+   reg 		c_ready,t_ready;
+   reg 		reset_record;
    
    /*AUTOREG*/
+   // Beginning of automatic regs (for this module's undeclared outputs)
+   reg [7:0] 	i_o;
+   reg [7:0] 	k_o;
+   reg [7:0] 	m_o;
+   reg [7:0] 	n_o;
+   reg 		ready_o;
+   reg 		we_o;
+   // End of automatics
    /*AUTOWIRE*/
 
-/*
+
    always @(*) begin //test
-      a[0] = a[1];
       sig = oe;
+      ready_o = ready;
+      we_o = we;
+      i_o [7:0] = i [7:0];		  
+      k_o [7:0] = k [7:0];
+      m_o [7:0] = n[7:0];
+      n_o [7:0] = n [7:0];
    end
-*/
+
    always @(*) begin
       k_max = 255;
       n_max = 225;
    end
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// rsa
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-   initial begin
-      c[0]=1;
-      c[255:1]=0;
-      
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   // rsa
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+    initial begin 
+       reset_record = 0;
    end
-
+    
    always @(posedge clk) begin
-      if (start == 0 || i!=0) begin
-	  c[255:0] <= c[255:0] << 1;
-          
-	 
-	 if(c[255:0] >= a[3][255:0])
-	   c<=c-a[3];	      
-	 i <= i+1;
-	 if(i ==256)
+      if (reset_record == 0) begin
+	 c[0]<=1;
+	 c[255:1]<=0;
 	 i<=0;
-    c_ready <= 1;
-	 U<=1;
-	 
+	 k<=0;
+	 n<=0;
+	 m<=0;
+	 c_ready <= 0;
+	 t_ready <= 0;
+	 reset_record <= 1;
       end else begin
-//tamp Si+ai*B
-//t_now s
-	 if (c_ready == 1 || k!=0 || n!=0) begin
-        c_ready <= 0;
-	    if (a[2][k] == 1) begin
-	       //a[0] <= MA(a[0],T);
-	       temp <= U+a[0][n]*t;
-	       U <= (temp+temp[0]*a[3])>>1;
+	 if (start == 0 || i!=0) begin
+	    c[255:0] <= c[255:0] << 1;
+	    if(c[255:0] >= a[3][255:0])
+	      c<=c-a[3];	      
+	    i <= i+1;
+	    if(i == 256)
+	      begin
+		 i<=0;
+		 c_ready <= 1;
+		 U<=1;
+	      end
+	 end else begin
+	    if (c_ready == 1 || m != 0) begin
+	       //T=MA(C,M)
+	       if (m==0)
+		 t_now <= 0;
+	       temp <= t_now + c[m]*a[1];
+	       t_now <= (temp+temp[0]*a[3])>>1;
+	       m<=m+1;
+
+	       if (m == 255) begin
+		  t <= t_now;
+		  m <= 0;
+		  c_ready <= 0;
+		  t_ready <= 1;
+	       end
+	    end else begin
+	       //tamp Si+ai*B
+	       //t_now s
+	       if (t_ready == 1 || k!=0 || n!=0) begin
+		  if (a[2][k] == 1) begin
+		     //a[0] <= MA(a[0],T);
+		     if (n == 0)
+		       U<=0;
+		     temp <= U+a[0][n]*t;
+		     U <= (temp+temp[0]*a[3])>>1;
+		  end
+		  //T<= MA(T,T)
+		  if (n==0)
+		    t_now <= 0;
+		  temp <= t_now+t[n]*t;
+		  t_now <= (temp+temp[0]*a[3])>>1;
+		  
+		  n<=n+1;
+		  if (n == n_max) begin
+		     a[0]<=U;
+		     t <= t_now;
+		     k <= k+1;
+		     n <= 0;
+		  end
+		  
+		  if(k == k_max)
+		    begin
+		       k<=0;
+		       t_ready <= 0;
+		    end
+	       end // if (start == 0 || k!=0)
 	    end
-	    //T<= MA(T,T)
-	    temp <= t_now+t[n]*t;
-	    t_now <= (temp+temp[0]*a[3])>>1;
-	    
-	    n<=n+1;
-	    if (n == n_max) begin
-	       a[0]<=U;
-	       t<=t_now;
-	       k <= k+1;
-	       n <=0;
-	    end
-	    
-	    if(k == k_max)
-	      k<=0;
-	 end // if (start == 0 || k!=0)
-	 
+	 end
       end
+
+
+
    end  
 
    always @(*)begin
-      if(c_ready == 0 || k!=0 || n!=0)
+      if(i != 0 || k!=0 || n!=0 || m !=0 ||c_ready == 1|| t_ready == 1 )
 	ready=1;
       else
         ready=0;
