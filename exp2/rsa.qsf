@@ -99,3 +99,4 @@ set_location_assignment PIN_R20 -to m_o[3]
 set_location_assignment PIN_R24 -to m_o[2]
 set_location_assignment PIN_R25 -to m_o[1]
 set_location_assignment PIN_P24 -to m_o[0]
+set_location_assignment PIN_D25 -to reset

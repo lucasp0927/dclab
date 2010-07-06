@@ -26,11 +26,11 @@ module rsa (/*AUTOARG*/
    reg 		ready,ready_tmp;
    reg 		sig;
    reg [1:0] 	start_tmp;
-   reg [7:0] 	k,n,m;
+   reg [8:0] 	k,n,m;
    integer 	k_max,n_max;
    reg [8:0] 	i;
    reg 		c_ready,t_ready;
-   reg 		reset_record;
+   reg [1:0] 		reset_tmp;
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
@@ -63,13 +63,9 @@ module rsa (/*AUTOARG*/
    ////////////////////////////////////////////////////////////////////////////////////////////////////
    // rsa
    ////////////////////////////////////////////////////////////////////////////////////////////////////
-   
-    initial begin 
-       reset_record = 0;
-   end
-    
+
    always @(posedge clk) begin
-      if (reset_record == 0) begin
+      if (reset_tmp == 2'b01) begin
 	 c[0]<=1;
 	 c[255:1]<=0;
 	 i<=0;
@@ -78,7 +74,6 @@ module rsa (/*AUTOARG*/
 	 m<=0;
 	 c_ready <= 0;
 	 t_ready <= 0;
-	 reset_record <= 1;
       end else begin
 	 if (start == 0 || i!=0) begin
 	    c[255:0] <= c[255:0] << 1;
@@ -130,19 +125,18 @@ module rsa (/*AUTOARG*/
 		     k <= k+1;
 		     n <= 0;
 		  end
-		  
 		  if(k == k_max)
 		    begin
 		       k<=0;
+		       n <= 0;
 		       t_ready <= 0;
 		    end
 	       end // if (start == 0 || k!=0)
 	    end
-	 end
-      end
-
-
-
+	 end // else: !if(start == 0 || i!=0)
+      end // else: !if(reset_tmp == 2'b01)
+      	 reset_tmp[1]<=reset_tmp[0];
+	 reset_tmp[0] <= reset;
    end  
 
    always @(*)begin
