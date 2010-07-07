@@ -21,7 +21,7 @@ module rsa (/*AUTOARG*/
    reg [255:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
    reg [255:0] 	t_now,t,temp,U;
    
-   reg [255:0] 	c;
+   reg [256:0] 	c;
    reg [255:0] 	c_temp;
 
    reg [7:0] 	data_o;
@@ -77,15 +77,14 @@ module rsa (/*AUTOARG*/
 	 //U<=1;
 	 c_ready <= 0;
 	 t_ready <= 0;
-	 debug <=0;
 	 
       end else begin
 	 if (start == 0 || i!=0) begin
-	    c[255:0] <= c[255:0] << 1;
-	    if(c[255:0] >= a[3][255:0])
+	    c <= c*2;
+	    if(c >= a[3])
 	      c<=c-a[3];	      
 	    i <= i+1;
-	    if(i == 512)
+	    if(i == 511)
 	      begin
 		 i<=0;
 		 c_ready <= 1;
