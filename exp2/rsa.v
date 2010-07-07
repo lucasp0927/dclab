@@ -66,14 +66,13 @@ module rsa (/*AUTOARG*/
 
    always @(posedge clk) begin
       if (reset_tmp == 2'b01) begin
-	 c[0]<=1;
-	 c[255:1]<=0;
-	 a[0] <= 1;
+	 c<=1;
+	 a<=1;
 	 i<=0;
 	 k<=0;
 	 n<=0;
 	 m<=0;
-	 U<=1;
+	 //U<=1;
 	 c_ready <= 0;
 	 t_ready <= 0;
       end else begin
@@ -86,7 +85,7 @@ module rsa (/*AUTOARG*/
 	      begin
 		 i<=0;
 		 c_ready <= 1;
-		 U<=1;
+		 //U<=1;
 	      end
 	 end else begin
 	    if (c_ready == 1 || m != 0) begin
