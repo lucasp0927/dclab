@@ -74,6 +74,7 @@ module rsa (/*AUTOARG*/
 	 k<=0;
 	 n<=0;
 	 m<=0;
+	 t_now <= 0;
 	 //U<=1;
 	 c_ready <= 0;
 	 t_ready <= 0;
@@ -98,7 +99,6 @@ module rsa (/*AUTOARG*/
 	       temp <= t_now + c[m]*a[1];
 	       t_now <= (temp+temp[0]*a[3])>>1;
 	       m<=m+1;
-
 	       if (m == 255) begin
 		  t <= t_now;
 		  m <= 0;
@@ -123,13 +123,13 @@ module rsa (/*AUTOARG*/
 		  t_now <= (temp+temp[0]*a[3])>>1;
 		  
 		  n<=n+1;
-		  if (n == n_max) begin
+		  if (n == 255) begin
 		     a[0]<=U;
 		     t <= t_now;
 		     k <= k+1;
 		     n <= 0;
 		  end
-		  if(k == k_max)
+		  if(k == 255)
 		    begin
 		       k<=0;
 		       n <= 0;
@@ -142,7 +142,7 @@ module rsa (/*AUTOARG*/
       	 reset_tmp[1]<=reset_tmp[0];
 	 reset_tmp[0] <= reset;
    end  
-
+	 
    always @(*)begin
       if(i != 0 || k!=0 || n!=0 || m !=0 ||c_ready == 1|| t_ready == 1 )
 	ready=1;
