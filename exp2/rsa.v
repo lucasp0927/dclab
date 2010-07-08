@@ -18,17 +18,17 @@ module rsa (/*AUTOARG*/
    integer 	addr_num;
    integer 	debug;
    
-   reg [255:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
-   reg [255:0] 	t_now,t_now2,t_now3,t,temp,temp2,temp3;
+   reg [512:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
+   reg [512:0] 	t_now,t_now2,t_now3,t,temp,temp2,temp3;
    
-   reg [256:0] 	c;
-   reg [255:0] 	c_temp;
+   reg [512:0] 	c;
+
 
    reg [7:0] 	data_o;
    reg 		ready,ready_tmp;
    reg 		sig;
    reg [1:0] 	start_tmp;
-   reg [8:0] 	k,n,m;
+   reg [9:0] 	k,n,m;
    integer 	k_max,n_max;
    reg [9:0] 	i;
    reg 		c_ready,t_ready;
@@ -83,12 +83,12 @@ module rsa (/*AUTOARG*/
       end else begin
 	 if (start == 0 || i!=0) begin
 	    //c <= c*2;
-	    if(c*2 >= a[3])
-	      c<=c*2-a[3];
+	    if((c<<1) >= a[3])
+	      c<=(c<<1)-a[3];
 	    else
 	      c<=c*2;
 	    i <= i+1;
-	    if(i == 7) //就是這個數字+1
+	    if(i == 511) //就是這個數字+1
 	      begin
 		 i<=0;
 		 c_ready <= 1;
@@ -99,42 +99,41 @@ module rsa (/*AUTOARG*/
 	       //T=MA(C,M)
 	       t_now <= (temp+temp[0]*a[3])>>1;
 	       m<=m+1;
-	       if (m == 4) begin //就是這個數字
+	       if (m == 256) begin //就是這個數字
 		  t <= t_now;
 		  m <= 0;
 		  c_ready <= 0;
-		  //t_ready <= 1;
-		  t_ready <= 0;
+		  t_ready <= 1;
+		  //t_ready <= 0;
 	       end
 	    end else begin
 	       //tamp Si+ai*B
 	       //t_now s
 	       if (t_ready == 1 || k!=0 || n!=0) begin
-		  if (k!=4)
+		  if (k!=256)
 		    begin
 		       if ((a[2][k] == 1)) begin
 			  //a[0] <= MA(a[0],T);
-			  if (n==4) begin  //try to use conditional
-			     t_now2 <= 0;
-			  end else begin
+			  if (n!=256) begin  //try to use conditional
 			     t_now2 <= (temp2+temp2[0]*a[3])>>1;
-			  end
+			  end 
 		       end
 		       //T<= MA(T,T)
-		       if (n==4) begin
-			  t_now <= 0;
-		       end else begin
+		      if (n!=256) begin
 			  t_now3 <= (temp3+temp3[0]*a[3])>>1;
-		       end
+		       end 
+
 		       n<=n+1;
 		    end
-		  if (n == 4) begin
+		  if (n == 256) begin
 		     a[0]<=t_now2;
 		     t <= t_now3;
+		 //    t_now2 <= 0;
+//		     t_now3 <= 0;
 		     k <= k+1;
 		     n <= 0;
 		  end
-		  if(k == 4)
+		  if(k == 256)
 		    begin
 		       k<=0;
 		       n <= 0;
@@ -150,8 +149,13 @@ module rsa (/*AUTOARG*/
 
    always @(*)begin 
       temp = t_now + c[m]*a[1];
-      temp2 = t_now2+a[0][n]*t;
-      temp3 = t_now3+t[n]*t;
+      if (n==0) begin
+	 temp2 = a[0][n]*t;
+	 temp3 = t[n]*t;
+      end else begin
+	 temp2 = t_now2+a[0][n]*t;
+	 temp3 = t_now3+t[n]*t;
+      end
    end
 
    always @(*)begin
@@ -171,7 +175,7 @@ module rsa (/*AUTOARG*/
 	 case (reg_sel)
 	   2'd3:
 	     begin
-		/*
+
 		 case (addr)
 	 	 5'd0: a[3][7:0]<=data_i;
 		 5'd1: a[3][15:8]<=data_i;
@@ -206,12 +210,11 @@ module rsa (/*AUTOARG*/
 		 5'd30: a[3][247:240]<=data_i;
 		 5'd31: a[3][255:248]<=data_i;
 		endcase
-		 */
-		a[3]<=7;
+
+		
 	     end
 	   2'd1:
 	     begin
-		/*
 		 case (addr)
 		 5'd0: a[1][7:0]<=data_i;
 		 5'd1: a[1][15:8]<=data_i;
@@ -246,12 +249,11 @@ module rsa (/*AUTOARG*/
 		 5'd30: a[1][247:240]<=data_i;
 		 5'd31: a[1][255:248]<=data_i;
 		endcase
-		 */
-		a[1] <= 3;
+
+		
 	     end
 	   2'd2:
 	     begin
-		/*
 		 case (addr)
 		 5'd0: a[2][7:0]<=data_i;
 		 5'd1: a[2][15:8]<=data_i;
@@ -286,46 +288,43 @@ module rsa (/*AUTOARG*/
 		 5'd30: a[2][247:240]<=data_i;
 		 5'd31: a[2][255:248]<=data_i;
 		endcase
-		 */
-		a[2] <= 4;
 	     end
 	   2'd0:
 	     begin
-		/*	case (addr)
-		 5'd0: data_o<=c[7:0];	   
-		 5'd1: data_o<=c[15:8];   
-		 5'd2: data_o<=c[23:16];  
-		 5'd3: data_o<=c[31:24];  
-		 5'd4: data_o<=c[39:32];  
-		 5'd5: data_o<=c[47:40];  
-		 5'd6: data_o<=c[55:48];  
-		 5'd7: data_o<=c[63:56];  
-		 5'd8: data_o<=c[71:64];  
-		 5'd9: data_o<=c[79:72];  
-		 5'd10: data_o<=c[87:80]; 
-		 5'd11: data_o<=c[95:88]; 
-		 5'd12: data_o<=c[103:96];
-		 5'd13: data_o<=c[111:104];
-		 5'd14: data_o<=c[119:112];
-		 5'd15: data_o<=c[127:120];
-		 5'd16: data_o<=c[135:128];
-		 5'd17: data_o<=c[143:136];
-		 5'd18: data_o<=c[151:144];
-		 5'd19: data_o<=c[159:152];
-		 5'd20: data_o<=c[167:160];
-		 5'd21: data_o<=c[175:168];
-		 5'd22: data_o<=c[183:176];
-		 5'd23: data_o<=c[191:184];
-		 5'd24: data_o<=c[199:192];
-		 5'd25: data_o<=c[207:200];
-		 5'd26: data_o<=c[215:208];
-		 5'd27: data_o<=c[223:216];
-		 5'd28: data_o<=c[231:224];
-		 5'd29: data_o<=c[239:232];
-		 5'd30: data_o<=c[247:240];
-		 5'd31: data_o<=c[255:248];
-		endcase */ // case (reg_sel)
-		data_o <= a[0];
+		case (addr)
+		 5'd0: data_o<=a[0][7:0];	   
+		 5'd1: data_o<=a[0][15:8];   
+		 5'd2: data_o<=a[0][23:16];  
+		 5'd3: data_o<=a[0][31:24];  
+		 5'd4: data_o<=a[0][39:32];  
+		 5'd5: data_o<=a[0][47:40];  
+		 5'd6: data_o<=a[0][55:48];  
+		 5'd7: data_o<=a[0][63:56];  
+		 5'd8: data_o<=a[0][71:64];  
+		 5'd9: data_o<=a[0][79:72];  
+		 5'd10: data_o<=a[0][87:80]; 
+		 5'd11: data_o<=a[0][95:88]; 
+		 5'd12: data_o<=a[0][103:96];
+		 5'd13: data_o<=a[0][111:104];
+		 5'd14: data_o<=a[0][119:112];
+		 5'd15: data_o<=a[0][127:120];
+		 5'd16: data_o<=a[0][135:128];
+		 5'd17: data_o<=a[0][143:136];
+		 5'd18: data_o<=a[0][151:144];
+		 5'd19: data_o<=a[0][159:152];
+		 5'd20: data_o<=a[0][167:160];
+		 5'd21: data_o<=a[0][175:168];
+		 5'd22: data_o<=a[0][183:176];
+		 5'd23: data_o<=a[0][191:184];
+		 5'd24: data_o<=a[0][199:192];
+		 5'd25: data_o<=a[0][207:200];
+		 5'd26: data_o<=a[0][215:208];
+		 5'd27: data_o<=a[0][223:216];
+		 5'd28: data_o<=a[0][231:224];
+		 5'd29: data_o<=a[0][239:232];
+		 5'd30: data_o<=a[0][247:240];
+		 5'd31: data_o<=a[0][255:248];
+		endcase  // case (reg_sel)
 	     end
 	 endcase // case (reg_sel)
       end
