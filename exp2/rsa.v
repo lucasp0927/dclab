@@ -104,7 +104,6 @@ module rsa (/*AUTOARG*/
 	    end else begin
 	       //tamp Si+ai*B
 	       //t_now s
-	       
 	       if (t_ready == 1 || k!=0 || n!=0) begin
 		  if (k!=256)
 		    begin
