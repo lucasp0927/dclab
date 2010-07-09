@@ -16,11 +16,9 @@ module rsa (/*AUTOARG*/
    output [7:0] m_o;
    
    integer 	addr_num;
-   integer 	debug;
    
    reg [258:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
    reg [258:0] 	t_now,t_now2,t_now3,t,temp,temp2,temp3;
-   reg [2:0] 	t_now_mod4, t_now2_mod4, t_now3_mod4;
    reg [258:0] 	c;
 
 
@@ -31,6 +29,7 @@ module rsa (/*AUTOARG*/
    reg [9:0] 	i,k,n,m;
    reg 		c_ready,t_ready;
    reg [1:0] 	reset_tmp;
+   reg [1:0] 	we_tmp;
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
@@ -53,7 +52,7 @@ module rsa (/*AUTOARG*/
    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
    always @(posedge clk) begin
-      if (reset_tmp == 2'b01) begin
+      if ((reset_tmp == 2'b01) || (we_tmp == 2'b10)) begin
 	 c<=1;
 	 a[0]<=1;
 	 i<=0;
@@ -156,6 +155,8 @@ module rsa (/*AUTOARG*/
       end // else: !if(reset_tmp == 2'b01)
       reset_tmp[1]<=reset_tmp[0];
       reset_tmp[0] <= reset;
+      we_tmp[1] <= we_tmp[0];
+      we_tmp[0] <= we;
    end  
 
    always @(*)begin 
