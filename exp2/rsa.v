@@ -18,17 +18,17 @@ module rsa (/*AUTOARG*/
    integer 	addr_num;
    integer 	debug;
    
-   reg [257:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
-   reg [257:0] 	t_now,t_now2,t_now3,t,temp,temp2,temp3;
-   
-   reg [257:0] 	c;
+   reg [258:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
+   reg [258:0] 	t_now,t_now2,t_now3,t,temp,temp2,temp3;
+   reg [2:0] 	t_now_mod4, t_now2_mod4, t_now3_mod4;
+   reg [258:0] 	c;
 
 
    reg [7:0] 	data_o;
    reg 		ready,ready_tmp;
    reg 		sig;
    reg [1:0] 	start_tmp;
-   integer 	i,k,n,m;
+   reg [8:0] 	i,k,n,m;
    reg 		c_ready,t_ready;
    reg [1:0] 	reset_tmp;
    
@@ -84,8 +84,12 @@ module rsa (/*AUTOARG*/
 	    if (c_ready == 1 || m != 0) begin
 	       //T=MA(C,M)
 	       if (m != 256)
-		 t_now <= (temp+temp[0]*a[3])>>1;
-	       m<=m+1;
+		 if (temp[1:0]==4) begin
+		    t_now <= temp>>2;
+		 end else begin
+		    t_now <= (temp+(4-temp[1:0])*a[3])>>2;
+		 end
+	       m<=m+2;
 	       if (m == 256) begin //就是這個數字
 		  if (t_now >= a[3]) begin
 		     t <= t_now-a[3];
@@ -107,14 +111,22 @@ module rsa (/*AUTOARG*/
 		       if ((a[2][k] == 1)) begin
 			  //a[0] <= MA(a[0],T);
 			  if (n!=256)  //try to use conditional
-			     t_now2 <= (temp2+temp2[0]*a[3])>>1;
-		       end
+			    if (temp2[1:0]==4) begin
+			       t_now2 <= temp2>>2;
+			    end else begin
+			       t_now2 <= (temp2+(4-temp2[1:0])*a[3])>>2;
+			    end
+ 		       end
 		       //T<= MA(T,T)
 		       if (n!=256) begin
-			  t_now3 <= (temp3+temp3[0]*a[3])>>1;
+			  if (temp3[1:0]==4) begin
+			       t_now3 <= temp3>>2;
+			    end else begin
+			       t_now3 <= (temp3+(4-temp3[1:0])*a[3])>>2;
+			    end
 		       end 
 		    end
-		  n<=n+1;
+		  n<=n+2;
 		  if (n == 256) begin
 		     if ((a[2][k] == 1))
 		       if (t_now2>=a[3]) begin
@@ -127,8 +139,6 @@ module rsa (/*AUTOARG*/
 		     end else begin
 			t <= t_now3;
 		     end
-
-
 		     k <= k+1;
 		     n <= 0;
 		  end
@@ -148,16 +158,34 @@ module rsa (/*AUTOARG*/
    end  
 
    always @(*)begin 
-      temp = t_now + c[m]*a[1];
+      temp = t_now + 2*c[m+1]*a[1]+c[m]*a[1];
       if (n==0) begin
-	 temp2 = t[n]*a[0];
-	 temp3 = t[n]*t;
+	 temp2 = 2*t[n+1]*a[0]+t[n]*a[0];
+	 temp3 = 2*t[n+1]*t+t[n]*t;
       end else begin
-	 temp2 = t_now2+t[n]*a[0];
-	 temp3 = t_now3+t[n]*t;
+	 temp2 = t_now2+2*t[n+1]*a[0]+t[n]*a[0];
+	 temp3 = t_now3+2*t[n+1]*t+t[n]*t;
       end
    end
-
+/*
+   always @(*) begin
+      if (temp[1:0]==0) begin
+	 t_now_mod4 = 4;
+      end else begin
+	 t_now_mod4 = temp[1:0];
+      end
+      if (temp2[1:0]==0) begin
+	 t_now2_mod4 = 4;
+      end else begin
+	 t_now2_mod4 = temp2[1:0];
+      end
+      if (temp3[1:0]==0) begin
+	 t_now3_mod4 = 4;
+      end else begin
+	 t_now3_mod4 = temp3[1:0];
+      end
+   end
+*/
    always @(*)begin
       if(i != 0 || k!=0 || n!=0 || m !=0 ||c_ready == 1|| t_ready == 1 )
 	ready=1;
