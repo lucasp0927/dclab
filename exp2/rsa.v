@@ -1,9 +1,9 @@
 module rsa (/*AUTOARG*/
-   // Outputs
-   ready, data_o, sig, ready_o, we_o, m_o,
-   // Inputs
-   clk, reset, we, oe, start, reg_sel, addr, data_i
-   );
+	    // Outputs
+	    ready, data_o, sig, ready_o, we_o, m_o,
+	    // Inputs
+	    clk, reset, we, oe, start, reg_sel, addr, data_i
+	    );
    input clk,reset,we,oe,start;
    input [1:0] reg_sel;
    input [5:0] addr;
@@ -28,15 +28,15 @@ module rsa (/*AUTOARG*/
    reg 		ready,ready_tmp;
    reg 		sig;
    reg [1:0] 	start_tmp;
-   reg [8:0] 	i,k,n,m;
+   reg [9:0] 	i,k,n,m;
    reg 		c_ready,t_ready;
    reg [1:0] 	reset_tmp;
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg [7:0]		m_o;
-   reg			ready_o;
-   reg			we_o;
+   reg [7:0] 	m_o;
+   reg 		ready_o;
+   reg 		we_o;
    // End of automatics
    /*AUTOWIRE*/
 
@@ -83,14 +83,14 @@ module rsa (/*AUTOARG*/
 	 end else begin
 	    if (c_ready == 1 || m != 0) begin
 	       //T=MA(C,M)
-	       if (m != 256)
-		 if (temp[1:0]==4) begin
-		    t_now <= temp>>2;
-		 end else begin
-		    t_now <= (temp+(4-temp[1:0])*a[3])>>2;
-		 end
+	       if (m != 256) begin
+		  if (temp[1:0]==0) begin
+		     t_now <= temp>>2;
+		  end else begin
+		     t_now <= (temp+(4-temp[1:0])*a[3])>>2;
+		  end
 	       m<=m+2;
-	       if (m == 256) begin //就是這個數字
+	       end else  begin //就是這個數字
 		  if (t_now >= a[3]) begin
 		     t <= t_now-a[3];
 		  end else begin
@@ -99,7 +99,7 @@ module rsa (/*AUTOARG*/
 		  m <= 0;
 		  c_ready <= 0;
 		  t_ready <= 1;
-		 //  t_ready <= 0;
+		  //  t_ready <= 0;
 	       end
 	    end else begin
 	       //tamp Si+ai*B
@@ -107,32 +107,34 @@ module rsa (/*AUTOARG*/
 	       if (t_ready == 1 || k!=0 || n!=0) begin
 		  if (k!=256)
 		    begin
-		       if ((a[2][k] == 1)) begin
-			  //a[0] <= MA(a[0],T);
-			  if (n!=256)  //try to use conditional
-			    if (temp2[1:0]==4) begin
-			       t_now2 <= temp2>>2;
-			    end else begin
-			       t_now2 <= (temp2+(4-temp2[1:0])*a[3])>>2;
-			    end
- 		       end
-		       //T<= MA(T,T)
-		       if (n!=256) begin
-			  if (temp3[1:0]==4) begin
+		       if (n!=256)
+			 begin
+			    if ((a[2][k] == 1)) begin
+			       //a[0] <= MA(a[0],T);
+			       if (temp2[1:0]==0) begin
+				  t_now2 <= temp2>>2;
+			       end else begin
+				  t_now2 <= (temp2+(4-temp2[1:0])*a[3])>>2;
+			       end
+ 			    end
+			    //T<= MA(T,T)
+			    if (temp3[1:0]==0) begin
 			       t_now3 <= temp3>>2;
 			    end else begin
 			       t_now3 <= (temp3+(4-temp3[1:0])*a[3])>>2;
 			    end
-		       end 
+			    n<=n+2;
+			 end
 		    end
-		  n<=n+2;
+		  
 		  if (n == 256) begin
-		     if ((a[2][k] == 1))
-		       if (t_now2>=a[3]) begin
-			  a[0] <= t_now2 - a[3];
-		       end else begin
-			  a[0]<=t_now2;
-		       end
+		     if ((a[2][k] == 1))begin
+			if (t_now2>=a[3]) begin
+			   a[0] <= t_now2 - a[3];
+			end else begin
+			   a[0]<=t_now2;
+			end
+		     end
 		     if (t_now3 >= a[3]) begin
 			t <= t_now3-a[3];
 		     end else begin
@@ -166,25 +168,25 @@ module rsa (/*AUTOARG*/
 	 temp3 = t_now3+2*t[n+1]*t+t[n]*t;
       end
    end
-/*
-   always @(*) begin
-      if (temp[1:0]==0) begin
-	 t_now_mod4 = 4;
+   /*
+    always @(*) begin
+    if (temp[1:0]==0) begin
+    t_now_mod4 = 4;
       end else begin
-	 t_now_mod4 = temp[1:0];
+    t_now_mod4 = temp[1:0];
       end
-      if (temp2[1:0]==0) begin
-	 t_now2_mod4 = 4;
+    if (temp2[1:0]==0) begin
+    t_now2_mod4 = 4;
       end else begin
-	 t_now2_mod4 = temp2[1:0];
+    t_now2_mod4 = temp2[1:0];
       end
-      if (temp3[1:0]==0) begin
-	 t_now3_mod4 = 4;
+    if (temp3[1:0]==0) begin
+    t_now3_mod4 = 4;
       end else begin
-	 t_now3_mod4 = temp3[1:0];
+    t_now3_mod4 = temp3[1:0];
       end
    end
-*/
+    */
    always @(*)begin
       if(i != 0 || k!=0 || n!=0 || m !=0 ||c_ready == 1|| t_ready == 1 )
 	ready=1;
@@ -202,7 +204,7 @@ module rsa (/*AUTOARG*/
 	 case (reg_sel)
 	   2'd3:
 	     begin
-		
+						
 		 case (addr)
 	 	 5'd0: a[3][7:0]<=data_i;
 		 5'd1: a[3][15:8]<=data_i;
@@ -237,14 +239,12 @@ module rsa (/*AUTOARG*/
 		 5'd30: a[3][247:240]<=data_i;
 		 5'd31: a[3][255:248]<=data_i;
 		endcase
-
-//		a[3]<=256'hE07122F2A4A9E81141ADE518A2CD7574DCB67060B005E24665EF532E0CCA73E1;
-		
-		
+		 	 
+		//a[3]<=4489132237;
 	     end
 	   2'd1:
 	     begin
-
+		
 		 case (addr)
 		 5'd0: a[1][7:0]<=data_i;
 		 5'd1: a[1][15:8]<=data_i;
@@ -279,13 +279,13 @@ module rsa (/*AUTOARG*/
 		 5'd30: a[1][247:240]<=data_i;
 		 5'd31: a[1][255:248]<=data_i;
 		endcase
-
-//		a[1]<=256'hd41B183313D306ADCA09126F3FED6CDEC7DCDCE49DB5C85CB2A37F08C0F2E31;
+		 	 
+		//a[1]<=2521532;
 		
 	     end
 	   2'd2:
 	     begin
-		
+			
 		 case (addr)
 		 5'd0: a[2][7:0]<=data_i;
 		 5'd1: a[2][15:8]<=data_i;
@@ -320,8 +320,8 @@ module rsa (/*AUTOARG*/
 		 5'd30: a[2][247:240]<=data_i;
 		 5'd31: a[2][255:248]<=data_i;
 		endcase
-
-//		a[2]<=256'h5972DD91C4AC6E6FCA344AD4C9B586B4805B5C6219B2DEF7CEE09D88F680228D;
+		 
+		//a[2]<=2565421;
 	     end
 	   2'd0:
 	     begin
@@ -358,7 +358,7 @@ module rsa (/*AUTOARG*/
 		  5'd29: data_o<=a[0][239:232];
 		  5'd30: data_o<=a[0][247:240];
 		  5'd31: data_o<=a[0][255:248];
- 
+		  
 		endcase  // case (reg_sel)
 	     end
 	 endcase // case (reg_sel)
