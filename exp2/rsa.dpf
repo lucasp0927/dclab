@@ -4,6 +4,22 @@
 	<pin_info>
 		<pin name="i_o[7:0]" source="Pin Planner" >
 		</pin>
+		<pin name="i_o[7]" source="Pin Planner" >
+		</pin>
+		<pin name="i_o[6]" source="Pin Planner" >
+		</pin>
+		<pin name="i_o[5]" source="Pin Planner" >
+		</pin>
+		<pin name="i_o[4]" source="Pin Planner" >
+		</pin>
+		<pin name="i_o[3]" source="Pin Planner" >
+		</pin>
+		<pin name="i_o[2]" source="Pin Planner" >
+		</pin>
+		<pin name="i_o[1]" source="Pin Planner" >
+		</pin>
+		<pin name="i_o[0]" source="Pin Planner" >
+		</pin>
 	</pin_info>
 	<buses>
 		<bus name="i_o[7:0]" direction="" >

@@ -91,13 +91,21 @@ set_location_assignment PIN_M25 -to we_o
 set_location_assignment PIN_N24 -to ready_o
 set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
-set_location_assignment PIN_T25 -to m_o[7]
-set_location_assignment PIN_T24 -to m_o[6]
-set_location_assignment PIN_T23 -to m_o[5]
-set_location_assignment PIN_T22 -to m_o[4]
-set_location_assignment PIN_R20 -to m_o[3]
-set_location_assignment PIN_R24 -to m_o[2]
-set_location_assignment PIN_R25 -to m_o[1]
-set_location_assignment PIN_P24 -to m_o[0]
 set_location_assignment PIN_D25 -to reset
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_location_assignment PIN_P24 -to start_o
+set_location_assignment PIN_R25 -to reg_sel_o[0]
+set_location_assignment PIN_R24 -to reg_sel_o[1]
+set_location_assignment PIN_R20 -to addr_o[0]
+set_location_assignment PIN_T22 -to addr_o[1]
+set_location_assignment PIN_T23 -to addr_o[2]
+set_location_assignment PIN_T24 -to addr_o[3]
+set_location_assignment PIN_T25 -to addr_o[4]
+set_location_assignment PIN_T18 -to data_i_o[0]
+set_location_assignment PIN_T21 -to data_i_o[1]
+set_location_assignment PIN_T20 -to data_i_o[2]
+set_location_assignment PIN_U26 -to data_i_o[3]
+set_location_assignment PIN_U25 -to data_i_o[4]
+set_location_assignment PIN_U23 -to data_i_o[5]
+set_location_assignment PIN_U24 -to data_i_o[6]
+set_location_assignment PIN_R19 -to data_i_o[7]

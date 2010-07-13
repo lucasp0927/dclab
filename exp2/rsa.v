@@ -1,9 +1,10 @@
 module rsa (/*AUTOARG*/
-	    // Outputs
-	    ready, data_o, sig, ready_o, we_o, m_o,
-	    // Inputs
-	    clk, reset, we, oe, start, reg_sel, addr, data_i
-	    );
+   // Outputs
+   ready, data_o, sig, ready_o, we_o, m_o, reset_o, start_o,
+   reg_sel_o, addr_o, data_i_o,
+   // Inputs
+   clk, reset, we, oe, start, reg_sel, addr, data_i
+   );
    input clk,reset,we,oe,start;
    input [1:0] reg_sel;
    input [5:0] addr;
@@ -14,7 +15,13 @@ module rsa (/*AUTOARG*/
    output 	ready_o;
    output       we_o;
    output [7:0] m_o;
+   output 	reset_o;
+   output 	start_o;
+   output [1:0] reg_sel_o;
+   output [5:0] addr_o;
+   output [7:0] data_i_o;
    
+	
    integer 	addr_num;
    
    reg [258:0] 	a[3:0]; //a[0] = a[1]^a[2] mod a[3]
@@ -33,9 +40,14 @@ module rsa (/*AUTOARG*/
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg [7:0] 	m_o;
-   reg 		ready_o;
-   reg 		we_o;
+   reg [5:0]		addr_o;
+   reg [7:0]		data_i_o;
+   reg [7:0]		m_o;
+   reg			ready_o;
+   reg [1:0]		reg_sel_o;
+   reg			reset_o;
+   reg			start_o;
+   reg			we_o;
    // End of automatics
    /*AUTOWIRE*/
 
@@ -44,7 +56,11 @@ module rsa (/*AUTOARG*/
       sig = oe;
       ready_o = ready;
       we_o = we;
-      m_o [7:0] = i [7:0];
+      reset_o= reset;
+      start_o = start;
+      reg_sel_o=reg_sel;
+      addr_o = addr;
+      data_i_o = data_i;
    end
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////
