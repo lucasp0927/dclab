@@ -1,7 +1,7 @@
 module recorder (/*AUTOARG*/
    // Outputs
    addr_o, ce, oe, we, ub, lb, dacdat, i2c_clk, i2c_dat, data_o,
-   write_o,record_o,adclrc_o,
+   write_o,record_o,adclrc_o,bclk_o,clk,reg_count_o,adcdat_o,
    // Inouts
    io,
    // Inputs
@@ -12,7 +12,7 @@ module recorder (/*AUTOARG*/
    input clkfast;
    //io of sram
    output [17:0] addr_o;
-   output 	 ce, oe, we, ub, lb;
+   output 	 ce, oe, we, ub, lb, clk;
    inout [15:0]  io;
    // io  of adc
    input 	 bclk, adclrc, adcdat;
@@ -27,16 +27,23 @@ module recorder (/*AUTOARG*/
    output [15:0]	 data_o;
    output write_o;
    output record_o;
-   output adclrc_o;
+   output adclrc_o,bclk_o;
+   output reg_count_o;
+   output adcdat_o;
+   reg 	  adcdat_o;
    reg record_o;
    reg [17:0] 	 addr;
-   reg adclrc_o;   
+   reg adclrc_o;
+   reg bclk_o;   
    reg 	 play, record, reset;
+   reg [4:0] reg_count_o;
    wire  clk;
-   
+
    //debug
    always @ (*) begin
-   record_o = record;
+      record_o = record;
+      bclk_o = bclk;
+      adcdat_o = adcdat;
    end
    
    /*AUTOWIRE*/
@@ -89,6 +96,7 @@ module recorder (/*AUTOARG*/
 	     .data_o			(data_o[15:0]),
 	     .write_o			(write_o),
          .adclrc_o          (adclrc_o),
+         .reg_count_o       (reg_count_o), 
 	     // Inputs
 	     .bclk			(bclk),
 	     .adclrc			(adclrc),

@@ -1,5 +1,5 @@
 Flow report for recorder
-Wed Jul 14 21:39:29 2010
+Thu Jul 15 16:48:08 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Wed Jul 14 21:39:29 2010         ;
+; Flow Status                        ; Successful - Thu Jul 15 16:48:07 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; recorder                                      ;
 ; Top-level Entity Name              ; recorder                                      ;
@@ -46,11 +46,11 @@ applicable agreement for further details.
 ; Device                             ; EP2C35F672C6                                  ;
 ; Timing Models                      ; Final                                         ;
 ; Met timing requirements            ; No                                            ;
-; Total logic elements               ; 393 / 33,216 ( 1 % )                          ;
-;     Total combinational functions  ; 392 / 33,216 ( 1 % )                          ;
-;     Dedicated logic registers      ; 200 / 33,216 ( < 1 % )                        ;
-; Total registers                    ; 200                                           ;
-; Total pins                         ; 67 / 475 ( 14 % )                             ;
+; Total logic elements               ; 402 / 33,216 ( 1 % )                          ;
+;     Total combinational functions  ; 401 / 33,216 ( 1 % )                          ;
+;     Dedicated logic registers      ; 232 / 33,216 ( < 1 % )                        ;
+; Total registers                    ; 232                                           ;
+; Total pins                         ; 77 / 475 ( 16 % )                             ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                           ;
 ; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                                ;
@@ -63,30 +63,32 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/14/2010 21:39:08 ;
+; Start date & time ; 07/15/2010 16:46:17 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; recorder            ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                            ;
-+------------------------------------+-----------------------------------------+---------------+-------------+----------------+
-; Assignment Name                    ; Value                                   ; Default Value ; Entity Name ; Section Id     ;
-+------------------------------------+-----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 146383860980.127911474809936            ; --            ; --          ; --             ;
-; IP_TOOL_NAME                       ; ALTPLL                                  ; --            ; --          ; --             ;
-; IP_TOOL_VERSION                    ; 9.0                                     ; --            ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP             ; 85                                      ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP             ; 0                                       ; --            ; --          ; --             ;
-; MISC_FILE                          ; pll_bb.v                                ; --            ; --          ; --             ;
-; MISC_FILE                          ; pll.ppf                                 ; --            ; --          ; --             ;
-; MISC_FILE                          ; /home/lucaspeng/dclab/exp3/recorder.dpf ; --            ; --          ; --             ;
-; PARTITION_COLOR                    ; 16764057                                ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE             ; SOURCE                                  ; --            ; --          ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY           ; /home/lucaspeng/dclab/exp3/compile      ; --            ; --          ; --             ;
-; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                                     ; --            ; --          ; eda_blast_fpga ;
-+------------------------------------+-----------------------------------------+---------------+-------------+----------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                              ;
++------------------------------------+-------------------------------------------+---------------+-------------+----------------+
+; Assignment Name                    ; Value                                     ; Default Value ; Entity Name ; Section Id     ;
++------------------------------------+-------------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID              ; 107162591449.127918357605540              ; --            ; --          ; --             ;
+; IP_TOOL_NAME                       ; ALTPLL                                    ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                    ; 9.0                                       ; --            ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP             ; 85                                        ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP             ; 0                                         ; --            ; --          ; --             ;
+; MISC_FILE                          ; pll_bb.v                                  ; --            ; --          ; --             ;
+; MISC_FILE                          ; pll.ppf                                   ; --            ; --          ; --             ;
+; MISC_FILE                          ; /home/lucaspeng/dclab/exp3/recorder.dpf   ; --            ; --          ; --             ;
+; MISC_FILE                          ; D:/dclab/exp3/recorder.dpf                ; --            ; --          ; --             ;
+; MISC_FILE                          ; C:/home/lucaspeng/dclab/exp3/recorder.dpf ; --            ; --          ; --             ;
+; PARTITION_COLOR                    ; 16764057                                  ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE             ; SOURCE                                    ; --            ; --          ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY           ; /home/lucaspeng/dclab/exp3/compile        ; --            ; --          ; --             ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                                       ; --            ; --          ; eda_blast_fpga ;
++------------------------------------+-------------------------------------------+---------------+-------------+----------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -94,24 +96,24 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; --                  ; 00:00:03                           ;
-; Fitter                  ; 00:00:09     ; 1.0                     ; --                  ; 00:00:10                           ;
-; Assembler               ; 00:00:03     ; 1.0                     ; --                  ; 00:00:03                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; --                  ; 00:00:00                           ;
-; Total                   ; 00:00:16     ; --                      ; --                  ; 00:00:16                           ;
+; Analysis & Synthesis    ; 00:00:22     ; 1.0                     ; 185 MB              ; 00:00:20                           ;
+; Fitter                  ; 00:00:45     ; 1.0                     ; 254 MB              ; 00:00:43                           ;
+; Assembler               ; 00:00:17     ; 1.0                     ; 222 MB              ; 00:00:15                           ;
+; Classic Timing Analyzer ; 00:00:05     ; 1.0                     ; 132 MB              ; 00:00:04                           ;
+; Total                   ; 00:01:29     ; --                      ; --                  ; 00:01:22                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                         ;
-+-------------------------+------------------+--------------+------------+----------------+
-; Module Name             ; Machine Hostname ; OS Name      ; OS Version ; Processor type ;
-+-------------------------+------------------+--------------+------------+----------------+
-; Analysis & Synthesis    ; lucaspeng-laptop ; Ubuntu 10.04 ; 10         ; x86_64         ;
-; Fitter                  ; lucaspeng-laptop ; Ubuntu 10.04 ; 10         ; x86_64         ;
-; Assembler               ; lucaspeng-laptop ; Ubuntu 10.04 ; 10         ; x86_64         ;
-; Classic Timing Analyzer ; lucaspeng-laptop ; Ubuntu 10.04 ; 10         ; x86_64         ;
-+-------------------------+------------------+--------------+------------+----------------+
++---------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                       ;
++-------------------------+------------------+------------+------------+----------------+
+; Module Name             ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++-------------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis    ; your-2636f86761  ; Windows XP ; 5.1        ; i1586          ;
+; Fitter                  ; your-2636f86761  ; Windows XP ; 5.1        ; i1586          ;
+; Assembler               ; your-2636f86761  ; Windows XP ; 5.1        ; i1586          ;
+; Classic Timing Analyzer ; your-2636f86761  ; Windows XP ; 5.1        ; i1586          ;
++-------------------------+------------------+------------+------------+----------------+
 
 
 ------------
