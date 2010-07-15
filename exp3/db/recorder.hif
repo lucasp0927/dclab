@@ -55,18 +55,18 @@ pll:pll1
 ALTERA_RESERVED_QISALTERA_RESERVED_QIS
 # end
 # entity
-debounce
+pll
 # storage
-db|recorder.(7).cnf
-db|recorder.(7).cnf
+db|recorder.(5).cnf
+db|recorder.(5).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
 }
 # case_sensitive
 # source_file
-debounce.v
-623e7e37c0a429e4d5213aa5e71f9aaf
+||YOUR-2636F86761|dclab|exp3|pll.v
+4f5ee712b2b12cfffbd657ae69d9822
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -84,101 +84,14 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
-# user_parameter {
-NDELAY
-650000
-PARAMETER_SIGNED_DEC
-DEF
-NBITS
-20
-PARAMETER_SIGNED_DEC
-DEF
-}
-# hierarchies {
-debounce:debounce1
-debounce:debounce2
-debounce:debounce3
-}
 # macro_sequence
-
-# end
-# entity
-dac
-# storage
-db|recorder.(6).cnf
-db|recorder.(6).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-dac.v
-7b0d640666d82d3dd35c1eb019e2a
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-dac:dac1
-}
-# macro_sequence
-
-# end
-# entity
-sram
-# storage
-db|recorder.(4).cnf
-db|recorder.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-sram.v
-d218ad44ecd7bd713d9d755fa1a141
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-sram:sram1
-}
-# macro_sequence
-
+ALTERA_RESERVED_QISALTERA_RESERVED_QIS
 # end
 # entity
 altpll
 # storage
-db|recorder.(2).cnf
-db|recorder.(2).cnf
+db|recorder.(8).cnf
+db|recorder.(8).cnf
 # case_insensitive
 # source_file
 ..|..|..|..|altera|90|quartus|libraries|megafunctions|altpll.tdf
@@ -1721,18 +1634,18 @@ pll:pll1|altpll:altpll_component
 
 # end
 # entity
-recorder
+debounce
 # storage
-db|recorder.(0).cnf
-db|recorder.(0).cnf
+db|recorder.(2).cnf
+db|recorder.(2).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
 }
 # case_sensitive
 # source_file
-recorder.v
-f1c7f8ea1718b38484155d3d2a70e229
+debounce.v
+2bf86f31d5f0a523f2e2f9927bc3ef9
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1750,8 +1663,20 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
+# user_parameter {
+NDELAY
+6500
+PARAMETER_SIGNED_DEC
+DEF
+NBITS
+20
+PARAMETER_SIGNED_DEC
+DEF
+}
 # hierarchies {
-|
+debounce:debounce1
+debounce:debounce2
+debounce:debounce3
 }
 # macro_sequence
 
@@ -1768,7 +1693,7 @@ ON
 # case_sensitive
 # source_file
 i2c.v
-80be4e124974def4d3c758f288ca5020
+d5a9d3dd851b26f20b4d6633176053
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1793,10 +1718,46 @@ i2c:i2c1
 
 # end
 # entity
+sram
+# storage
+db|recorder.(4).cnf
+db|recorder.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+sram.v
+f91dd3dbe7752ea69649af35d5eb41f1
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+sram:sram1
+}
+# macro_sequence
+
+# end
+# entity
 adc
 # storage
-db|recorder.(5).cnf
-db|recorder.(5).cnf
+db|recorder.(7).cnf
+db|recorder.(7).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1804,7 +1765,7 @@ ON
 # case_sensitive
 # source_file
 adc.v
-757d34a3f241a1c3e685b682e2aeac5f
+a4297b6d67ef592c7f1f23d96803ed9
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1824,6 +1785,78 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 }
 # hierarchies {
 adc:adc1
+}
+# macro_sequence
+
+# end
+# entity
+recorder
+# storage
+db|recorder.(0).cnf
+db|recorder.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+recorder.v
+d9867ee7eb1ae4b7cce78ff88ae615a
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+dac
+# storage
+db|recorder.(6).cnf
+db|recorder.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+dac.v
+d67328294f466b554213ffc58f175b6
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+dac:dac1
 }
 # macro_sequence
 

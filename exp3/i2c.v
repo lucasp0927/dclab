@@ -157,7 +157,7 @@ module i2c (/*AUTOARG*/
       i2c_reset[4] = 27'b00110100_0_00000110_0_01111001_0; //headphone amp right
       i2c_reset[5] = 27'b00110100_0_00001110_0_01010010_0; //digital interface
       i2c_reset[6] = 27'b00110100_0_00010000_0_00001100_0; //sampling control
-      i2c_reset[7] = 27'b00110100_0_00001000_0_00110101_0; //analogue audio path control
+      i2c_reset[7] = 27'b00110100_0_00001000_0_00010101_0; //analogue audio path control
       i2c_reset[8] = 27'b00110100_0_00010010_0_00000001_0;  //  active control
       i2c_reset[9] = 27'b00110100_0_00001010_0_00010001_0; //digital audio path control
       i2c_reset[10] = 27'b00110100_0_00001100_0_00000000_0;  //  Power Down Control

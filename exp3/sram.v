@@ -13,17 +13,14 @@ module sram (/*AUTOARG*/
    input 	 play;
    input 	 record;
    
-   
    inout [15:0]  io; // to sram
    inout [15:0]  data;
   // reg [15:0] 	 data;
    
    output 	 ce, oe, we, ub, lb;
+ 	 
    reg [15:0] 	 io_buffer;
    reg [15:0] 	 data_buffer;
-    //debug
-
-
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)

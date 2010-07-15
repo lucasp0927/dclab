@@ -1,13 +1,14 @@
 module recorder (/*AUTOARG*/
    // Outputs
-   addr_o, ce, oe, we, ub, lb, dacdat, i2c_clk, i2c_dat, data_o,
-   write_o,record_o,adclrc_o,bclk_o,clk,reg_count_o,adcdat_o,
+   addr_o, ce, oe, we, ub, lb, dacdat, i2c_clk, i2c_dat, write_o,record_o,adclrc_o,bclk_o,clk,adcdat_o,play_o,daclrc_o,read_o,io_o,we_o, ce_o, oe_o, addr_out, daccounter,
    // Inouts
    io,
    // Inputs
    play_dirty, record_dirty, reset_dirty, clkfast, bclk, adclrc,
    adcdat, daclrc
    );
+
+   output [17:0] 	 addr_out;   
    input play_dirty, record_dirty, reset_dirty;
    input clkfast;
    //io of sram
@@ -24,26 +25,42 @@ module recorder (/*AUTOARG*/
    output 	 i2c_dat;
 
    //debug
-   output [15:0]	 data_o;
    output write_o;
+   output [4:0]  daccounter;
    output record_o;
+   output play_o;
    output adclrc_o,bclk_o;
-   output reg_count_o;
    output adcdat_o;
+   output daclrc_o;
+   output read_o;
+   output [15:0] io_o;
+   output 	 oe_o, we_o, ce_o;
+   reg 	 oe_o, we_o, ce_o;
+   reg [15:0] 	 io_o;
    reg 	  adcdat_o;
    reg record_o;
+   reg play_o;
+   reg [17:0] addr_out;
    reg [17:0] 	 addr;
+   reg [4:0] daccounter;
    reg adclrc_o;
-   reg bclk_o;   
+   reg bclk_o;
+   reg daclrc_o;
    reg 	 play, record, reset;
-   reg [4:0] reg_count_o;
    wire  clk;
 
    //debug
    always @ (*) begin
       record_o = record;
+      play_o = play;
       bclk_o = bclk;
       adcdat_o = adcdat;
+      daclrc_o = daclrc;
+      io_o = io;
+      oe_o = oe;
+      we_o =we;
+      ce_o = ce;
+      addr_out = addr_o;
    end
    
    /*AUTOWIRE*/
@@ -93,10 +110,8 @@ module recorder (/*AUTOARG*/
 	     .addr			(addr[17:0]),
 	     .data			(data[15:0]),
 	     .write			(write),
-	     .data_o			(data_o[15:0]),
 	     .write_o			(write_o),
          .adclrc_o          (adclrc_o),
-         .reg_count_o       (reg_count_o), 
 	     // Inputs
 	     .bclk			(bclk),
 	     .adclrc			(adclrc),
@@ -108,6 +123,8 @@ module recorder (/*AUTOARG*/
 	     .read			(read),
 	     .dacdat			(dacdat),
 	     .addr			(addr[17:0]),
+	     .read_o (read_o),
+	     .daccounter (daccounter),
 	     // Inputs
 	     .play			(play),
 	     .bclk			(bclk),
@@ -118,18 +135,18 @@ module recorder (/*AUTOARG*/
 		       // Outputs
 		       .clean		(reset),
 		       // Inputs
-		       .clks		(clkfast),
+		       .clks		(clk),
 		       .noisy		(reset_dirty));
    debounce debounce2 (
 		       // Outputs
 		       .clean		(play),
 		       // Inputs
-		       .clks		(clkfast),
+		       .clks		(clk),
 		       .noisy		(play_dirty));
    debounce debounce3 (
 		       // Outputs
 		       .clean		(record),
 		       // Inputs
-		       .clks		(clkfast),
+		       .clks		(clk),
 		       .noisy		(record_dirty));
 endmodule
