@@ -1,4 +1,4 @@
-module dac (play, bclk, daclrc, dacdat, addr, read ,data, read_o,daccounter);
+module dac (play, bclk, daclrc, dacdat, addr, read ,data);
    input play;	
    input bclk;
    input daclrc;
@@ -7,23 +7,16 @@ module dac (play, bclk, daclrc, dacdat, addr, read ,data, read_o,daccounter);
    output 	read;
    output 	dacdat;
    output [17:0] addr ;
-   output 	 read_o;
-   output [4:0]  daccounter;
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
    reg [4:0]		counter;
    reg [4:0]		daccounter;
    reg			dacdat;
    reg			read;
-   reg			read_o;
    // End of automatics
    /*AUTOWIRE*/
    reg [17:0] 		addr_buffer;
    assign addr = play?addr_buffer:18'bzzzzzzzzzzzzzzzzzz;
-   always@ (*)begin
-      read_o = read;
-      daccounter = counter;
-   end
      
    always @(posedge bclk) begin
       if(play == 0)

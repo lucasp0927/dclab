@@ -1,5 +1,5 @@
 Analysis & Synthesis report for recorder
-Thu Jul 15 21:13:37 2010
+Thu Jul 15 21:45:20 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -47,16 +47,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jul 15 21:13:36 2010         ;
+; Analysis & Synthesis Status        ; Successful - Thu Jul 15 21:45:20 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; recorder                                      ;
 ; Top-level Entity Name              ; recorder                                      ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 443                                           ;
-;     Total combinational functions  ; 419                                           ;
+; Total logic elements               ; 442                                           ;
+;     Total combinational functions  ; 418                                           ;
 ;     Dedicated logic registers      ; 233                                           ;
 ; Total registers                    ; 233                                           ;
-; Total pins                         ; 101                                           ;
+; Total pins                         ; 51                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
 ; Embedded Multiplier 9-bit elements ; 0                                             ;
@@ -164,28 +164,28 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 443   ;
+; Estimated Total logic elements              ; 442   ;
 ;                                             ;       ;
-; Total combinational functions               ; 419   ;
+; Total combinational functions               ; 418   ;
 ; Logic element usage by number of LUT inputs ;       ;
 ;     -- 4 input functions                    ; 152   ;
 ;     -- 3 input functions                    ; 76    ;
-;     -- <=2 input functions                  ; 191   ;
+;     -- <=2 input functions                  ; 190   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 251   ;
+;     -- normal mode                          ; 250   ;
 ;     -- arithmetic mode                      ; 168   ;
 ;                                             ;       ;
 ; Total registers                             ; 233   ;
 ;     -- Dedicated logic registers            ; 233   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 101   ;
+; I/O pins                                    ; 51    ;
 ; Total PLLs                                  ; 1     ;
 ; Maximum fan-out node                        ; bclk  ;
-; Maximum fan-out                             ; 83    ;
-; Total fan-out                               ; 2003  ;
-; Average fan-out                             ; 2.66  ;
+; Maximum fan-out                             ; 82    ;
+; Total fan-out                               ; 1933  ;
+; Average fan-out                             ; 2.75  ;
 +---------------------------------------------+-------+
 
 
@@ -194,8 +194,8 @@ applicable agreement for further details.
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
-; |recorder                       ; 419 (0)           ; 233 (0)      ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |recorder                                  ; work         ;
-;    |adc:adc1|                   ; 78 (78)           ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|adc:adc1                         ; work         ;
+; |recorder                       ; 418 (0)           ; 233 (0)      ; 0           ; 0            ; 0       ; 0         ; 51   ; 0            ; |recorder                                  ; work         ;
+;    |adc:adc1|                   ; 77 (77)           ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|adc:adc1                         ; work         ;
 ;    |dac:dac1|                   ; 57 (57)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|dac:dac1                         ; work         ;
 ;    |debounce:debounce1|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce1               ; work         ;
 ;    |debounce:debounce2|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce2               ; work         ;
@@ -272,7 +272,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[6]  ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[7]  ;
 ; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce2|count[17] ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |recorder|i2c:i2c1|count_1[21]         ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_counter[4]    ;
@@ -721,15 +721,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
-    Info: Processing started: Thu Jul 15 21:13:12 2010
+    Info: Processing started: Thu Jul 15 21:44:55 2010
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off recorder -c recorder
 Info: Found 1 design units, including 1 entities, in source file pll.v
     Info: Found entity 1: pll
-Warning (10275): Verilog HDL Module Instantiation warning at recorder.v(77): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at recorder.v(42): ignored dangling comma in List of Port Connections
 Warning: Using design file recorder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: recorder
 Info: Elaborating entity "recorder" for the top level hierarchy
-Info (10266): Verilog HDL Module Instantiation information at recorder.v(77): instance "pll1" connects port 0 to an empty expression
+Info (10266): Verilog HDL Module Instantiation information at recorder.v(42): instance "pll1" connects port 0 to an empty expression
 Info: Elaborating entity "pll" for hierarchy "pll:pll1"
 Info: Elaborating entity "altpll" for hierarchy "pll:pll1|altpll:altpll_component"
 Info: Elaborated megafunction instantiation "pll:pll1|altpll:altpll_component"
@@ -918,16 +918,17 @@ Info (10041): Inferred latch for "data_buffer[14]" at sram.v(53)
 Info (10041): Inferred latch for "data_buffer[15]" at sram.v(53)
 Info (10041): Inferred latch for "oe" at sram.v(53)
 Info (10041): Inferred latch for "we" at sram.v(53)
+Warning (10238): Verilog Module Declaration warning at adc.v(7): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "adc"
 Warning: Using design file adc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: adc
 Info: Elaborating entity "adc" for hierarchy "adc:adc1"
-Warning (10230): Verilog HDL assignment warning at adc.v(80): truncated value with size 32 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at adc.v(85): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at adc.v(64): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at adc.v(69): truncated value with size 32 to match size of target (18)
 Warning: Using design file dac.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: dac
 Info: Elaborating entity "dac" for hierarchy "dac:dac1"
-Warning (10230): Verilog HDL assignment warning at dac.v(35): truncated value with size 32 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at dac.v(41): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at dac.v(28): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at dac.v(34): truncated value with size 32 to match size of target (18)
 Warning: Using design file debounce.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: debounce
 Info: Elaborating entity "debounce" for hierarchy "debounce:debounce1"
@@ -985,31 +986,15 @@ Warning: Latch sram:sram1|io_buffer[15] has unsafe behavior
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "ub" is stuck at GND
     Warning (13410): Pin "lb" is stuck at GND
-Warning: Output pin "io_o[0]" driven by bidirectional pin "io[0]" cannot be tri-stated
-Warning: Output pin "io_o[1]" driven by bidirectional pin "io[1]" cannot be tri-stated
-Warning: Output pin "io_o[2]" driven by bidirectional pin "io[2]" cannot be tri-stated
-Warning: Output pin "io_o[3]" driven by bidirectional pin "io[3]" cannot be tri-stated
-Warning: Output pin "io_o[4]" driven by bidirectional pin "io[4]" cannot be tri-stated
-Warning: Output pin "io_o[5]" driven by bidirectional pin "io[5]" cannot be tri-stated
-Warning: Output pin "io_o[6]" driven by bidirectional pin "io[6]" cannot be tri-stated
-Warning: Output pin "io_o[7]" driven by bidirectional pin "io[7]" cannot be tri-stated
-Warning: Output pin "io_o[8]" driven by bidirectional pin "io[8]" cannot be tri-stated
-Warning: Output pin "io_o[9]" driven by bidirectional pin "io[9]" cannot be tri-stated
-Warning: Output pin "io_o[10]" driven by bidirectional pin "io[10]" cannot be tri-stated
-Warning: Output pin "io_o[11]" driven by bidirectional pin "io[11]" cannot be tri-stated
-Warning: Output pin "io_o[12]" driven by bidirectional pin "io[12]" cannot be tri-stated
-Warning: Output pin "io_o[13]" driven by bidirectional pin "io[13]" cannot be tri-stated
-Warning: Output pin "io_o[14]" driven by bidirectional pin "io[14]" cannot be tri-stated
-Warning: Output pin "io_o[15]" driven by bidirectional pin "io[15]" cannot be tri-stated
-Info: Implemented 546 device resources after synthesis - the final resource count might be different
+Info: Implemented 495 device resources after synthesis - the final resource count might be different
     Info: Implemented 8 input pins
-    Info: Implemented 77 output pins
+    Info: Implemented 27 output pins
     Info: Implemented 16 bidirectional pins
-    Info: Implemented 444 logic cells
+    Info: Implemented 443 logic cells
     Info: Implemented 1 ClockLock PLLs
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 171 warnings
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 156 warnings
     Info: Peak virtual memory: 185 megabytes
-    Info: Processing ended: Thu Jul 15 21:13:37 2010
+    Info: Processing ended: Thu Jul 15 21:45:20 2010
     Info: Elapsed time: 00:00:25
     Info: Total CPU time (on all processors): 00:00:23
 

@@ -55,39 +55,6 @@ pll:pll1
 ALTERA_RESERVED_QISALTERA_RESERVED_QIS
 # end
 # entity
-pll
-# storage
-db|recorder.(5).cnf
-db|recorder.(5).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-||YOUR-2636F86761|dclab|exp3|pll.v
-4f5ee712b2b12cfffbd657ae69d9822
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-ALTERA_RESERVED_QISALTERA_RESERVED_QIS
-# end
-# entity
 altpll
 # storage
 db|recorder.(8).cnf
@@ -1756,8 +1723,8 @@ sram:sram1
 # entity
 adc
 # storage
-db|recorder.(7).cnf
-db|recorder.(7).cnf
+db|recorder.(6).cnf
+db|recorder.(6).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1765,7 +1732,7 @@ ON
 # case_sensitive
 # source_file
 adc.v
-a4297b6d67ef592c7f1f23d96803ed9
+bd9bd6795b2643e6f8623cab99a10
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1790,46 +1757,10 @@ adc:adc1
 
 # end
 # entity
-recorder
-# storage
-db|recorder.(0).cnf
-db|recorder.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-recorder.v
-d9867ee7eb1ae4b7cce78ff88ae615a
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 dac
 # storage
-db|recorder.(6).cnf
-db|recorder.(6).cnf
+db|recorder.(7).cnf
+db|recorder.(7).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1837,7 +1768,7 @@ ON
 # case_sensitive
 # source_file
 dac.v
-d67328294f466b554213ffc58f175b6
+b375d3aabf229f37a2c569a5845b0
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1857,6 +1788,42 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 }
 # hierarchies {
 dac:dac1
+}
+# macro_sequence
+
+# end
+# entity
+recorder
+# storage
+db|recorder.(0).cnf
+db|recorder.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+recorder.v
+4e137049c41e1e14864825759edc5d3
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
 }
 # macro_sequence
 

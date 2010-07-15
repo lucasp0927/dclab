@@ -4,8 +4,6 @@ module adc(//input from  Audio CODEC
            record,             
            //output for RAM
            addr,data,write,
-           //output for debug
-           write_o,adclrc_o
            );
    input  bclk,adclrc,adcdat,record;
    output [17:0] addr;
@@ -13,14 +11,6 @@ module adc(//input from  Audio CODEC
    output 	 write; 
    reg [1:0] 	 adclrc_tmp;
    
-   //////////////////////////////debug
-		 // output [17:0] addr_o;
-   output 	 write_o,adclrc_o;
-
-   // reg [17:0] 	 addr_o;
-   reg 		 write_o,adclrc_o;
-
-   ///////////////////////////////debug
 
    reg 		 one;
    reg [15:0] 	 data_tmp;
@@ -34,12 +24,6 @@ module adc(//input from  Audio CODEC
    /*AUTOREG*/
    assign data = record?data_buffer:16'bzzzzzzzzzzzzzzzz;
    assign addr = record?addr_buffer:18'bzzzzzzzzzzzzzzzzzz;
-   //debug
-   always @ (*)begin 
-      // addr_o <= addr;
-      write_o = write;
-      adclrc_o=adclrc;
-   end   
 
    always @ (*) begin
       if (record == 1) begin
