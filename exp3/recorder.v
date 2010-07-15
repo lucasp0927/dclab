@@ -36,8 +36,8 @@ module recorder (/*AUTOARG*/
    
    //debug
    always @ (*) begin
-   record_o = record;    
-   end  
+   record_o = record;
+   end
    
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
@@ -124,5 +124,4 @@ module recorder (/*AUTOARG*/
 		       // Inputs
 		       .clks		(clkfast),
 		       .noisy		(record_dirty));
-
 endmodule
