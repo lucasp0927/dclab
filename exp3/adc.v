@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+module adc(/*AUTOARG*/
+   // Outputs
+   addr, data, write, data_o, write_o,
+   // Inputs
+   bclk, adclrc, adcdat, record
+   );
+=======
 module adc(//input from  Audio CODEC
            bclk,adclrc,adcdat,
            //input from I2C
@@ -5,6 +13,7 @@ module adc(//input from  Audio CODEC
            //output for RAM
            addr,data,write,
            );
+>>>>>>> 755bc23ac5d2e76a43e3805fec0c2f68d188e30d
    input  bclk,adclrc,adcdat,record;
    output [17:0] addr;
    output [15:0] data;
@@ -20,8 +29,24 @@ module adc(//input from  Audio CODEC
    //reg one; // ensure that ADC only do noe thing 
    reg [15:0] 	 data_buffer;
    reg [17:0] 	 addr_buffer;
+
+   /*
+    * debug
+    */
+   output [15:0] data_o;
+   output 	 write_o;
+   always @(*) begin
+      data_o = data;
+      write_o = write;
+   end
+
+   
    /*AUTOWIRE*/
    /*AUTOREG*/
+   // Beginning of automatic regs (for this module's undeclared outputs)
+   reg [15:0]		data_o;
+   reg			write_o;
+   // End of automatics
    assign data = record?data_buffer:16'bzzzzzzzzzzzzzzzz;
    assign addr = record?addr_buffer:18'bzzzzzzzzzzzzzzzzzz;
 

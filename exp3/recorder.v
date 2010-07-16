@@ -83,13 +83,17 @@ module recorder (/*AUTOARG*/
 	       .read			(read),
 	       .write			(write),
 	       .play			(play),
-	       .record			(record));
+	       .record			(record),
+	       .reset                   (reset),
+	       .clk                     (clk));
    
    adc adc1 (/*AUTOINST*/
 	     // Outputs
 	     .addr			(addr[17:0]),
 	     .data			(data[15:0]),
 	     .write			(write),
+	     .data_o			(data_o[15:0]),
+	     .write_o			(write_o),
 	     // Inputs
 	     .bclk			(bclk),
 	     .adclrc			(adclrc),
