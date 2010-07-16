@@ -13,7 +13,7 @@ module debounce (/*AUTOARG*/
    input  clks, noisy;
    output clean;
 
-   parameter NDELAY = 650000;
+   parameter NDELAY = 6500;
    parameter NBITS = 20;
 
    reg [NBITS-1:0] count;

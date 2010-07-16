@@ -57,11 +57,11 @@ ALTERA_RESERVED_QISALTERA_RESERVED_QIS
 # entity
 altpll
 # storage
-db|recorder.(2).cnf
-db|recorder.(2).cnf
+db|recorder.(8).cnf
+db|recorder.(8).cnf
 # case_insensitive
 # source_file
-..|..|altera9.0|quartus|libraries|megafunctions|altpll.tdf
+..|..|..|..|altera|90|quartus|libraries|megafunctions|altpll.tdf
 573cabf1dcd59f3b41cf720fd53ed57
 7
 # user_parameter {
@@ -1585,13 +1585,13 @@ clkena
 2
 }
 # include_file {
-..|..|altera9.0|quartus|libraries|megafunctions|aglobal90.inc
-99832fdf63412df51d7531202d74e75
-..|..|altera9.0|quartus|libraries|megafunctions|cycloneii_pll.inc
+..|..|..|..|altera|90|quartus|libraries|megafunctions|cycloneii_pll.inc
 39a0d9d1237d1db39c848c3f9faffc
-..|..|altera9.0|quartus|libraries|megafunctions|stratix_pll.inc
+..|..|..|..|altera|90|quartus|libraries|megafunctions|stratix_pll.inc
 5f8211898149ceae8264a0ea5036254f
-..|..|altera9.0|quartus|libraries|megafunctions|stratixii_pll.inc
+..|..|..|..|altera|90|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|altera|90|quartus|libraries|megafunctions|stratixii_pll.inc
 6d1985e16ab5f59a1fd6b0ae20978a4e
 }
 # hierarchies {
@@ -1603,8 +1603,8 @@ pll:pll1|altpll:altpll_component
 # entity
 debounce
 # storage
-db|recorder.(7).cnf
-db|recorder.(7).cnf
+db|recorder.(2).cnf
+db|recorder.(2).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1612,7 +1612,7 @@ ON
 # case_sensitive
 # source_file
 debounce.v
-623e7e37c0a429e4d5213aa5e71f9aaf
+2bf86f31d5f0a523f2e2f9927bc3ef9
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1632,7 +1632,7 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 }
 # user_parameter {
 NDELAY
-650000
+6500
 PARAMETER_SIGNED_DEC
 DEF
 NBITS
@@ -1649,18 +1649,18 @@ debounce:debounce3
 
 # end
 # entity
-dac
+i2c
 # storage
-db|recorder.(6).cnf
-db|recorder.(6).cnf
+db|recorder.(3).cnf
+db|recorder.(3).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
 }
 # case_sensitive
 # source_file
-dac.v
-7b0d640666d82d3dd35c1eb019e2a
+i2c.v
+d5a9d3dd851b26f20b4d6633176053
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1679,43 +1679,7 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
 # hierarchies {
-dac:dac1
-}
-# macro_sequence
-
-# end
-# entity
-adc
-# storage
-db|recorder.(5).cnf
-db|recorder.(5).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-adc.v
-de69a9bb5acb6476483c96ab3760f2e7
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-adc:adc1
+i2c:i2c1
 }
 # macro_sequence
 
@@ -1732,7 +1696,7 @@ ON
 # case_sensitive
 # source_file
 sram.v
-d218ad44ecd7bd713d9d755fa1a141
+f91dd3dbe7752ea69649af35d5eb41f1
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1757,6 +1721,78 @@ sram:sram1
 
 # end
 # entity
+adc
+# storage
+db|recorder.(6).cnf
+db|recorder.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+adc.v
+bd9bd6795b2643e6f8623cab99a10
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+adc:adc1
+}
+# macro_sequence
+
+# end
+# entity
+dac
+# storage
+db|recorder.(7).cnf
+db|recorder.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+dac.v
+b375d3aabf229f37a2c569a5845b0
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+dac:dac1
+}
+# macro_sequence
+
+# end
+# entity
 recorder
 # storage
 db|recorder.(0).cnf
@@ -1768,7 +1804,7 @@ ON
 # case_sensitive
 # source_file
 recorder.v
-71c4f0dbca8436fff6306cc9252e6c
+4e137049c41e1e14864825759edc5d3
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1788,42 +1824,6 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 }
 # hierarchies {
 |
-}
-# macro_sequence
-
-# end
-# entity
-i2c
-# storage
-db|recorder.(3).cnf
-db|recorder.(3).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-i2c.v
-e1c6f3c235ad8d35e08e87f1b57fe48f
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-i2c:i2c1
 }
 # macro_sequence
 

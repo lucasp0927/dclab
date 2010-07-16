@@ -1,3 +1,0 @@
-control light:控制燈號閃爍
-control mode :控制燈號狀態是否暫停或跳到下一狀態
-plus, minus second, reset modedata:控制加減燈號狀態秒數,及設置燈號狀態回初始狀態

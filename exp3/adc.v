@@ -3,15 +3,16 @@ module adc(//input from  Audio CODEC
            //input from I2C
            record,             
            //output for RAM
-           addr,data,write
+           addr,data,write,
            );
    input  bclk,adclrc,adcdat,record;
    output [17:0] addr;
    output [15:0] data;
-   output 	 write;     
+   output 	 write; 
+   reg [1:0] 	 adclrc_tmp;
+   
 
-   //reg [17:0] 	 addr;
-//   reg [15:0] 	 data; 
+   reg 		 one;
    reg [15:0] 	 data_tmp;
    reg [4:0] 	 reg_count;
    //integer address_count;
@@ -23,36 +24,53 @@ module adc(//input from  Audio CODEC
    /*AUTOREG*/
    assign data = record?data_buffer:16'bzzzzzzzzzzzzzzzz;
    assign addr = record?addr_buffer:18'bzzzzzzzzzzzzzzzzzz;
-   
-   always @ (posedge bclk) begin 
-      if ( record==1) begin 
-	 if (adclrc==0) begin       
-	    if(addr_buffer!=2'b111111111111111111) begin
-	       
-	       if( reg_count != 16 ) begin
-		  
-		  data_tmp[reg_count] <= adcdat;
-		  reg_count <= reg_count+1;
-		  if (reg_count==15) begin
-		     addr_buffer <= addr_buffer+1;
-		     //data_buffer <= data_tmp;
-		     if (reg_count % 2 == 1 ) begin
-			data_buffer <= 2'b1111111111111111;
-		     end else begin
-			data_buffer <= 2'b0000000000000000;
-		     end
 
-		  end
-		   
-	       end
-	    end
-	 end else begin //adclrc==1
-	    write <= 1;
-	    reg_count <= 0 ;
-	    if(write==1) write<=0;             
-	 end 
+   always @ (*) begin
+      if (record == 1) begin
+	 write = adclrc;
       end else begin
-	 write <= 0;   
+	 write = 0;
       end
    end
+   
+   always @ (posedge bclk) begin 
+/*
+      if ( record == 1 && addr_buffer!=2'b111111111111111111) begin 
+	 if (adclrc==0 && one==0) begin
+	    if(reg_count!=16) begin 
+	       data_tmp[reg_count] <= adcdat;
+	       reg_count <= reg_count+1;			    
+            end
+	    if(reg_count==16) begin
+	       reg_count <= 0;
+	       data_buffer <= data_tmp;
+	       one <= 1;
+	    end
+	 end
+	 if( adclrc==1 && one==1 )begin
+	    addr_buffer <= addr_buffer+1;
+	    reg_count <= 0 ;
+	    one <= 0;         
+	 end
+      end
+   end
+ */
+      if (record == 1) begin
+	 if ((adclrc_tmp == 2'b10) || (reg_count != 0)) begin
+	    data_tmp[reg_count] <= adcdat;
+	    if (reg_count == 15) begin
+	       reg_count <= 0;
+	    end else begin
+	       reg_count <= reg_count +1 ;
+	    end
+	 end
+	 if (adclrc_tmp == 2'b01) begin
+	    data_buffer <= data_tmp;
+	    addr_buffer <= addr_buffer +1;
+	 end 
+      end
+      adclrc_tmp[1] <= adclrc_tmp[0];
+      adclrc_tmp[0] <= adclrc;
+      end
 endmodule
+
