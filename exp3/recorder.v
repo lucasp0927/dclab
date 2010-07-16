@@ -83,8 +83,8 @@ module recorder (/*AUTOARG*/
 	       .read			(read),
 	       .write			(write),
 	       .play			(play),
-	       .record			(record)
-	       .reset                   (reset)
+	       .record			(record),
+	       .reset                   (reset),
 	       .clk                     (clk));
    
    adc adc1 (/*AUTOINST*/

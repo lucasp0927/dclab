@@ -1,5 +1,5 @@
 Analysis & Synthesis report for recorder
-Fri Jul 16 11:21:45 2010
+Fri Jul 16 12:36:16 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -49,15 +49,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jul 16 11:21:44 2010         ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 16 12:36:15 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; recorder                                      ;
 ; Top-level Entity Name              ; recorder                                      ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 449                                           ;
-;     Total combinational functions  ; 425                                           ;
-;     Dedicated logic registers      ; 237                                           ;
-; Total registers                    ; 237                                           ;
+; Total logic elements               ; 516                                           ;
+;     Total combinational functions  ; 490                                           ;
+;     Dedicated logic registers      ; 262                                           ;
+; Total registers                    ; 262                                           ;
 ; Total pins                         ; 51                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
@@ -161,34 +161,34 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 449   ;
-;                                             ;       ;
-; Total combinational functions               ; 425   ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 157   ;
-;     -- 3 input functions                    ; 76    ;
-;     -- <=2 input functions                  ; 192   ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 257   ;
-;     -- arithmetic mode                      ; 168   ;
-;                                             ;       ;
-; Total registers                             ; 237   ;
-;     -- Dedicated logic registers            ; 237   ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 51    ;
-; Total PLLs                                  ; 1     ;
-; Maximum fan-out node                        ; bclk  ;
-; Maximum fan-out                             ; 86    ;
-; Total fan-out                               ; 1971  ;
-; Average fan-out                             ; 2.76  ;
-+---------------------------------------------+-------+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                          ;
++---------------------------------------------+----------------------------------------+
+; Resource                                    ; Usage                                  ;
++---------------------------------------------+----------------------------------------+
+; Estimated Total logic elements              ; 516                                    ;
+;                                             ;                                        ;
+; Total combinational functions               ; 490                                    ;
+; Logic element usage by number of LUT inputs ;                                        ;
+;     -- 4 input functions                    ; 146                                    ;
+;     -- 3 input functions                    ; 129                                    ;
+;     -- <=2 input functions                  ; 215                                    ;
+;                                             ;                                        ;
+; Logic elements by mode                      ;                                        ;
+;     -- normal mode                          ; 301                                    ;
+;     -- arithmetic mode                      ; 189                                    ;
+;                                             ;                                        ;
+; Total registers                             ; 262                                    ;
+;     -- Dedicated logic registers            ; 262                                    ;
+;     -- I/O registers                        ; 0                                      ;
+;                                             ;                                        ;
+; I/O pins                                    ; 51                                     ;
+; Total PLLs                                  ; 1                                      ;
+; Maximum fan-out node                        ; pll:pll1|altpll:altpll_component|_clk0 ;
+; Maximum fan-out                             ; 92                                     ;
+; Total fan-out                               ; 2172                                   ;
+; Average fan-out                             ; 2.70                                   ;
++---------------------------------------------+----------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -196,16 +196,16 @@ applicable agreement for further details.
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
-; |recorder                       ; 425 (0)           ; 237 (0)      ; 0           ; 0            ; 0       ; 0         ; 51   ; 0            ; |recorder                                  ; work         ;
+; |recorder                       ; 490 (0)           ; 262 (0)      ; 0           ; 0            ; 0       ; 0         ; 51   ; 0            ; |recorder                                  ; work         ;
 ;    |adc:adc1|                   ; 77 (77)           ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|adc:adc1                         ; work         ;
-;    |dac:dac1|                   ; 64 (64)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|dac:dac1                         ; work         ;
+;    |dac:dac1|                   ; 51 (51)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|dac:dac1                         ; work         ;
 ;    |debounce:debounce1|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce1               ; work         ;
 ;    |debounce:debounce2|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce2               ; work         ;
 ;    |debounce:debounce3|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce3               ; work         ;
 ;    |i2c:i2c1|                   ; 160 (160)         ; 85 (85)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|i2c:i2c1                         ; work         ;
 ;    |pll:pll1|                   ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|pll:pll1                         ; work         ;
 ;       |altpll:altpll_component| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|pll:pll1|altpll:altpll_component ; work         ;
-;    |sram:sram1|                 ; 37 (37)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|sram:sram1                       ; work         ;
+;    |sram:sram1|                 ; 115 (115)         ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|sram:sram1                       ; work         ;
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -217,22 +217,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------+----------------------+------------------------+
 ; sram:sram1|oe                                       ; GND                  ; yes                    ;
 ; sram:sram1|we                                       ; GND                  ; yes                    ;
-; sram:sram1|io_buffer[0]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[1]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[2]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[3]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[4]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[5]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[6]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[7]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[8]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[9]                             ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[10]                            ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[11]                            ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[12]                            ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[13]                            ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[14]                            ; sram:sram1|comb~20   ; yes                    ;
-; sram:sram1|io_buffer[15]                            ; sram:sram1|comb~20   ; yes                    ;
+; sram:sram1|io_buffer[0]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[1]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[2]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[3]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[4]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[5]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[6]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[7]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[8]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[9]                             ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[10]                            ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[11]                            ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[12]                            ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[13]                            ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[14]                            ; sram:sram1|comb~2    ; yes                    ;
+; sram:sram1|io_buffer[15]                            ; sram:sram1|comb~2    ; yes                    ;
 ; sram:sram1|data_buffer[10]                          ; sram:sram1|always1~0 ; yes                    ;
 ; sram:sram1|data_buffer[9]                           ; sram:sram1|always1~0 ; yes                    ;
 ; sram:sram1|data_buffer[8]                           ; sram:sram1|always1~0 ; yes                    ;
@@ -260,24 +260,26 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
 ; reset_tmp[1]                           ; Stuck at GND due to stuck port data_in ;
+; sram:sram1|io_reset[0..15]             ; Stuck at GND due to stuck port data_in ;
+; slowmethod                             ; Stuck at GND due to stuck port data_in ;
 ; slow[0]                                ; Stuck at GND due to stuck port data_in ;
 ; slow[1]                                ; Stuck at VCC due to stuck port data_in ;
 ; slow[2..3]                             ; Stuck at GND due to stuck port data_in ;
 ; fast[0]                                ; Stuck at VCC due to stuck port data_in ;
 ; fast[1..3]                             ; Stuck at GND due to stuck port data_in ;
 ; reset_tmp[0]                           ; Lost fanout                            ;
-; Total Number of Removed Registers = 10 ;                                        ;
+; Total Number of Removed Registers = 27 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                      ;
-+---------------+---------------------------+--------------------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                               ;
-+---------------+---------------------------+--------------------------------------------------------------------------------------+
-; reset_tmp[1]  ; Stuck at GND              ; slow[0], slow[1], slow[2], slow[3], fast[0], fast[1], fast[2], fast[3], reset_tmp[0] ;
-;               ; due to stuck port data_in ;                                                                                      ;
-+---------------+---------------------------+--------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                  ;
++---------------+---------------------------+--------------------------------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                           ;
++---------------+---------------------------+--------------------------------------------------------------------------------------------------+
+; reset_tmp[1]  ; Stuck at GND              ; slowmethod, slow[0], slow[1], slow[2], slow[3], fast[0], fast[1], fast[2], fast[3], reset_tmp[0] ;
+;               ; due to stuck port data_in ;                                                                                                  ;
++---------------+---------------------------+--------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -285,12 +287,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 237   ;
-; Number of registers using Synchronous Clear  ; 72    ;
+; Total registers                              ; 262   ;
+; Number of registers using Synchronous Clear  ; 77    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 123   ;
+; Number of registers using Clock Enable       ; 128   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -300,14 +302,17 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[14] ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce2|count[11] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |recorder|i2c:i2c1|count_1[23]         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_counter[1]    ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce1|count[5]  ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|adc:adc1|reg_count[3]        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|dac:dac1|counter[1]          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_state[0]      ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[10] ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |recorder|sram:sram1|reset_counter[15] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce1|count[7]  ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce2|count[17] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |recorder|i2c:i2c1|count_1[24]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_counter[5]    ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|adc:adc1|reg_count[4]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|dac:dac1|counter_addr[4]     ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|dac:dac1|counter[4]          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_state[1]      ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |recorder|sram:sram1|addr_o[17]        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 
 
@@ -750,7 +755,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
-    Info: Processing started: Fri Jul 16 11:21:36 2010
+    Info: Processing started: Fri Jul 16 12:35:52 2010
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off recorder -c recorder
 Info: Found 1 design units, including 1 entities, in source file pll.v
     Info: Found entity 1: pll
@@ -909,44 +914,45 @@ Warning (10030): Net "i2c_reset[12][26]" at i2c.v(22) has no driver or initial v
 Warning: Using design file sram.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: sram
 Info: Elaborating entity "sram" for hierarchy "sram:sram1"
-Warning (10240): Verilog HDL Always Construct warning at sram.v(45): inferring latch(es) for variable "we", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at sram.v(45): inferring latch(es) for variable "oe", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at sram.v(45): inferring latch(es) for variable "data_buffer", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at sram.v(45): inferring latch(es) for variable "io_buffer", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "io_buffer[0]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[1]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[2]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[3]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[4]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[5]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[6]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[7]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[8]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[9]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[10]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[11]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[12]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[13]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[14]" at sram.v(53)
-Info (10041): Inferred latch for "io_buffer[15]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[0]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[1]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[2]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[3]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[4]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[5]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[6]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[7]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[8]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[9]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[10]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[11]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[12]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[13]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[14]" at sram.v(53)
-Info (10041): Inferred latch for "data_buffer[15]" at sram.v(53)
-Info (10041): Inferred latch for "oe" at sram.v(53)
-Info (10041): Inferred latch for "we" at sram.v(53)
+Warning (10230): Verilog HDL assignment warning at sram.v(45): truncated value with size 32 to match size of target (18)
+Warning (10240): Verilog HDL Always Construct warning at sram.v(63): inferring latch(es) for variable "we", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at sram.v(63): inferring latch(es) for variable "oe", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at sram.v(63): inferring latch(es) for variable "data_buffer", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at sram.v(63): inferring latch(es) for variable "io_buffer", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "io_buffer[0]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[1]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[2]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[3]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[4]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[5]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[6]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[7]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[8]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[9]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[10]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[11]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[12]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[13]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[14]" at sram.v(71)
+Info (10041): Inferred latch for "io_buffer[15]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[0]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[1]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[2]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[3]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[4]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[5]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[6]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[7]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[8]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[9]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[10]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[11]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[12]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[13]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[14]" at sram.v(71)
+Info (10041): Inferred latch for "data_buffer[15]" at sram.v(71)
+Info (10041): Inferred latch for "oe" at sram.v(71)
+Info (10041): Inferred latch for "we" at sram.v(71)
 Warning (10238): Verilog Module Declaration warning at adc.v(7): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "adc"
 Warning: Using design file adc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: adc
@@ -956,12 +962,32 @@ Warning (10230): Verilog HDL assignment warning at adc.v(69): truncated value wi
 Warning: Using design file dac.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: dac
 Info: Elaborating entity "dac" for hierarchy "dac:dac1"
-Warning (10230): Verilog HDL assignment warning at dac.v(32): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at dac.v(35): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at dac.v(34): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at dac.v(36): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at dac.v(39): truncated value with size 32 to match size of target (5)
 Warning: Using design file debounce.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: debounce
 Info: Elaborating entity "debounce" for hierarchy "debounce:debounce1"
 Warning (10230): Verilog HDL assignment warning at debounce.v(26): truncated value with size 32 to match size of target (20)
+Warning: Tri-state node(s) do not directly drive top-level pin(s)
+    Warning: Converted tri-state node "addr[17]" into a selector
+    Warning: Converted tri-state node "addr[16]" into a selector
+    Warning: Converted tri-state node "addr[15]" into a selector
+    Warning: Converted tri-state node "addr[14]" into a selector
+    Warning: Converted tri-state node "addr[13]" into a selector
+    Warning: Converted tri-state node "addr[12]" into a selector
+    Warning: Converted tri-state node "addr[11]" into a selector
+    Warning: Converted tri-state node "addr[10]" into a selector
+    Warning: Converted tri-state node "addr[9]" into a selector
+    Warning: Converted tri-state node "addr[8]" into a selector
+    Warning: Converted tri-state node "addr[7]" into a selector
+    Warning: Converted tri-state node "addr[6]" into a selector
+    Warning: Converted tri-state node "addr[5]" into a selector
+    Warning: Converted tri-state node "addr[4]" into a selector
+    Warning: Converted tri-state node "addr[3]" into a selector
+    Warning: Converted tri-state node "addr[2]" into a selector
+    Warning: Converted tri-state node "addr[1]" into a selector
+    Warning: Converted tri-state node "addr[0]" into a selector
 Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning: Tri-state node(s) do not directly drive top-level pin(s)
     Warning: Converted the fan-out from the tri-state buffer "adc:adc1|data[10]" to the node "dac:dac1|Mux0" into an OR gate
@@ -1017,16 +1043,16 @@ Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "lb" is stuck at GND
 Info: 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
     Info: Register "reset_tmp[0]" lost all its fanouts during netlist optimizations.
-Info: Implemented 502 device resources after synthesis - the final resource count might be different
+Info: Implemented 569 device resources after synthesis - the final resource count might be different
     Info: Implemented 8 input pins
     Info: Implemented 27 output pins
     Info: Implemented 16 bidirectional pins
-    Info: Implemented 450 logic cells
+    Info: Implemented 517 logic cells
     Info: Implemented 1 ClockLock PLLs
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 156 warnings
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 177 warnings
     Info: Peak virtual memory: 185 megabytes
-    Info: Processing ended: Fri Jul 16 11:21:45 2010
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Processing ended: Fri Jul 16 12:36:16 2010
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:23
 
 

@@ -29,7 +29,7 @@ module sram (/*AUTOARG*/
 
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg [17:0]		addr_o;
+//   reg [17:0]		addr_o;
    reg			ce;
    reg			lb;
    reg			oe;
@@ -39,22 +39,25 @@ module sram (/*AUTOARG*/
 
    always @ (posedge clk) begin
       if ((reset_tmp == 2'b01) || reset_counter != 0) begin
-	 reset_counter <= reset_counter + 1;
-	 
+	 if (reset_counter == 18'b111111111111111111)
+	   reset_counter <= 0;
+	 else
+	   reset_counter <= reset_counter + 1;
+	 io_reset <= 16'b0000000000000000;
       end
       reset_tmp[1]  <= reset_tmp[0];
-      reset_tmp <= reset;   
+      reset_tmp[0] <= reset;   
    end
    
    //pass address to sram
-   always @(*) begin
-      addr_o = addr;
-   end
+//   always @(*) begin
+//      addr_o = addr;
+//   end
 
    assign io = we?16'hzzzz:io_buffer;
    assign data = record?16'hzzzz:data_buffer;
    assign io = reset?io_reset:16'hzzzz;
-   assign addr_o = reset
+   assign addr_o = reset?reset_counter:addr;
    //read and write
    always @(*) begin
       lb = 0;
