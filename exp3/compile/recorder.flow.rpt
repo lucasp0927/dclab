@@ -1,5 +1,5 @@
 Flow report for recorder
-Fri Jul 16 11:22:32 2010
+Fri Jul 16 11:54:54 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Fri Jul 16 11:22:31 2010         ;
+; Flow Status                        ; Successful - Fri Jul 16 11:54:53 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; recorder                                      ;
 ; Top-level Entity Name              ; recorder                                      ;
@@ -46,10 +46,10 @@ applicable agreement for further details.
 ; Device                             ; EP2C35F672C6                                  ;
 ; Timing Models                      ; Final                                         ;
 ; Met timing requirements            ; No                                            ;
-; Total logic elements               ; 425 / 33,216 ( 1 % )                          ;
-;     Total combinational functions  ; 425 / 33,216 ( 1 % )                          ;
-;     Dedicated logic registers      ; 237 / 33,216 ( < 1 % )                        ;
-; Total registers                    ; 237                                           ;
+; Total logic elements               ; 431 / 33,216 ( 1 % )                          ;
+;     Total combinational functions  ; 431 / 33,216 ( 1 % )                          ;
+;     Dedicated logic registers      ; 242 / 33,216 ( < 1 % )                        ;
+; Total registers                    ; 242                                           ;
 ; Total pins                         ; 51 / 475 ( 11 % )                             ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                           ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/16/2010 11:21:37 ;
+; Start date & time ; 07/16/2010 11:53:51 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; recorder            ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ applicable agreement for further details.
 +------------------------------------+-------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                     ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+-------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 107162591449.127925049703112              ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 107162591449.127925243102688              ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                       ; ALTPLL                                    ; --            ; --          ; --             ;
 ; IP_TOOL_VERSION                    ; 9.0                                       ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                        ; --            ; --          ; --             ;
@@ -96,11 +96,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:08     ; 1.0                     ; 185 MB              ; 00:00:07                           ;
-; Fitter                  ; 00:00:22     ; 1.0                     ; 254 MB              ; 00:00:21                           ;
-; Assembler               ; 00:00:12     ; 1.0                     ; 222 MB              ; 00:00:10                           ;
+; Analysis & Synthesis    ; 00:00:09     ; 1.0                     ; 185 MB              ; 00:00:08                           ;
+; Fitter                  ; 00:00:26     ; 1.0                     ; 254 MB              ; 00:00:25                           ;
+; Assembler               ; 00:00:10     ; 1.0                     ; 222 MB              ; 00:00:09                           ;
 ; Classic Timing Analyzer ; 00:00:03     ; 1.0                     ; 132 MB              ; 00:00:02                           ;
-; Total                   ; 00:00:45     ; --                      ; --                  ; 00:00:40                           ;
+; Total                   ; 00:00:48     ; --                      ; --                  ; 00:00:44                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

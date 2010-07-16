@@ -4,7 +4,7 @@ module sram (/*AUTOARG*/
    // Inouts
    io, data,
    // Inputs
-   addr, read, write, play, record
+   addr, read, write, play, record, reset
    );
    output [17:0] addr_o;
    input [17:0]  addr;
@@ -12,6 +12,7 @@ module sram (/*AUTOARG*/
    input 	 write;  //write
    input 	 play;
    input 	 record;
+   input 	 reset;
    
    inout [15:0]  io; // to sram
    inout [15:0]  data;
@@ -21,6 +22,7 @@ module sram (/*AUTOARG*/
  	 
    reg [15:0] 	 io_buffer;
    reg [15:0] 	 data_buffer;
+   reg [15:0] 	 io_reset;
    
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
@@ -39,7 +41,7 @@ module sram (/*AUTOARG*/
 
    assign io = we?16'hzzzz:io_buffer;
    assign data = record?16'hzzzz:data_buffer;
-   
+   assign io = reset?io_reset:16'hzzzz;
    //read and write
    always @(*) begin
       lb = 0;

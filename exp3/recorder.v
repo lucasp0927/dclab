@@ -44,7 +44,7 @@ module recorder (/*AUTOARG*/
    always @ (posedge clk) begin
       if (reset_tmp == 2'b01) begin
 	 fast <= 1;
-	 slow <= 2;
+	 slow <= 8;
 	 slowmethod <= 0;
       end 
       reset_tmp[1]  <= reset_tmp[0];
