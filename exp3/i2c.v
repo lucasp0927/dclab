@@ -19,7 +19,7 @@ module i2c (/*AUTOARG*/
     */
    
    reg [0:26] i2c_pass;
-   reg [0:26] i2c_reset[0:11];
+   reg [0:26] i2c_reset[0:12];
    reg [4:0] 	  clk_slow;
    integer 	  i2c_counter;
    reg 		  send;  //1 when package not send.
@@ -67,7 +67,7 @@ module i2c (/*AUTOARG*/
 	 end 
 
 	 if (reset_counter == 60) begin
-	    if (reset_state == 11) begin
+	    if (reset_state == 12) begin
 	       reset_state <= 0;
 	    end else begin
 	       reset_state <= reset_state + 1;
@@ -155,13 +155,12 @@ module i2c (/*AUTOARG*/
       i2c_reset[2] = 27'b00110100_0_00001000_0_00000001_0; //mic
       i2c_reset[3] = 27'b00110100_0_00000100_0_01111001_0; //headphone amp left
       i2c_reset[4] = 27'b00110100_0_00000110_0_01111001_0; //headphone amp right
-      i2c_reset[5] = 27'b00110100_0_00001110_0_01_0_10010_0; //digital interface
-      i2c_reset[6] = 27'b00110100_0_00010000_0_00001101_0; //sampling control
-      i2c_reset[7] = 27'b00110100_0_00001000_0_11110101_0; //analogue audio path control
-      i2c_reset[8] = 27'b00110100_0_00001010_0_00010011_0; //digital audio path control
-   //   i2c_reset[9] = 27'b00110100_0_00010000_0_00000001_0;  //  trytrykan
-//      i2c_reset[10] =27'b00110100_0_00010000_0_00000101_0;  //  trytrykan
-      i2c_reset[11] = 27'b00110100_0_00001100_0_01100000_0;  //  Power Down Control
+      i2c_reset[5] = 27'b00110100_0_00001110_0_01010010_0; //digital interface
+      i2c_reset[6] = 27'b00110100_0_00010000_0_00001100_0; //sampling control
+      i2c_reset[7] = 27'b00110100_0_00001000_0_00010101_0; //analogue audio path control
+      i2c_reset[8] = 27'b00110100_0_00010010_0_00000001_0;  //  active control
+      i2c_reset[9] = 27'b00110100_0_00001010_0_00010001_0; //digital audio path control
+      i2c_reset[10] = 27'b00110100_0_00001100_0_00000000_0;  //  Power Down Control
    end
 
 endmodule
