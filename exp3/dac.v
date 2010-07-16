@@ -28,7 +28,7 @@ module dac (play, bclk, daclrc, dacdat, addr, read ,data);
 	    dacdat <= data[counter];
 	 end else
 	   dacdat <= 0;
-	 if (counter == 4'd16) begin
+	 if (counter == 4'd16 && daclrc == 1) begin
 	    counter <= 0;
 	    addr_buffer <= addr_buffer+1;
 	 end
