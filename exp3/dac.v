@@ -12,7 +12,7 @@ module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
    reg [4:0] 	 counter;
-   reg [4:0] 	 daccounter;
+   reg [4:0] 	 counter_addr;
    reg 		 dacdat;
    reg 		 read;
    reg [3:0] 	 counter2;
@@ -27,18 +27,23 @@ module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data
       else begin
 	 read <= 1;
 	 if (slowmethod == 0) begin
-	 	if (daclrc == 0 && counter != 5'd16) begin
+	 	if (daclrc == 0 && counter_addr != 5'd16) begin
+		if(counter == 5'd15)
+		counter <= 0;
+		else
+		counter <= counter+1;
 	    	dacdat <= data[counter];
 	    	counter2 <= counter2 + 1;
 	    	if(counter2 == slow-1)begin
 			counter2 <= 0;
-			counter <= counter+1;
+			counter_addr <= counter_addr+1;
 	    	end
 	 end   
 	 end else
 	   dacdat <= 0;
-	 if (counter == 5'd16 && daclrc == 1) begin
-	    counter <= 0;
+	 if (counter_addr == 5'd16 && daclrc == 1) begin
+	    counter_addr <= 0;
+	    counter <=0;
 	    addr_buffer <= addr_buffer+fast;
 	 end
       end
