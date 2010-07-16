@@ -87,6 +87,9 @@ module recorder (/*AUTOARG*/
 	     .dacdat			(dacdat),
 	     .addr			(addr[17:0]),
 	     // Inputs
+	     .slow                      (slow[3:0]),  //make it play slower 2= 1/2, 3=1/3  etc..
+	     .slowmethod                (slowmethod), // 0  for zero order, 1 for first order
+	     .fast                      (fast[3:0]),
 	     .play			(play),
 	     .bclk			(bclk),
 	     .daclrc			(daclrc),
