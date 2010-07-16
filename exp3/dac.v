@@ -28,20 +28,19 @@ module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data
 	 read <= 1;
 	 if (slowmethod == 0) begin
 	 	if (daclrc == 0 && counter_addr != 5'd16) begin
-		if(counter == 5'd15) begin
-			counter <= 0;
-			counter2 <= counter2 + 1;
-		end else
-			counter <= counter+1;
-	    	dacdat <= data[counter];
-	    	if(counter2 == slow-1)begin
-			counter2 <= 0;
-			counter_addr <= counter_addr+1;
-	    	end
-
-	 	end   
-	 end else
-	   dacdat <= 0;
+			if(counter == 5'd15) begin
+				counter <= 0;
+				counter2 <= counter2 + 1;
+			end else
+				counter <= counter+1;
+	    		dacdat <= data[counter];
+	    		if(counter2 == slow-1)begin
+				counter2 <= 0;
+				counter_addr <= counter_addr+1;
+	    		end   
+	 	end else
+	   	  dacdat <= 0;
+	end
 	 if (counter_addr == 5'd16 && daclrc == 1) begin
 	    counter_addr <= 0;
 	    counter <=0;
