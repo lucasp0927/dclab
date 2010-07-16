@@ -1,7 +1,6 @@
 module i2c (/*AUTOARG*/
    // Outputs
-   i2c_clk, i2c_dat, send_o, reset_tmp_o, reset_counter_o,
-   reset_state_o,
+   i2c_clk, i2c_dat,
    // Inputs
    clk, reset
    );
@@ -12,26 +11,12 @@ module i2c (/*AUTOARG*/
 
 
    /*
-    * debug
+    * debug start
     */
 
-   output send_o;
-   always @(*) begin
-      send_o = send;
-   end
-   output [1:0] reset_tmp_o;
-   always @(*) begin
-      reset_tmp_o = reset_tmp;
-   end
-   output [6:0] reset_counter_o;
-   always @(*) begin
-      reset_counter_o = reset_counter;
-   end
-   output [3:0] reset_state_o;
-   always @(*) begin
-      reset_state_o = reset_state;
-   end
-
+   /*
+    * debug stop
+    */
    
    reg [0:26] i2c_pass;
    reg [0:26] i2c_reset[0:11];
@@ -51,10 +36,6 @@ module i2c (/*AUTOARG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
    reg			i2c_clk;
    reg			i2c_dat;
-   reg [6:0]		reset_counter_o;
-   reg [3:0]		reset_state_o;
-   reg [1:0]		reset_tmp_o;
-   reg			send_o;
    // End of automatics
 
    initial begin
@@ -168,29 +149,8 @@ module i2c (/*AUTOARG*/
 	 end
       end
    end
- /*   
-   always @(posedge clk_slow[3]) begin
-      if ((send == 1) && (clk_slow[4] == 0)) begin
-	 i2c_dat <= 0;
-	 start_ready <= 1;
-      end else begin
-	 i2c_dat <= 1;
-      end
-
-      
-      i2c_dat <= i2c_pass[i2c_counter];
-      if (clk_slow[4] == 1) begin
-	 if (i2c_counter == 26) begin
-	    i2c_counter <= 0;
-	 end else begin
-	    i2c_counter <= i2c_counter + 1;
-	 end
-      end
-   end
-*/
    
    always @(*) begin
-//      i2c_pass = 27'b00110100_0_00001110_0_01000010_0;
       i2c_reset[1] = 27'b00110100_0_00011110_0_00000000_0; //reset
       i2c_reset[2] = 27'b00110100_0_00001000_0_00000001_0; //mic
       i2c_reset[3] = 27'b00110100_0_00000100_0_01111001_0; //headphone amp left

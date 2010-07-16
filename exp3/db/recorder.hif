@@ -1685,42 +1685,6 @@ dac:dac1
 
 # end
 # entity
-adc
-# storage
-db|recorder.(5).cnf
-db|recorder.(5).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-adc.v
-de69a9bb5acb6476483c96ab3760f2e7
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-adc:adc1
-}
-# macro_sequence
-
-# end
-# entity
 sram
 # storage
 db|recorder.(4).cnf
@@ -1757,6 +1721,42 @@ sram:sram1
 
 # end
 # entity
+adc
+# storage
+db|recorder.(5).cnf
+db|recorder.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+adc.v
+266da89797d8d3d4cc212820f7bc6d73
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+adc:adc1
+}
+# macro_sequence
+
+# end
+# entity
 recorder
 # storage
 db|recorder.(0).cnf
@@ -1768,7 +1768,7 @@ ON
 # case_sensitive
 # source_file
 recorder.v
-71c4f0dbca8436fff6306cc9252e6c
+d532e5a97b7355249e2e8bba8f298ac
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1804,7 +1804,7 @@ ON
 # case_sensitive
 # source_file
 i2c.v
-e1c6f3c235ad8d35e08e87f1b57fe48f
+63b01d34e1dc5963dbf53130df04850
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

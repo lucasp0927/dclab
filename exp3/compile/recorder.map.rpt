@@ -1,5 +1,5 @@
 Analysis & Synthesis report for recorder
-Wed Jul 14 21:39:11 2010
+Thu Jul 15 10:16:37 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -48,13 +48,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jul 14 21:39:11 2010         ;
+; Analysis & Synthesis Status        ; Successful - Thu Jul 15 10:16:37 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; recorder                                      ;
 ; Top-level Entity Name              ; recorder                                      ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 398                                           ;
-;     Total combinational functions  ; 392                                           ;
+; Total logic elements               ; 401                                           ;
+;     Total combinational functions  ; 395                                           ;
 ;     Dedicated logic registers      ; 200                                           ;
 ; Total registers                    ; 200                                           ;
 ; Total pins                         ; 67                                            ;
@@ -165,16 +165,16 @@ applicable agreement for further details.
 +---------------------------------------------+----------------------+
 ; Resource                                    ; Usage                ;
 +---------------------------------------------+----------------------+
-; Estimated Total logic elements              ; 398                  ;
+; Estimated Total logic elements              ; 401                  ;
 ;                                             ;                      ;
-; Total combinational functions               ; 392                  ;
+; Total combinational functions               ; 395                  ;
 ; Logic element usage by number of LUT inputs ;                      ;
-;     -- 4 input functions                    ; 121                  ;
-;     -- 3 input functions                    ; 57                   ;
+;     -- 4 input functions                    ; 128                  ;
+;     -- 3 input functions                    ; 53                   ;
 ;     -- <=2 input functions                  ; 214                  ;
 ;                                             ;                      ;
 ; Logic elements by mode                      ;                      ;
-;     -- normal mode                          ; 224                  ;
+;     -- normal mode                          ; 227                  ;
 ;     -- arithmetic mode                      ; 168                  ;
 ;                                             ;                      ;
 ; Total registers                             ; 200                  ;
@@ -185,8 +185,8 @@ applicable agreement for further details.
 ; Total PLLs                                  ; 1                    ;
 ; Maximum fan-out node                        ; i2c:i2c1|clk_slow[3] ;
 ; Maximum fan-out                             ; 81                   ;
-; Total fan-out                               ; 1741                 ;
-; Average fan-out                             ; 2.64                 ;
+; Total fan-out                               ; 1757                 ;
+; Average fan-out                             ; 2.65                 ;
 +---------------------------------------------+----------------------+
 
 
@@ -195,13 +195,13 @@ applicable agreement for further details.
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
-; |recorder                       ; 392 (0)           ; 200 (0)      ; 0           ; 0            ; 0       ; 0         ; 67   ; 0            ; |recorder                                  ; work         ;
+; |recorder                       ; 395 (0)           ; 200 (0)      ; 0           ; 0            ; 0       ; 0         ; 67   ; 0            ; |recorder                                  ; work         ;
 ;    |adc:adc1|                   ; 36 (36)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|adc:adc1                         ; work         ;
 ;    |dac:dac1|                   ; 56 (56)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|dac:dac1                         ; work         ;
 ;    |debounce:debounce1|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce1               ; work         ;
 ;    |debounce:debounce2|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce2               ; work         ;
 ;    |debounce:debounce3|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce3               ; work         ;
-;    |i2c:i2c1|                   ; 160 (160)         ; 85 (85)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|i2c:i2c1                         ; work         ;
+;    |i2c:i2c1|                   ; 163 (163)         ; 85 (85)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|i2c:i2c1                         ; work         ;
 ;    |pll:pll1|                   ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|pll:pll1                         ; work         ;
 ;       |altpll:altpll_component| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|pll:pll1|altpll:altpll_component ; work         ;
 ;    |sram:sram1|                 ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|sram:sram1                       ; work         ;
@@ -284,13 +284,13 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce1|count[11] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce2|count[3]  ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[17] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |recorder|i2c:i2c1|count_1[11]         ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_counter[0]    ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce2|count[4]  ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[9]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |recorder|i2c:i2c1|count_1[22]         ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce1|count[0]  ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|adc:adc1|reg_count[0]        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_state[3]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_state[0]      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 
 
@@ -733,15 +733,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
-    Info: Processing started: Wed Jul 14 21:39:08 2010
+    Info: Processing started: Thu Jul 15 10:16:33 2010
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off recorder -c recorder
 Info: Found 1 design units, including 1 entities, in source file pll.v
     Info: Found entity 1: pll
-Warning (10275): Verilog HDL Module Instantiation warning at recorder.v(57): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at recorder.v(48): ignored dangling comma in List of Port Connections
 Warning: Using design file recorder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: recorder
 Info: Elaborating entity "recorder" for the top level hierarchy
-Info (10266): Verilog HDL Module Instantiation information at recorder.v(57): instance "pll1" connects port 0 to an empty expression
+Info (10266): Verilog HDL Module Instantiation information at recorder.v(48): instance "pll1" connects port 0 to an empty expression
 Info: Elaborating entity "pll" for hierarchy "pll:pll1"
 Info: Elaborating entity "altpll" for hierarchy "pll:pll1|altpll:altpll_component"
 Info: Elaborated megafunction instantiation "pll:pll1|altpll:altpll_component"
@@ -803,92 +803,92 @@ Info: Instantiated megafunction "pll:pll1|altpll:altpll_component" with the foll
 Warning: Using design file i2c.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: i2c
 Info: Elaborating entity "i2c" for hierarchy "i2c:i2c1"
-Warning (10036): Verilog HDL or VHDL warning at i2c.v(42): object "start_ready" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at i2c.v(42): object "send_ready" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at i2c.v(44): object "send_counter" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at i2c.v(92): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at i2c.v(96): truncated value with size 32 to match size of target (7)
-Warning (10030): Net "i2c_reset[0][0]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][1]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][2]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][3]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][4]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][5]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][6]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][7]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][8]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][9]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][10]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][11]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][12]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][13]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][14]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][15]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][16]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][17]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][18]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][19]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][20]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][21]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][22]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][23]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][24]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][25]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[0][26]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][0]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][1]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][2]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][3]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][4]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][5]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][6]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][7]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][8]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][9]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][10]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][11]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][12]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][13]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][14]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][15]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][16]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][17]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][18]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][19]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][20]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][21]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][22]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][23]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][24]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][25]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[9][26]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][0]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][1]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][2]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][3]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][4]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][5]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][6]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][7]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][8]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][9]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][10]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][11]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][12]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][13]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][14]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][15]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][16]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][17]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][18]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][19]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][20]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][21]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][22]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][23]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][24]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][25]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "i2c_reset[10][26]" at i2c.v(37) has no driver or initial value, using a default initial value '0'
+Warning (10036): Verilog HDL or VHDL warning at i2c.v(27): object "start_ready" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at i2c.v(27): object "send_ready" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at i2c.v(29): object "send_counter" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at i2c.v(73): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at i2c.v(77): truncated value with size 32 to match size of target (7)
+Warning (10030): Net "i2c_reset[0][0]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][1]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][2]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][3]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][4]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][5]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][6]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][7]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][8]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][9]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][10]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][11]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][12]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][13]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][14]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][15]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][16]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][17]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][18]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][19]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][20]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][21]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][22]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][23]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][24]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][25]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[0][26]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][0]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][1]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][2]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][3]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][4]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][5]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][6]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][7]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][8]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][9]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][10]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][11]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][12]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][13]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][14]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][15]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][16]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][17]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][18]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][19]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][20]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][21]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][22]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][23]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][24]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][25]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[9][26]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][0]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][1]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][2]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][3]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][4]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][5]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][6]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][7]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][8]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][9]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][10]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][11]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][12]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][13]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][14]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][15]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][16]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][17]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][18]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][19]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][20]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][21]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][22]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][23]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][24]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][25]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "i2c_reset[10][26]" at i2c.v(22) has no driver or initial value, using a default initial value '0'
 Warning: Using design file sram.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: sram
 Info: Elaborating entity "sram" for hierarchy "sram:sram1"
@@ -930,14 +930,14 @@ Info (10041): Inferred latch for "data_buffer[14]" at sram.v(56)
 Info (10041): Inferred latch for "data_buffer[15]" at sram.v(56)
 Info (10041): Inferred latch for "oe" at sram.v(56)
 Info (10041): Inferred latch for "we" at sram.v(56)
-Warning (10229): Verilog HDL Expression warning at adc.v(30): truncated literal to match 2 bits
-Warning (10229): Verilog HDL Expression warning at adc.v(40): truncated literal to match 2 bits
+Warning (10229): Verilog HDL Expression warning at adc.v(45): truncated literal to match 2 bits
+Warning (10229): Verilog HDL Expression warning at adc.v(55): truncated literal to match 2 bits
 Warning: Using design file adc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: adc
 Info: Elaborating entity "adc" for hierarchy "adc:adc1"
-Warning (10036): Verilog HDL or VHDL warning at adc.v(15): object "data_tmp" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at adc.v(35): truncated value with size 32 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at adc.v(37): truncated value with size 32 to match size of target (18)
+Warning (10036): Verilog HDL or VHDL warning at adc.v(14): object "data_tmp" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at adc.v(50): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at adc.v(52): truncated value with size 32 to match size of target (18)
 Warning (10229): Verilog HDL Expression warning at dac.v(26): truncated literal to match 4 bits
 Warning (10229): Verilog HDL Expression warning at dac.v(31): truncated literal to match 4 bits
 Warning: Using design file dac.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
@@ -960,8 +960,8 @@ Warning: Tri-state node(s) do not directly drive top-level pin(s)
     Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[4]" to the node "dac:dac1|Mux0" into an OR gate
     Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[7]" to the node "dac:dac1|Mux0" into an OR gate
     Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[2]" to the node "dac:dac1|Mux0" into an OR gate
-    Warning: Converted the fan-out from the tri-state buffer "adc:adc1|data[1]" to the node "dac:dac1|Mux0" into an OR gate
-    Warning: Converted the fan-out from the tri-state buffer "adc:adc1|data[0]" to the node "dac:dac1|Mux0" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[1]" to the node "dac:dac1|Mux0" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[0]" to the node "dac:dac1|Mux0" into an OR gate
     Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[3]" to the node "dac:dac1|Mux0" into an OR gate
     Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[13]" to the node "dac:dac1|Mux0" into an OR gate
     Warning: Converted the fan-out from the tri-state buffer "sram:sram1|data[14]" to the node "dac:dac1|Mux0" into an OR gate
@@ -972,16 +972,16 @@ Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "lb" is stuck at GND
 Warning: Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "adcdat"
-Info: Implemented 467 device resources after synthesis - the final resource count might be different
+Info: Implemented 470 device resources after synthesis - the final resource count might be different
     Info: Implemented 8 input pins
     Info: Implemented 43 output pins
     Info: Implemented 16 bidirectional pins
-    Info: Implemented 399 logic cells
+    Info: Implemented 402 logic cells
     Info: Implemented 1 ClockLock PLLs
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 130 warnings
     Info: Peak virtual memory: 195 megabytes
-    Info: Processing ended: Wed Jul 14 21:39:11 2010
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Processing ended: Thu Jul 15 10:16:37 2010
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 

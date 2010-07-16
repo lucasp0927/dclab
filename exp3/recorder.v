@@ -1,7 +1,7 @@
 module recorder (/*AUTOARG*/
    // Outputs
-   addr_o, ce, oe, we, ub, lb, dacdat, i2c_clk, i2c_dat, sclk, sdat,
-   reset_out, send_o, reset_tmp_o, reset_counter_o, reset_state_o,
+   addr_o, ce, oe, we, ub, lb, dacdat, i2c_clk, i2c_dat, data_o,
+   write_o,
    // Inouts
    io,
    // Inputs
@@ -24,17 +24,8 @@ module recorder (/*AUTOARG*/
    output 	 i2c_dat;
 
    //debug
-   output 	 sclk, sdat, reset_out,send_o;
-   output [1:0]  reset_tmp_o;
-   output [6:0]  reset_counter_o;
-   output [3:0]  reset_state_o;
-   
-   always @(*) begin
-      reset_out = reset;
-      sdat = i2c_dat;
-      sclk = i2c_clk;
-   end
-
+   output [15:0]	 data_o;
+   output 	 write_o;
    
    reg [17:0] 	 addr;
       
@@ -48,22 +39,19 @@ module recorder (/*AUTOARG*/
    wire			write;			// From adc1 of adc.v
    // End of automatics
    /*AUTOREG*/
-   // Beginning of automatic regs (for this module's undeclared outputs)
-   reg			reset_out;
-   reg			sclk;
-   reg			sdat;
-   // End of automatics
 
+   /*
+    * phase lock loop, change 50Mhz to 12Mhz
+    */
    pll pll1 ( , clkfast,clk, );
 
+   /*
+    * i2c protocol
+    */
    i2c i2c1 (/*AUTOINST*/
 	     // Outputs
 	     .i2c_clk			(i2c_clk),
 	     .i2c_dat			(i2c_dat),
-	     .send_o			(send_o),
-	     .reset_tmp_o		(reset_tmp_o[1:0]),
-	     .reset_counter_o		(reset_counter_o[6:0]),
-	     .reset_state_o		(reset_state_o[3:0]),
 	     // Inputs
 	     .clk			(clk),
 	     .reset			(reset));
@@ -85,16 +73,20 @@ module recorder (/*AUTOARG*/
 	       .write			(write),
 	       .play			(play),
 	       .record			(record));
+   
    adc adc1 (/*AUTOINST*/
 	     // Outputs
 	     .addr			(addr[17:0]),
 	     .data			(data[15:0]),
 	     .write			(write),
+	     .data_o			(data_o[15:0]),
+	     .write_o			(write_o),
 	     // Inputs
 	     .bclk			(bclk),
 	     .adclrc			(adclrc),
 	     .adcdat			(adcdat),
 	     .record			(record));
+   
    dac dac1 (/*AUTOINST*/
 	     // Outputs
 	     .read			(read),
@@ -124,5 +116,4 @@ module recorder (/*AUTOARG*/
 		       // Inputs
 		       .clks		(clkfast),
 		       .noisy		(record_dirty));
-
 endmodule
