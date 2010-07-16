@@ -37,21 +37,13 @@ module sram (/*AUTOARG*/
    reg 		 ub;
    reg 		 we;
    // End of automatics
-/*
+
    always @ (posedge clk) begin
-      if ((reset_tmp == 2'b01) || reset_counter != 0) begin
-	 if (reset_counter == 18'b111111111111111111) begin
-	    reset_counter <= 0;
-	 end
-	 else begin
+      if ((reset == 1)) begin
 	    reset_counter <= reset_counter + 1;
-	 end
-	 io_reset <= 16'h0000;
       end
-      reset_tmp[1]  <= reset_tmp[0];
-      reset_tmp[0] <= reset;   
    end
-*/
+
    //pass address to sram
    //   always @(*) begin
    //      addr_o = addr;
@@ -61,7 +53,7 @@ module sram (/*AUTOARG*/
 //      if (reset == 1) begin
 //	 io = io_reset;
 //      end else begin
-	 if (write == 1) begin
+	 if ((write == 1)||(reset == 1)) begin
 	    io = io_buffer;
 	 end else begin
 	    io = 16'hzzzz;
@@ -79,6 +71,7 @@ module sram (/*AUTOARG*/
 	 ce = 0;
 	 we = 0;
 	 oe = 1;
+	 io_buffer = 16'h0000;
       end
       else begin
 	 if ((read == 1) && (write == 0)) begin //read
