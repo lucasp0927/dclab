@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Fri Jul 16 10:08:22 2010
+Analysis & Synthesis Status : Successful - Fri Jul 16 11:21:44 2010
 Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Full Version
 Revision Name : recorder
 Top-level Entity Name : recorder
 Family : Cyclone II
-Total logic elements : 443
-    Total combinational functions : 419
-    Dedicated logic registers : 233
-Total registers : 233
+Total logic elements : 449
+    Total combinational functions : 425
+    Dedicated logic registers : 237
+Total registers : 237
 Total pins : 51
 Total virtual pins : 0
 Total memory bits : 0

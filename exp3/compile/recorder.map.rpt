@@ -1,5 +1,5 @@
 Analysis & Synthesis report for recorder
-Fri Jul 16 10:08:22 2010
+Fri Jul 16 11:21:45 2010
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
 
 
@@ -13,15 +13,17 @@ Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
   7. User-Specified and Inferred Latches
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: pll:pll1|altpll:altpll_component
- 11. Parameter Settings for User Entity Instance: debounce:debounce1
- 12. Parameter Settings for User Entity Instance: debounce:debounce2
- 13. Parameter Settings for User Entity Instance: debounce:debounce3
- 14. altpll Parameter Settings by Entity Instance
- 15. Port Connectivity Checks: "pll:pll1"
- 16. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: pll:pll1|altpll:altpll_component
+ 13. Parameter Settings for User Entity Instance: debounce:debounce1
+ 14. Parameter Settings for User Entity Instance: debounce:debounce2
+ 15. Parameter Settings for User Entity Instance: debounce:debounce3
+ 16. altpll Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "pll:pll1"
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -47,15 +49,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jul 16 10:08:22 2010         ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 16 11:21:44 2010         ;
 ; Quartus II Version                 ; 9.0 Build 235 06/17/2009 SP 2 SJ Full Version ;
 ; Revision Name                      ; recorder                                      ;
 ; Top-level Entity Name              ; recorder                                      ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 443                                           ;
-;     Total combinational functions  ; 419                                           ;
-;     Dedicated logic registers      ; 233                                           ;
-; Total registers                    ; 233                                           ;
+; Total logic elements               ; 449                                           ;
+;     Total combinational functions  ; 425                                           ;
+;     Dedicated logic registers      ; 237                                           ;
+; Total registers                    ; 237                                           ;
 ; Total pins                         ; 51                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
@@ -164,28 +166,28 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 443   ;
+; Estimated Total logic elements              ; 449   ;
 ;                                             ;       ;
-; Total combinational functions               ; 419   ;
+; Total combinational functions               ; 425   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 152   ;
-;     -- 3 input functions                    ; 75    ;
+;     -- 4 input functions                    ; 157   ;
+;     -- 3 input functions                    ; 76    ;
 ;     -- <=2 input functions                  ; 192   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 250   ;
-;     -- arithmetic mode                      ; 169   ;
+;     -- normal mode                          ; 257   ;
+;     -- arithmetic mode                      ; 168   ;
 ;                                             ;       ;
-; Total registers                             ; 233   ;
-;     -- Dedicated logic registers            ; 233   ;
+; Total registers                             ; 237   ;
+;     -- Dedicated logic registers            ; 237   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 51    ;
 ; Total PLLs                                  ; 1     ;
 ; Maximum fan-out node                        ; bclk  ;
-; Maximum fan-out                             ; 82    ;
-; Total fan-out                               ; 1934  ;
-; Average fan-out                             ; 2.75  ;
+; Maximum fan-out                             ; 86    ;
+; Total fan-out                               ; 1971  ;
+; Average fan-out                             ; 2.76  ;
 +---------------------------------------------+-------+
 
 
@@ -194,9 +196,9 @@ applicable agreement for further details.
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
 +---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
-; |recorder                       ; 419 (0)           ; 233 (0)      ; 0           ; 0            ; 0       ; 0         ; 51   ; 0            ; |recorder                                  ; work         ;
+; |recorder                       ; 425 (0)           ; 237 (0)      ; 0           ; 0            ; 0       ; 0         ; 51   ; 0            ; |recorder                                  ; work         ;
 ;    |adc:adc1|                   ; 77 (77)           ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|adc:adc1                         ; work         ;
-;    |dac:dac1|                   ; 58 (58)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|dac:dac1                         ; work         ;
+;    |dac:dac1|                   ; 64 (64)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|dac:dac1                         ; work         ;
 ;    |debounce:debounce1|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce1               ; work         ;
 ;    |debounce:debounce2|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce2               ; work         ;
 ;    |debounce:debounce3|         ; 29 (29)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |recorder|debounce:debounce3               ; work         ;
@@ -252,17 +254,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; reset_tmp[1]                           ; Stuck at GND due to stuck port data_in ;
+; slow[0]                                ; Stuck at GND due to stuck port data_in ;
+; slow[1]                                ; Stuck at VCC due to stuck port data_in ;
+; slow[2..3]                             ; Stuck at GND due to stuck port data_in ;
+; fast[0]                                ; Stuck at VCC due to stuck port data_in ;
+; fast[1..3]                             ; Stuck at GND due to stuck port data_in ;
+; reset_tmp[0]                           ; Lost fanout                            ;
+; Total Number of Removed Registers = 10 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++---------------+---------------------------+--------------------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                               ;
++---------------+---------------------------+--------------------------------------------------------------------------------------+
+; reset_tmp[1]  ; Stuck at GND              ; slow[0], slow[1], slow[2], slow[3], fast[0], fast[1], fast[2], fast[3], reset_tmp[0] ;
+;               ; due to stuck port data_in ;                                                                                      ;
++---------------+---------------------------+--------------------------------------------------------------------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 233   ;
-; Number of registers using Synchronous Clear  ; 67    ;
+; Total registers                              ; 237   ;
+; Number of registers using Synchronous Clear  ; 72    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 121   ;
+; Number of registers using Clock Enable       ; 123   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -272,13 +300,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[7]  ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce2|count[17] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |recorder|i2c:i2c1|count_1[21]         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_counter[4]    ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce3|count[14] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce2|count[11] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |recorder|i2c:i2c1|count_1[23]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_counter[1]    ;
 ; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |recorder|debounce:debounce1|count[5]  ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|adc:adc1|reg_count[3]        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_state[3]      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |recorder|dac:dac1|counter[1]          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |recorder|i2c:i2c1|reset_state[0]      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 
 
@@ -721,15 +750,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
-    Info: Processing started: Fri Jul 16 10:08:12 2010
+    Info: Processing started: Fri Jul 16 11:21:36 2010
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off recorder -c recorder
 Info: Found 1 design units, including 1 entities, in source file pll.v
     Info: Found entity 1: pll
-Warning (10275): Verilog HDL Module Instantiation warning at recorder.v(42): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at recorder.v(57): ignored dangling comma in List of Port Connections
 Warning: Using design file recorder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: recorder
 Info: Elaborating entity "recorder" for the top level hierarchy
-Info (10266): Verilog HDL Module Instantiation information at recorder.v(42): instance "pll1" connects port 0 to an empty expression
+Info (10266): Verilog HDL Module Instantiation information at recorder.v(57): instance "pll1" connects port 0 to an empty expression
 Info: Elaborating entity "pll" for hierarchy "pll:pll1"
 Info: Elaborating entity "altpll" for hierarchy "pll:pll1|altpll:altpll_component"
 Info: Elaborated megafunction instantiation "pll:pll1|altpll:altpll_component"
@@ -927,8 +956,8 @@ Warning (10230): Verilog HDL assignment warning at adc.v(69): truncated value wi
 Warning: Using design file dac.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: dac
 Info: Elaborating entity "dac" for hierarchy "dac:dac1"
-Warning (10230): Verilog HDL assignment warning at dac.v(28): truncated value with size 32 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at dac.v(34): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at dac.v(32): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at dac.v(35): truncated value with size 32 to match size of target (5)
 Warning: Using design file debounce.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: debounce
 Info: Elaborating entity "debounce" for hierarchy "debounce:debounce1"
@@ -986,16 +1015,18 @@ Warning: Latch sram:sram1|io_buffer[15] has unsafe behavior
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "ub" is stuck at GND
     Warning (13410): Pin "lb" is stuck at GND
-Info: Implemented 496 device resources after synthesis - the final resource count might be different
+Info: 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
+    Info: Register "reset_tmp[0]" lost all its fanouts during netlist optimizations.
+Info: Implemented 502 device resources after synthesis - the final resource count might be different
     Info: Implemented 8 input pins
     Info: Implemented 27 output pins
     Info: Implemented 16 bidirectional pins
-    Info: Implemented 444 logic cells
+    Info: Implemented 450 logic cells
     Info: Implemented 1 ClockLock PLLs
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 156 warnings
     Info: Peak virtual memory: 185 megabytes
-    Info: Processing ended: Fri Jul 16 10:08:22 2010
-    Info: Elapsed time: 00:00:10
+    Info: Processing ended: Fri Jul 16 11:21:45 2010
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:08
 
 
