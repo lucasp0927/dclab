@@ -25,6 +25,7 @@ module sram (/*AUTOARG*/
    reg [15:0] 	 io_buffer;
    reg [15:0] 	 data_buffer;
    reg [15:0] 	 io_reset;
+
    reg [1:0] 	 reset_tmp;
    reg [17:0] 	 reset_counter;
 
@@ -63,6 +64,7 @@ module sram (/*AUTOARG*/
    
    assign data = record?16'hzzzz:data_buffer;
    assign addr_o = reset?reset_counter:addr;
+
    //read and write
    always @(*) begin
       lb = 0;
