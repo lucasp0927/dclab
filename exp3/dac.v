@@ -33,11 +33,11 @@ module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data
 		else
 		counter <= counter+1;
 	    	dacdat <= data[counter];
-	    	counter2 <= counter2 + 1;
 	    	if(counter2 == slow-1)begin
 			counter2 <= 0;
 			counter_addr <= counter_addr+1;
 	    	end
+		counter2 <= counter2 + 1;
 	 end   
 	 end else
 	   dacdat <= 0;
