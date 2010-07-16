@@ -25,15 +25,15 @@ module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data
 	read <= 0;
       else begin
 	 read <= 1;
-
-	 if (daclrc == 0 && counter != 5'd16) begin
-	    dacdat <= data[counter];
-	    counter2 <= counter2 + 1;
-	    if(counter2 == slow-1)begin
-		counter2 <= 0;
-		counter <= counter+1;
-	    end
-	    
+	 if (slowmethod == 0) begin
+	 	if (daclrc == 0 && counter != 5'd16) begin
+	    	dacdat <= data[counter];
+	    	counter2 <= counter2 + 1;
+	    	if(counter2 == slow-1)begin
+			counter2 <= 0;
+			counter <= counter+1;
+	    	end
+	 end   
 	 end else
 	   dacdat <= 0;
 	 if (counter == 5'd16 && daclrc == 1) begin
