@@ -23,7 +23,12 @@ module recorder (/*AUTOARG*/
    output 	 i2c_clk;
    output 	 i2c_dat;
 
-   //debug
+   reg [3:0] 	 slow;
+   reg [3:0] 	 fast;
+   reg 		 slowmethod;
+   reg [1:0] 	 reset_tmp;
+   
+      
    reg [17:0] 	 addr;
    reg 	 play, record, reset;
    wire  clk;
@@ -36,6 +41,16 @@ module recorder (/*AUTOARG*/
    // End of automatics
    /*AUTOREG*/
 
+   always @ (posedge clk) begin
+      if (reset_tmp == 2'b01) begin
+	 fast <= 1;
+	 slow <= 2;
+	 slowmethod <= 0;
+      end 
+      reset_tmp[1]  <= reset_tmp[0];
+      reset_tmp <= reset;
+   end
+   
    /*
     * phase lock loop, change 50Mhz to 12Mhz
     */
@@ -87,6 +102,9 @@ module recorder (/*AUTOARG*/
 	     .dacdat			(dacdat),
 	     .addr			(addr[17:0]),
 	     // Inputs
+	     .slow                      (slow[3:0]),  //make it play slower 2= 1/2, 3=1/3  etc..
+	     .slowmethod                (slowmethod), // 0  for zero order, 1 for first order
+	     .fast                      (fast[3:0]),
 	     .play			(play),
 	     .bclk			(bclk),
 	     .daclrc			(daclrc),

@@ -3,23 +3,24 @@ module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data
    input bclk;
    input daclrc;
    input [15:0] data;
-   input [3:0]fast;
-
+   input [3:0] 	fast;
+   input 	slowmethod;
+   input [3:0] 	slow;
    output 	read;
    output 	dacdat;
    output [17:0] addr ;
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
-   reg [4:0]		counter;
-   reg [4:0]		daccounter;
-   reg			dacdat;
-   reg			read;
-   reg [3:0]		counter2
+   reg [4:0] 	 counter;
+   reg [4:0] 	 daccounter;
+   reg 		 dacdat;
+   reg 		 read;
+   reg [3:0] 	 counter2;
    // End of automatics
    /*AUTOWIRE*/
-   reg [17:0] 		addr_buffer;
+   reg [17:0] 	 addr_buffer;
    assign addr = play?addr_buffer:18'bzzzzzzzzzzzzzzzzzz;
-     
+   
    always @(posedge bclk) begin
       if(play == 0)
 	read <= 0;
@@ -40,8 +41,6 @@ module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data
 	    counter <= 0;
 	    addr_buffer <= addr_buffer+fast;
 	 end
-
-	 
       end
    end
 endmodule			
