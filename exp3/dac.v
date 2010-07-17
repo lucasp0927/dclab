@@ -1,111 +1,117 @@
-module dac (stop, slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data);
+module dac (slowmethod, slow, fast, play, bclk, daclrc, dacdat, addr, read ,data, reset);
    input play;	
    input bclk;
    input daclrc;
-   input [15:0] data;
-   input [3:0] 	slow,fast;
+   input signed [15:0] data;
+   input [3:0] 	fast;
    input 	slowmethod;
-   input 	stop;
-
+   input [3:0] 	slow;
+   input 	reset;
+   
    output 	read;
    output 	dacdat;
    output [17:0] addr ;
-
-   reg [3:0] 	 finish,finish2;
-   reg [15:0] 	 now;
-   reg [4:0] 	 counter;
    /*AUTOREG*/
    // Beginning of automatic regs (for this module's undeclared outputs)
+   reg [4:0] 	 counter;
+   reg [4:0] 	 counter_addr;
    reg 		 dacdat;
    reg 		 read;
+   reg [3:0] 	 counter2;
+   reg [3:0] 	 slowcount;
+   reg [15:0] 	 data_tmp;
+   reg signed [15:0] data_tmp1;
+   reg  signed [15:0] data_tmp2;
+   reg signed [15:0]  div;
    
    // End of automatics
    /*AUTOWIRE*/
-   reg [17:0] 	 addr_buffer;
-   reg [15:0] 	 data_tmp;
+   reg [17:0] 	      addr_buffer;
    assign addr = play?addr_buffer:18'bzzzzzzzzzzzzzzzzzz;
    
-   always @(negedge bclk) begin
-      if (stop == 1) begin
-         read <= 0;
-	 finish <= 0;
-	 counter <= 0;
-	 addr_buffer <= 0;
-	 ///////////////////////////////////
-      end else begin
-         if(play == 0)
-	   read <= 0;
+   always @(posedge bclk) begin
+if (reset == 1) begin
+   addr_buffer <= 0;
+end else begin
+      if(play == 0)
+	read <= 0;
+      else begin
+	 read <= 1;
 	 
-	 ////////////////////////////////////
-         else begin
-	    read <= 1;
-	    if (daclrc == 0 && counter != 5'd16) begin
-	       if (slowmethod == 0)begin
-                  if (finish < slow-1) begin
-	       	     if (counter == 5'd15) begin
-		        counter <= counter+1 ;    
-		        dacdat <= data[counter];
-			finish <= finish + 1;
-			addr_buffer <= addr_buffer-1;
-		     end else begin
-	    	        counter <= counter+1;
-	    	        dacdat <= data[counter];
-	   	     end
-	          end else begin
-		     counter <= counter+1;
-	    	     dacdat <= data[counter];
-	          end
 
-		  ////////////////////////////////////////
-	       end else begin
-                  if (finish2 < slow-1) begin
-		     if (finish2 == 0 ) begin
-	       	        if (counter == 5'd15) begin
-		           counter <= counter+1 ;    
-		           dacdat <= data[counter];
-			   finish2 <= finish2 + 1;
-			   now <= data;
-		        end else begin
-	    	           counter <= counter+1;
-	    	           dacdat <= data[counter];
-	   	        end
-		     end
-
-		     if (finish2 != 0) begin
-	       	        if (counter == 5'd15) begin
-		           counter <= counter+1 ;    
-		           dacdat <= data_tmp[counter];
-			   finish2 <= finish2 + 1;
-			   addr_buffer <= addr_buffer-1;
-		        end else begin
-	    	           counter <= counter+1;
-	    	           dacdat <= data_tmp[counter];
-	   	        end
-		     end
-	          end else begin
-		     counter <= counter+1;
-	    	     dacdat <= data_tmp[counter];
-		     addr_buffer <=addr_buffer + 1;
-	          end
+	 if (slow == 1) begin
+	    /*
+	     * fast or normal
+	     */
+	    if(play == 0)
+	      read <= 0;
+	    else begin
+	       read <= 1;
+	       if (daclrc == 0 && counter != 5'd16) begin
+		  counter <= counter+1;
+		  dacdat <= data[counter];
+	       end else
+		 dacdat <= 0;
+	       if (counter == 5'd16 && daclrc == 1) begin
+		  counter <= 0;
+		  addr_buffer <= addr_buffer+fast;
 	       end
-	       /////////////////////////
+	    end
+	 end else begin
+	    /*
+	     * slow
+	     */
+	    if (slowmethod == 0) begin
+	       /*
+		* zero order
+		*/
+	       read <= 1;
+	       if (daclrc == 0 && counter != 5'd16) begin
+		  counter <= counter+1;
+		  dacdat <= data[counter];
+	       end else
+		 dacdat <= 0;
+	       if (counter == 5'd16 && daclrc == 1) begin
+		  counter <= 0;
+		  if (slowcount == (slow-1)) begin
+		     addr_buffer <= addr_buffer+1;
+		     slowcount <= 0;
+		  end else begin
+		     slowcount <= slowcount +1;
+		  end
+	       end
 	    end else begin
-	       dacdat <= 0;
+	       /*
+		* first order
+		*/
+	       read <= 1;
+	       if (daclrc == 0 && counter != 5'd16) begin
+		  counter <= counter+1;
+		  dacdat <= data_tmp[counter];
+	       end else
+		 dacdat <= 0;
+	       
+	       if (counter == 5'd16 && daclrc == 1) begin
+		  counter <= 0;
+		  if (slowcount == (slow-1)) begin
+		     addr_buffer <= addr_buffer+1;
+		     slowcount <= 0;
+		     data_tmp1 <= data_tmp2;
+		     data_tmp2 <= data;
+		  end else begin
+		     slowcount <= slowcount +1;			
+		  end
+	       end
 	    end
-	    
-	    ////////////////////////////////
-	    if (counter == 5'd16 && daclrc == 1) begin
-	       if (finish == slow-1)
-		 finish <= 0;
-	       if (finish2 == slow-1)
-		 finish2<=0;
-	       counter <= 0;
-	       addr_buffer <= addr_buffer+fast;
-	    end
-         end
-      end
-   end // always @ (negedge bclk)
+	 end
+      end   
+end
+
+   end // always @ (posedge bclk)
+   
+   
    always @(*) begin
-      data_tmp = (((slow-finish2)*now-finish2*data)/slow);
+      div = $signed({1'b0,slowcount})/$signed({1'b0,slow});
+      data_tmp =  data_tmp1*(1-div) + data_tmp2*div;
    end
 endmodule			

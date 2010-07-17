@@ -303,7 +303,8 @@ module recorder (/*AUTOARG*/
 	     .play			(play),
 	     .bclk			(bclk),
 	     .daclrc			(daclrc),
-	     .data			(data[15:0]));
+	     .data			(data[15:0]),
+	     .reset                      (reset));
    
    debounce debounce1 (
 		       // Outputs
