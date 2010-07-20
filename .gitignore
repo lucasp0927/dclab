@@ -12,3 +12,6 @@ exp2/incremental_db
 exp3/compile
 exp3/db
 exp3/incremental_db
+final/compile
+final/db
+final/incremental_db

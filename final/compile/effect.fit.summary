@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Jul 20 18:55:01 2010
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Full Version
+Revision Name : effect
+Top-level Entity Name : effect
+Family : Cyclone II
+Device : EP2C70F896C6
+Timing Models : Final
+Total logic elements : 4,450 / 68,416 ( 7 % )
+    Total combinational functions : 3,839 / 68,416 ( 6 % )
+    Dedicated logic registers : 2,720 / 68,416 ( 4 % )
+Total registers : 2720
+Total pins : 14 / 622 ( 2 % )
+Total virtual pins : 0
+Total memory bits : 226,323 / 1,152,000 ( 20 % )
+Embedded Multiplier 9-bit elements : 11 / 300 ( 4 % )
+Total PLLs : 2 / 4 ( 50 % )

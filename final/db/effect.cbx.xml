@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="effect">
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_2comp_res_lower" CBX_FILE_NAME="add_sub_bli.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_mult_single:the_fp_mult|lpm_mult:man_product2_mult" CBX_FILE_NAME="mult_5ft.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_ic_data_module:cpu_0_ic_data|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_qed1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|distortion:distortion1|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_u4h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:add_sub5" CBX_FILE_NAME="add_sub_bsi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_res_rounding_add_sub_upper1" CBX_FILE_NAME="add_sub_6jf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|distortion:distortion1|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]" CBX_FILE_NAME="add_sub_ofh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_bht_module:cpu_0_bht|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_8pf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_dc_tag_module:cpu_0_dc_tag|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_4bf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_dc_victim_module:cpu_0_dc_victim|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_9vc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_nios2_oci:the_cpu_0_nios2_oci|cpu_0_nios2_oci_im:the_cpu_0_nios2_oci_im|cpu_0_traceram_lpm_dram_bdp_component_module:cpu_0_traceram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_e502.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:add_sub6" CBX_FILE_NAME="add_sub_nqe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_2comp_res_upper0" CBX_FILE_NAME="add_sub_g6i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_add_sub_upper0" CBX_FILE_NAME="add_sub_g6i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_mult_single:the_fp_mult|lpm_add_sub:exp_adj_adder" CBX_FILE_NAME="add_sub_r3c.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_mult_single:the_fp_mult|lpm_add_sub:exp_bias_subtr" CBX_FILE_NAME="add_sub_egg.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_mult_single:the_fp_mult|lpm_add_sub:man_round_adder" CBX_FILE_NAME="add_sub_7pb.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|distortion:distortion1|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_sfh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_mult_cell:the_cpu_0_mult_cell|altmult_add:the_altmult_add_part_1" CBX_FILE_NAME="mult_add_4cr2.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_2comp_res_upper1" CBX_FILE_NAME="add_sub_g6i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_add_sub_upper1" CBX_FILE_NAME="add_sub_g6i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_ic_tag_module:cpu_0_ic_tag|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_f5g1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_mult_cell:the_cpu_0_mult_cell|altmult_add:the_altmult_add_part_2" CBX_FILE_NAME="mult_add_6cr2.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_mult_single:the_fp_mult|lpm_add_sub:exp_add_adder" CBX_FILE_NAME="add_sub_fjd.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:add_sub1" CBX_FILE_NAME="add_sub_cti.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_res_rounding_add_sub_lower" CBX_FILE_NAME="add_sub_taf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|onchip_memory2_0:the_onchip_memory2_0|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_k3c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_dc_data_module:cpu_0_dc_data|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_29f1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_nios2_oci:the_cpu_0_nios2_oci|cpu_0_nios2_ocimem:the_cpu_0_nios2_ocimem|cpu_0_ociram_lpm_dram_bdp_component_module:cpu_0_ociram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_c572.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_register_bank_a_module:cpu_0_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_87f1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:add_sub2" CBX_FILE_NAME="add_sub_cti.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|altshift_taps:sign_dffe31_rtl_0" CBX_FILE_NAME="shift_taps_f1n.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:add_sub3" CBX_FILE_NAME="add_sub_lre.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:man_add_sub_lower" CBX_FILE_NAME="add_sub_bli.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0:the_cpu_0|cpu_0_register_bank_b_module:cpu_0_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_97f1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_add_sub:add_sub4" CBX_FILE_NAME="add_sub_nqe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|effect|cpueffect:cpueffect1|cpu_0_fpoint:the_cpu_0_fpoint|cpu_0_fpoint_addsub_single:the_fp_addsub|lpm_compare:trailing_zeros_limit_comparator" CBX_FILE_NAME="cmpr_aag.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

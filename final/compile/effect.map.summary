@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jul 20 18:53:37 2010
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Full Version
+Revision Name : effect
+Top-level Entity Name : effect
+Family : Cyclone II
+Total logic elements : 4,736
+    Total combinational functions : 3,833
+    Dedicated logic registers : 2,754
+Total registers : 2754
+Total pins : 14
+Total virtual pins : 0
+Total memory bits : 226,323
+Embedded Multiplier 9-bit elements : 11
+Total PLLs : 2

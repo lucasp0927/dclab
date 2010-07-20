@@ -1,0 +1,218 @@
+Altera SOPC Builder Version 9.00 Build 235
+Copyright (c) 1999-2009 Altera Corporation.  All rights reserved.
+
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:32:49 (*) mk_custom_sdk starting
+# 2010.07.20 18:32:49 (*) Reading project /home/lucaspeng/dclab/final/cpueffect.ptf.
+
+# 2010.07.20 18:32:49 (*) Finding all CPUs
+
+# 2010.07.20 18:32:49 (*) Finding all available components
+# 2010.07.20 18:32:49 (*) Reading /home/lucaspeng/dclab/final/.sopc_builder/install.ptf
+
+# 2010.07.20 18:32:49 (*) Found 67 components
+
+# 2010.07.20 18:32:50 (*) Finding all peripherals
+
+# 2010.07.20 18:32:50 (*) Finding software components
+
+# 2010.07.20 18:32:50 (*) (Legacy SDK Generation Skipped)
+# 2010.07.20 18:32:50 (*) (All TCL Script Generation Skipped)
+# 2010.07.20 18:32:50 (*) (No Libraries Built)
+# 2010.07.20 18:32:50 (*) (Contents Generation Skipped)
+# 2010.07.20 18:32:50 (*) mk_custom_sdk finishing
+
+# 2010.07.20 18:32:50 (*) Starting generation for system: cpueffect.
+
+.
+.
+.
+.
+.....
+..
+
+# 2010.07.20 18:32:51 (*) Running Generator Program for pll_0
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:32:54 (*) Running Generator Program for cpu_0
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+# 2010.07.20 18:32:55 (*)   Checking for plaintext license.
+# 2010.07.20 18:32:55 (*)   Plaintext license not found.
+# 2010.07.20 18:32:55 (*)   Checking for encrypted license (non-evaluation).
+# 2010.07.20 18:32:55 (*)   Encrypted license found.  SOF will not be time-limited.
+# 2010.07.20 18:32:55 (*)   Getting CPU configuration settings
+# 2010.07.20 18:32:55 (*)   Elaborating CPU configuration settings
+# 2010.07.20 18:32:55 (*)   Creating all objects for CPU
+# 2010.07.20 18:32:55 (*)     Testbench
+# 2010.07.20 18:32:56 (*)     Instruction decoding
+# 2010.07.20 18:32:56 (*)       Instruction fields
+# 2010.07.20 18:32:56 (*)       Instruction decodes
+# 2010.07.20 18:32:57 (*)       Signals for RTL simulation waveforms
+# 2010.07.20 18:32:58 (*)       Instruction controls
+# 2010.07.20 18:32:58 (*)     Pipeline frontend
+# 2010.07.20 18:32:58 (*)     Pipeline backend
+# 2010.07.20 18:33:02 (*)   Generating HDL from CPU objects
+# 2010.07.20 18:33:05 (*)   Creating encrypted HDL
+
+# 2010.07.20 18:33:07 (*) Running Generator Program for cpu_0_fpoint
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:09 (*) Running Generator Program for onchip_memory2_0
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:10 (*) Running Generator Program for vibrato_on
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:11 (*) Running Generator Program for chorus_on
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:12 (*) Running Generator Program for clk
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:13 (*) Running Generator Program for adclrc
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:14 (*) Running Generator Program for datain
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:14 (*) Running Generator Program for dataout
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:15 (*) Running Generator Program for cpueffect_clock_0
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+
+# 2010.07.20 18:33:16 (*) Making arbitration and system (top) modules.
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "zh_TW:en_US:en",
+	LC_ALL = (unset),
+	LC_CTYPE = "en_US",
+	LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+# 2010.07.20 18:33:20 (*) Generating Quartus symbol for top level: cpueffect
+
+# 2010.07.20 18:33:20 (*) Symbol /home/lucaspeng/dclab/final/cpueffect.bsf already exists, no need to regenerate
+# 2010.07.20 18:33:20 (*) Creating command-line system-generation script: /home/lucaspeng/dclab/final/cpueffect_generation_script
+
+# 2010.07.20 18:33:20 (*) Running setup for HDL simulator: modelsim
+
+
+# 2010.07.20 18:33:21 (*) Completed generation for system: cpueffect.
+# 2010.07.20 18:33:21 (*) THE FOLLOWING SYSTEM ITEMS HAVE BEEN GENERATED:
+  SOPC Builder database : /home/lucaspeng/dclab/final/cpueffect.ptf 
+  System HDL Model : /home/lucaspeng/dclab/final/cpueffect.v 
+  System Generation Script : /home/lucaspeng/dclab/final/cpueffect_generation_script 
+
+# 2010.07.20 18:33:21 (*) SUCCESS: SYSTEM GENERATION COMPLETED.
+
+
+Press 'Exit' to exit.
